@@ -1,0 +1,33 @@
+<style>
+.join-button {
+    background-color: azure;
+    color: aqua;
+    border: 2px solid aqua;   /* FIXED */
+    cursor: pointer;
+    border-radius: 5px;
+
+    padding: 10px 20px;  
+    font-weight: bold;     /* BETTER than width/height */
+    font-size: 16px;
+    box-shadow:4px 4px 4px rgba(0,0,0,0.15) ;
+    margin-left: 8px;
+    transition: background-color 0.15s, color 0.15s;
+    transition : box-shadow 0.15s;
+    padding-left: 30px;
+}
+
+.join-button:hover {
+    opacity: 0.8;
+    background-color: aqua;
+    color: azure;
+}
+
+.join-button:active {
+    background-color: red;
+    color: black;
+}
+</style>
+
+<button class="join-button">
+    Join
+</button>
