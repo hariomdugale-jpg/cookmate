@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Italian Non-Veg Food</title>
+<title>Thai Non-Veg Food</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Font -->
@@ -75,13 +75,13 @@ video {
 
 .nav-buttons {
     display: flex;
-    gap: 10px; /* space between buttons */
+    gap: 10px;
 }
 
 /* Grid layout */
 .grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     padding: 20px;
 }
@@ -133,17 +133,17 @@ video {
     transform: scale(1.05);
 }
 
-/* HERO SECTION (Italian Non-Veg banner) */
-.ItalianNonVeg {
+/* HERO SECTION */
+.ThaiNonVeg {
     position: relative;
     height: 300px;
-    background: url("https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=1200&q=80") center/cover no-repeat;
+    background: url("https://images.unsplash.com/photo-1559314809-0d155014e29e?w=1200&q=80") center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.ItalianNonVeg::after {
+.ThaiNonVeg::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -153,18 +153,18 @@ video {
     left: 0;
 }
 
-.ItalianNonVeg-content {
+.ThaiNonVeg-content {
     position: relative;
     color: white;
     text-align: center;
     z-index: 2;
 }
 
-.ItalianNonVeg-content h1 {
+.ThaiNonVeg-content h1 {
     font-size: 32px;
 }
 
-.ItalianNonVeg-content p {
+.ThaiNonVeg-content p {
     font-size: 14px;
     margin-top: 10px;
     width: 80%;
@@ -172,11 +172,10 @@ video {
     margin-right: auto;
 }
 
-
 .grid {
     display: grid;
-    grid-auto-flow: column;              /* horizontal */
-    grid-template-rows: repeat(2, 180px); /* 2 rows */
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, 180px);
     gap: 20px;
     padding: 20px;
     overflow-x: auto;
@@ -190,7 +189,7 @@ video {
 
 /* TILE */
 .tile {
-    min-width: 220px;  /* important for horizontal layout */
+    min-width: 220px;
     height: 180px;
     border-radius: 12px;
     overflow: hidden;
@@ -208,6 +207,7 @@ video {
     bottom: 10px;
     left: 10px;
 }
+
 .scroll-wrapper {
     position: relative;
 }
@@ -239,7 +239,7 @@ video {
 
 <!-- Header -->
 <div class="header">
-    <h2>Choose Italian Non-Veg Dish 🍗</h2>
+    <h2>Choose Thai Non-Veg Dish 🍗</h2>
 
     <div class="nav-buttons">
         <button class="back-btn" onclick="goBack()">⬅ Back</button>
@@ -247,13 +247,13 @@ video {
     </div>
 </div>
 
-<div class="ItalianNonVeg">
-    <div class="ItalianNonVeg-content">
-        <h1>Italian Non-Veg Cuisine 🍝</h1>
+<div class="ThaiNonVeg">
+    <div class="ThaiNonVeg-content">
+        <h1>Thai Non-Veg Cuisine 🍜</h1>
         <p>
-            Experience the elegance of Italian non-vegetarian cooking. From rich meat
-            lasagnas and creamy chicken pastas to wood-fired pizzas loaded with toppings
-            and delicate prawn risottos — a true celebration of Italian flavour and tradition.
+            Experience the vibrant and aromatic world of Thai non-vegetarian cooking.
+            From spicy basil chicken and creamy coconut curries to grilled fish and
+            prawn pad thai — every dish is a perfect balance of sweet, sour, spicy and salty.
         </p>
     </div>
 </div>
@@ -267,47 +267,37 @@ video {
 
     <!-- 12 Tiles -->
 
-    <div class="tile" onclick="go('Chicken Pasta.html')">
-        <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=400&q=80">
-        <span>Chicken Pasta</span>
+ 
+    <div class="tile" onclick="go('Prawn Green Curry.html')">
+        <img src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=400&q=80">
+        <span>Prawn Green Curry</span>
     </div>
 
-   
-
-    <div class="tile" onclick="go('Prawn Risotto.html')">
-        <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=400&q=80">
-        <span>Prawn Risotto</span>
-    </div>
-
-    <div class="tile" onclick="go('Chicken Pizza.html')">
-        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80">
-        <span>Chicken Pizza</span>
-    </div>
-
-    <div class="tile" onclick="go('Spaghetti Bolognese.html')">
-        <img src="https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?w=400&q=80">
-        <span>Spaghetti Bolognese</span>
-    </div>
-
-    <div class="tile" onclick="go('Chicken Piccata.html')">
-        <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400&q=80">
-        <span>Chicken Piccata</span>
-    </div>
-
-    
-
-    <div class="tile" onclick="go('Chicken Carbonara.html')">
-        <img src="https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400&q=80" >
-        <span>Chicken Carbonara</span>
+    <div class="tile" onclick="go('Thai Fish Cakes.html')">
+        <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=400&q=80">
+        <span>Thai Fish Cakes</span>
     </div>
 
     
 
     
+  
+    <div class="tile" onclick="go('Prawn Fried Rice Thai.html')">
+        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&q=80">
+        <span>Prawn Fried Rice</span>
+    </div>
 
+    <div class="tile" onclick="go('Chicken Red Curry.html')">
+        <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=400&q=80">
+        <span>Chicken Red Curry</span>
+    </div>
 
+    <div class="tile" onclick="go('Prawn Spring Rolls Thai.html')">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80">
+        <span>Prawn Spring Rolls</span>
+    </div>
 
-    
+    </div>
 
 </div>
 

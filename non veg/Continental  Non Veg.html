@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>South Indian Non-Veg Food</title>
+<title>Continental Non-Veg Food</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Font -->
@@ -48,14 +48,15 @@ video {
     color: white;
 }
 
+
 .back-btn {
     padding: 10px 15px;
     border: none;
     background: orange;
     cursor: pointer;
     border-radius: 5px;
+    
 }
-
 .home-btn {
     padding: 10px 15px;
     border: none;
@@ -64,7 +65,6 @@ video {
     border-radius: 5px;
     font-weight: bold;
 }
-
 .home-btn:hover {
     transform: scale(1.05);
 }
@@ -75,20 +75,20 @@ video {
 
 .nav-buttons {
     display: flex;
-    gap: 10px;
+    gap: 10px; /* space between buttons */
 }
 
 /* Grid layout */
 .grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
     gap: 20px;
     padding: 20px;
 }
 
 /* Each tile */
 .tile {
-    width: 220px;
+     width: 220px;
     height: 180px;
     position: relative;
     border-radius: 12px;
@@ -133,17 +133,17 @@ video {
     transform: scale(1.05);
 }
 
-/* HERO SECTION */
-.SouthIndianNonVeg {
+/* HERO SECTION (Italian Non-Veg banner) */
+.Continental {
     position: relative;
     height: 300px;
-    background: url("https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=1200&q=80") center/cover no-repeat;
+    background: url("https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=1200&q=80") center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.SouthIndianNonVeg::after {
+.Continental::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -153,18 +153,18 @@ video {
     left: 0;
 }
 
-.SouthIndianNonVeg-content {
+.Continental-content {
     position: relative;
     color: white;
     text-align: center;
     z-index: 2;
 }
 
-.SouthIndianNonVeg-content h1 {
+.Continental-content h1 {
     font-size: 32px;
 }
 
-.SouthIndianNonVeg-content p {
+.Continental-content p {
     font-size: 14px;
     margin-top: 10px;
     width: 80%;
@@ -172,10 +172,11 @@ video {
     margin-right: auto;
 }
 
+
 .grid {
     display: grid;
-    grid-auto-flow: column;
-    grid-template-rows: repeat(2, 180px);
+    grid-auto-flow: column;              /* horizontal */
+    grid-template-rows: repeat(2, 180px); /* 2 rows */
     gap: 20px;
     padding: 20px;
     overflow-x: auto;
@@ -189,7 +190,7 @@ video {
 
 /* TILE */
 .tile {
-    min-width: 220px;
+    min-width: 220px;  /* important for horizontal layout */
     height: 180px;
     border-radius: 12px;
     overflow: hidden;
@@ -207,7 +208,6 @@ video {
     bottom: 10px;
     left: 10px;
 }
-
 .scroll-wrapper {
     position: relative;
 }
@@ -239,7 +239,7 @@ video {
 
 <!-- Header -->
 <div class="header">
-    <h2>Choose South Indian Non-Veg Dish 🍗</h2>
+    <h2>Choose Continental Non-Veg Dish 🍗</h2>
 
     <div class="nav-buttons">
         <button class="back-btn" onclick="goBack()">⬅ Back</button>
@@ -247,13 +247,13 @@ video {
     </div>
 </div>
 
-<div class="SouthIndianNonVeg">
-    <div class="SouthIndianNonVeg-content">
-        <h1>South Indian Non-Veg Cuisine 🍗</h1>
+<div class="Continental">
+    <div class="Continental-content">
+        <h1>Continental Non-Veg Cuisine 🍝</h1>
         <p>
-            Explore the fiery and flavourful world of South Indian non-vegetarian cooking.
-            From Chettinad chicken and spicy fish curry to prawn masala and pepper mutton —
-            every dish is packed with bold spices, coconut richness and coastal freshness.
+            Experience the elegance of Continental non-vegetarian cooking. From rich meat
+            lasagnas and creamy chicken pastas to wood-fired pizzas loaded with toppings
+            and delicate prawn risottos — a true celebration of Continental flavour and tradition.
         </p>
     </div>
 </div>
@@ -267,44 +267,44 @@ video {
 
     <!-- 12 Tiles -->
 
-    <div class="tile" onclick="go('Chettinad Chicken.html')">
-        <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=400&q=80">
-        <span>Chettinad Chicken</span>
-    </div>
-
-    <div class="tile" onclick="go('Fish Curry.html')">
-        <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=400&q=80">
-        <span>Fish Curry</span>
-    </div>
-
-    
-    <div class="tile" onclick="go('Pepper Mutton.html')">
-        <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=400&q=80">
-        <span>Pepper Mutton</span>
-    </div>
-
-    <div class="tile" onclick="go('Chicken Chettinad Curry.html')">
-        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&q=80">
-        <span>Chicken Chettinad Curry</span>
-    </div>
-
-  
-
-    <div class="tile" onclick="go('Fish Fry.html')">
-        <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=400&q=80">
-        <span>Fish Fry</span>
-    </div>
-
-
-
-    <div class="tile" onclick="go('Mutton Kola Urundai.html')">
-        <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=400&q=80">
-        <span>Mutton Kola Urundai</span>
+    <div class="tile" onclick="go('Chicken Stroganoff.html')">
+        <img src="https://lifemadesimplebakes.com/wp-content/uploads/2019/09/chicken-stroganoff-square-1200.jpg">
+        <span> Chicken Stroganoff</span>
     </div>
 
    
 
-  
+    <div class="tile" onclick="go('creamy Chicken Fricassee.html')">
+        <img src="https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FRecipes%2F2024-09-chicken-fricasse%2Fchicken-fricasse-422">
+        <span> creamy Chicken Fricassee</span>
+    </div>
+
+   
+
+    <div class="tile" onclick="go('Chicken Cacciatore.html')">
+        <img src="https://www.tasteofhome.com/wp-content/uploads/2018/01/Chicken-Cacciatore_EXPS_FT24_2599_ST_0223_2.jpg">
+        <span>Chicken Cacciatore</span>
+    </div>
+
+    <div class="tile" onclick="go('Chicken Piccata.html')">
+        <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400&q=80">
+        <span>Chicken Piccata</span>
+    </div>
+
+    
+
+    <div class="tile" onclick="go('Chicken Carbonara.html')">
+        <img src="https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400&q=80" >
+        <span>Chicken Carbonara</span>
+    </div>
+
+    
+
+    
+
+
+
+    
 
 </div>
 
