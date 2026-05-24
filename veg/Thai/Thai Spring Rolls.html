@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Thai Spring Rolls - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; }
+.footer { text-align: center; padding: 20px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🥢 Thai Spring Rolls</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80">
+    <div class="hero-text">
+        <h1>Thai Spring Rolls</h1>
+        <p>Restaurant Style Recipe</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Spring Roll Wrappers — NEW -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/prasuma-vegetable-spring-roll-frozen/prid/482722?srsltid=AfmBOop7SY8dfNFC9Ln4jRGD5BB1CKCJkbHtGgS-0WFm1e1uyFZkS8Mv" target="_blank">Spring Roll Wrappers / Sheets</a>
+            </button>
+
+            <!-- Tofu — reused from Stir Fry -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/brand/diet-tofu?srsltid=AfmBOoru0u1rYvk0UC4tToOvegLkn2BoMvsZMjTfLqX7UigS7695fkXH" target="_blank">Tofu (firm)</a>
+            </button>
+
+            <!-- Carrot — reused from Tom Yum -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/local-carrot/prid/332740" target="_blank">Carrot (julienned)</a>
+            </button>
+
+            <!-- Capsicum — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-capsicum/prid/166849" target="_blank">Capsicum (Bell Pepper)</a>
+            </button>
+
+            <!-- Mushrooms — reused from Tom Yum / Stir Fry -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/button-mushroom/prid/253317?srsltid=AfmBOoq1sBlM_RIV38BAnha7A7myG5693io6OATePIhUahL9LiW2ZUkF" target="_blank">Mushrooms</a>
+            </button>
+
+            <!-- Spring Onion — reused from Tom Yum -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/spring-onion/prid/3926" target="_blank">Spring Onion</a>
+            </button>
+
+            <!-- Garlic — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-garlic-paste/prid/35025" target="_blank">Garlic</a>
+            </button>
+
+            <!-- Soy Sauce — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/sauces-spreads/asian-sauces/cid/972/1130" target="_blank">Soy Sauce</a>
+            </button>
+
+            <!-- Black Pepper — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-black-peppercornskali-mirch/prid/187862" target="_blank">Black Pepper</a>
+            </button>
+
+            <!-- Salt — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt</a>
+            </button>
+
+            <!-- Oil — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/figaro-extra-virgin-olive-oil/prid/9349" target="_blank">Oil (for frying)</a>
+            </button>
+
+            <!-- Sweet Chilli Dipping Sauce — NEW -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/maeploy-sweet-chilli-sauce/prid/71444?srsltid=AfmBOopVww0MnnG8jvbHXDPtizBVnGRN6yqNBmEJBqDnlizakWN9QXJQ" target="_blank">Sweet Chilli Dipping Sauce</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Make the Filling</div>
+        <div class="step-detail">Heat a little oil in a wok over high heat. Add minced garlic and stir fry for 30 seconds. Add julienned carrot, sliced capsicum, mushrooms and spring onion. Stir fry on high heat for 2–3 minutes until just softened but still with crunch. Add crumbled or diced tofu. Season with soy sauce, salt and black pepper. Toss well and cook for 1 more minute until the filling is dry — a wet filling will make the wrappers soggy and burst during frying. Spread on a plate and let it cool completely before wrapping.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Soften the Wrappers</div>
+        <div class="step-detail">If using dried spring roll sheets, keep them covered under a damp cloth to prevent cracking. If using fresh wrappers, they are ready to use straight away. Work with one wrapper at a time, keeping the rest covered. Do not let them dry out or they will tear when you try to fold them.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Roll the Spring Rolls</div>
+        <div class="step-detail">Lay a wrapper flat in a diamond shape. Place 2–3 tablespoons of cooled filling in the lower centre. Fold the bottom corner up over the filling. Fold both side corners in tightly. Roll forward firmly from bottom to top. Seal the top corner with a dab of water or a flour-water paste. The roll should be tight with no air pockets — loose rolls burst open in the oil. Repeat until all filling is used.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Fry Until Golden</div>
+        <div class="step-detail">Heat oil in a deep pan to 175–180°C. Test the oil by dipping the tip of a spring roll in — it should sizzle immediately. Carefully slide in 3–4 spring rolls at a time, seam-side down. Fry for 3–4 minutes, turning occasionally, until deep golden brown and very crispy all over. Do not overcrowd the pan or the temperature drops and the rolls absorb oil. Drain on paper towels.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Serve</div>
+        <div class="step-detail">Serve immediately while piping hot and shattering crispy. Arrange on a plate and serve with sweet chilli dipping sauce on the side. Spring rolls go soft quickly — eat them right away. Garnish with fresh coriander or spring onion greens for colour.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=RqRqHWMdgKk" target="_blank" class="yt-btn">
+        ▶ Watch Thai Spring Rolls Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "thai.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Thai Spring Rolls are crispy golden parcels stuffed with a fragrant stir-fried filling of tofu, vegetables and mushrooms, wrapped tightly in a thin pastry sheet and deep fried to a perfect shatter. Light, crunchy and packed with flavour, they are one of the most universally loved Thai street food snacks, best dipped generously in sweet chilli sauce.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

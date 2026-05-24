@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fresh Lime Soda - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* VIDEO BG */
+video {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+}
+
+.nav-buttons button {
+    background: orange;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.nav-buttons button:hover {
+    transform: scale(1.05);
+}
+
+/* HERO */
+.hero {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.hero-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+}
+
+/* CONTENT */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* CARD */
+.card {
+    background: rgba(255, 255, 255, 0.321);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* TYPEWRITER */
+#typeText {
+    border-right: 2px solid white;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.6;
+}
+
+/* DROPDOWN */
+.dropdown-btn {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.385);
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    margin-top: 10px;
+}
+
+/* INGREDIENT BUTTONS */
+.ing-btn {
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    background: orange;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.ing-btn:hover {
+    background: #ff6600;
+    transform: scale(1.05);
+}
+
+.ing-btn a {
+    color: white;
+    text-decoration: none;
+}
+
+/* STEPS */
+.step {
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    margin-bottom: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.step:hover {
+    background: rgba(255, 255, 255, 0.458);
+}
+
+.step-detail {
+    display: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: rgba(221, 218, 218, 0.39);
+    border-radius: 6px;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 20px;
+}
+
+/* SHOP */
+.shop-links a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.yt-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.yt-btn:hover {
+    background: darkred;
+    transform: scale(1.05);
+}
+
+.amazon   { background: #ff9900; }
+.flipkart { background: #2874f0; }
+.bigbasket{ background: #84c225; }
+.blinkit  { background: #f7d000; color: black; }
+.zepto    { background: #6f00ff; }
+.instamart{ background: #fc8019; }
+</style>
+</head>
+
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🍋 Fresh Lime Soda</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=1200&q=80">
+    <div class="hero-text">
+        <h1>Fresh Lime Soda</h1>
+        <p>Restaurant Style Recipe</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- ABOUT -->
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/fresho-lemon/prid/30022" target="_blank">
+                    Fresh Limes / Lemons
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/bisleri-club-soda/prid/4830?srsltid=AfmBOopsPRX7qC0gcBJuDSJJumqosTJDVXLuHDzOHqNkD6K5j-bKB0XA" target="_blank">
+                    Club Soda / Sparkling Water
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/nature-smith-organic-raw-unfiltered-cane-sugar/prid/529956" target="_blank">
+                    Sugar
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">
+                    Black Salt / Regular Salt
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-black-peppercornskali-mirch/prid/187862" target="_blank">
+                    Roasted Cumin Powder
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/fresho-mint-leaves/prid/30027" target="_blank">
+                    Fresh Mint Leaves
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-black-peppercornskali-mirch/prid/187862" target="_blank">
+                    Black Pepper (pinch)
+                </a>
+            </button>
+
+           
+        </div>
+    </div>
+
+    <!-- STEPS -->
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Make the Sugar Syrup</div>
+        <div class="step-detail">Combine equal parts sugar and water in a small saucepan. Heat on medium flame stirring until the sugar completely dissolves — about 2–3 minutes. Do not boil. Remove from heat and let it cool completely. This simple syrup blends smoothly into cold drinks unlike granulated sugar which sinks to the bottom.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Squeeze the Limes</div>
+        <div class="step-detail">Cut fresh limes in half and squeeze out the juice using a citrus juicer or by hand. Strain to remove seeds and pulp. For 1 glass you need approximately 2–3 tablespoons of fresh lime juice. Always use fresh limes — bottled juice cannot match the bright fresh flavour.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Mix the Base</div>
+        <div class="step-detail">In a tall glass combine the fresh lime juice with sugar syrup to taste. Add a generous pinch of black salt — this is what makes Indian style lime soda so unique and refreshing compared to plain lemonade. Add a tiny pinch of roasted cumin powder and black pepper for depth.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Choose Sweet or Salted</div>
+        <div class="step-detail">Decide your style — Sweet (meetha) or Salted (namkeen) or Mixed (both). For sweet add more sugar syrup. For salted skip extra sugar and add more black salt and a pinch of chaat masala. For mixed balance both. All three are equally popular across India and taste completely different.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Add Ice</div>
+        <div class="step-detail">Fill the glass generously with ice cubes. The ice is essential — Fresh Lime Soda must be served very cold. Crushed ice chills faster but regular cubes work perfectly. The cold temperature enhances the refreshing citrus flavour and the fizz of the soda.</div>
+
+        <div class="step" onclick="toggleDetail(5)">6. Top with Club Soda</div>
+        <div class="step-detail">Pour chilled club soda or sparkling water slowly over the ice right up to the rim of the glass. Pour gently along the side to preserve the maximum fizz. Do not stir vigorously after adding soda — just give it one gentle swirl so the base mixes without losing the bubbles.</div>
+
+        <div class="step" onclick="toggleDetail(6)">7. Garnish & Serve</div>
+        <div class="step-detail">Garnish with a sprig of fresh mint leaves and a lime wheel on the rim of the glass. Serve immediately while the soda is still fizzy and cold. Drink it fast — Fresh Lime Soda is at its absolute best the moment it is made.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<!-- YOUTUBE LINK -->
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/results?search_query=Fresh+Lime+Soda" target="_blank" class="yt-btn">
+        ▶ Watch Fresh Lime Soda Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() {
+    window.location.href = "Beverage.html";
+}
+function goHome() {
+    window.location.href = "cookmate_f.html";
+}
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display =
+        details[index].style.display === "block" ? "none" : "block";
+}
+
+/* TYPEWRITER */
+const text = "Fresh Lime Soda is India's most beloved and refreshing cold drink — a sparkling blend of fresh squeezed lime juice, sugar syrup, black salt and fizzy club soda served over ice. Available in sweet, salted or mixed variations, it is the perfect thirst quencher on a hot day and a staple at every Indian restaurant and street food stall.";
+let i = 0;
+
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

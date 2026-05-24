@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hakka Noodles - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; }
+.footer { text-align: center; padding: 20px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🍜 Hakka Noodles</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=1200&q=80">
+    <div class="hero-text">
+        <h1>Hakka Noodles</h1>
+        <p>Restaurant Style Recipe</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Hakka Noodles — NEW -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/ching-s-hakka-noodles/prid/3221?srsltid=AfmBOopVww0MnnG8jvbHXDPtizBVnGRN6yqNBmEJBqDnlizakWN9QXJQ" target="_blank">Hakka Noodles</a>
+            </button>
+
+            <!-- Capsicum — reused from Chicken Pizza -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-capsicum/prid/166849" target="_blank">Capsicum (Bell Pepper)</a>
+            </button>
+
+            <!-- Carrot — reused from Tom Yum -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/local-carrot/prid/332740" target="_blank">Carrot (julienned)</a>
+            </button>
+
+            <!-- Spring Onion — reused from Tom Yum -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/spring-onion/prid/3926" target="_blank">Spring Onion</a>
+            </button>
+
+            <!-- Cabbage — NEW -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/fresho-cabbage/prid/308887?srsltid=AfmBOopVww0MnnG8jvbHXDPtizBVnGRN6yqNBmEJBqDnlizakWN9QXJQ" target="_blank">Cabbage (shredded)</a>
+            </button>
+
+            <!-- Garlic — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-garlic-paste/prid/35025" target="_blank">Garlic</a>
+            </button>
+
+            <!-- Green Chilli — reused from Tom Yum -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-chilli-hari-mirch/prid/423735" target="_blank">Green Chilli</a>
+            </button>
+
+            <!-- Soy Sauce — reused from Fried Rice -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/sauces-spreads/asian-sauces/cid/972/1130" target="_blank">Soy Sauce</a>
+            </button>
+
+            <!-- Vinegar — NEW -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/colavita-white-wine-vinegar/prid/103091" target="_blank">Vinegar</a>
+            </button>
+
+            <!-- Black Pepper — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-black-peppercornskali-mirch/prid/187862" target="_blank">Black Pepper</a>
+            </button>
+
+            <!-- Salt — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt</a>
+            </button>
+
+            <!-- Oil — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/figaro-extra-virgin-olive-oil/prid/9349" target="_blank">Oil (for stir frying)</a>
+            </button>
+
+            <!-- Fresh Coriander — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/coriander-bunch/prid/3889" target="_blank">Fresh Coriander / Spring Onion (garnish)</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Boil the Noodles</div>
+        <div class="step-detail">Bring a large pot of water to a boil. Add salt and the hakka noodles. Cook for 1–2 minutes less than packet instructions — they should be just undercooked and still firm. They will finish cooking in the wok. Drain immediately and rinse under cold water to stop cooking and prevent sticking. Toss with a little oil to keep them separated. Spread on a plate and set aside.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Prep All Vegetables</div>
+        <div class="step-detail">Julienne the carrot, thinly slice the capsicum, shred the cabbage, slice the green chilli and chop the garlic finely. Separate the white and green parts of spring onion — whites go in while cooking, greens for garnish. Have everything ready before the wok goes on — hakka noodles cook in under 5 minutes total and there is no time to prep once you start.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Stir Fry the Vegetables</div>
+        <div class="step-detail">Heat oil in a wok over maximum heat until smoking. Add garlic and green chilli and toss for 20 seconds. Add the white spring onion parts and stir fry for 30 seconds. Add carrot and cabbage and toss on high heat for 2 minutes — they should stay crunchy. Add capsicum last and toss for 1 more minute. The wok must stay blazing hot the entire time for that smoky restaurant flavour.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Add Noodles & Sauces</div>
+        <div class="step-detail">Add the boiled noodles to the wok and toss everything together rapidly on high heat. Pour in soy sauce, vinegar, salt and black pepper. Toss and stir fry for 2–3 minutes until every strand of noodle picks up the sauce and turns a light golden brown. If the noodles stick, add a splash of water. The noodles should be slightly charred in places — that is the signature street-style flavour.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Serve</div>
+        <div class="step-detail">Transfer to a plate immediately. Garnish generously with the green parts of spring onion and fresh coriander. Serve piping hot on its own or with Manchurian or fried rice on the side. Hakka noodles must be eaten immediately — they clump and dry out as they cool.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=4Q12_scB6AY" target="_blank" class="yt-btn">
+        ▶ Watch Hakka Noodles Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "FastFood.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Hakka Noodles are India's favourite Indo-Chinese street food — thin noodles tossed in a blazing hot wok with crunchy vegetables, soy sauce and vinegar into a smoky, saucy and deeply satisfying dish. Bold, fast and endlessly customisable, they are the ultimate quick meal that tastes like it came straight from a roadside Chinese stall.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

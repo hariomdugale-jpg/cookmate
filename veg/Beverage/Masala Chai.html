@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Masala Chai - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; color: white; }
+.card h3 { margin-bottom: 12px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; color: white; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; color: white; }
+.footer { text-align: center; padding: 20px; color: white; }
+.footer h3 { margin-bottom: 10px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+.hero-text h1 { font-size: 2rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+.hero-text p { font-size: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+.header h2 { color: white; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>☕ Masala Chai</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=1200&q=80" onerror="this.src='https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=1200&q=80'" alt="Masala Chai">
+    <div class="hero-text">
+        <h1>Masala Chai</h1>
+        <p>India's Spiced Tea — Warm, Bold & Comforting</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Tea -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-tea-gold/prid/487?srsltid=AfmBOopzrmW3rjPkv4T29xGRGlD2WREqdxkRpY8lGjm1kgp6Ja2C-0Kx" target="_blank">CTC Tea Leaves (Tata Gold / Brooke Bond)</a>
+            </button>
+
+            <!-- Milk -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/amul-taaza-toned-fresh-milk/prid/3216?srsltid=AfmBOorXj5McN8Kae0p8Aqd7rCDO476ETs7LjInafdstI4CDHcdCfk0Z" target="_blank">Full Fat Milk</a>
+            </button>
+
+            <!-- Ginger -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/ginger/prid/421703" target="_blank">Fresh Ginger (crushed)</a>
+            </button>
+
+            <!-- Sugar -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/sugar/prid/391330?srsltid=AfmBOoqY4BRfyOT5UBmkTxJAqkjGZAON5tTB0rqXe2rJJqkxN6KlVzEf" target="_blank">Sugar</a>
+            </button>
+
+            <!-- Cardamom -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-cardamom-elaichi/prid/56695?srsltid=AfmBOooANGK4pCH_74_WHertwbaNzQOUQqkLSMOGXEe5ELSuuFojWSog" target="_blank">Green Cardamom (Elaichi)</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Crush the Spices & Boil Water</div>
+        <div class="step-detail">Lightly crush 2–3 green cardamom pods and a small thumb of fresh ginger using the back of a knife or a mortar and pestle — you want them bruised and cracked open, not powdered. This releases the essential oils far more effectively than whole or pre-ground spices. Add 1 cup of water to a small saucepan and drop in the crushed ginger and cardamom. Bring to a boil on medium heat and let it simmer for 1–2 minutes so the water absorbs the spice flavour fully before the tea and milk go in.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Add Tea & Sugar</div>
+        <div class="step-detail">Add 1 heaped teaspoon of CTC tea leaves per cup directly into the simmering spiced water. CTC tea is essential — its bold, malty flavour stands up to milk and spices far better than loose leaf or bag tea. Add sugar to taste now — adding sugar early allows it to meld into the chai rather than sitting on top. Stir and let the tea boil in the water for 1 minute on medium heat. The liquid will turn a deep reddish-brown. This decoction stage builds the base strength of the chai — a weak decoction will be washed out once the milk is added.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Add Milk & Bring to a Boil</div>
+        <div class="step-detail">Pour in full fat milk — roughly equal parts milk to water, or slightly more milk for a creamier chai. Stir to combine. Raise the heat to medium-high and bring the chai to a full rolling boil, watching it carefully. As it rises, it will foam up dramatically — this is the moment. Let it rise just to the brim of the pan, then lower the heat immediately or lift the pan off briefly to settle it. This rise-and-settle is the technique used at every chai stall in India and it is what gives chai its characteristic body and frothy top. Repeat the boil-and-settle once more for an even richer, more integrated flavour.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Strain & Pour</div>
+        <div class="step-detail">Hold a fine mesh strainer over your cup or glass. Pour the chai through the strainer in one confident pour — a high pour from the saucepan creates a beautiful froth on top and cools the chai to the perfect drinking temperature. The strainer catches the tea leaves, ginger pieces and cardamom husks. Tap the strainer lightly to release all the liquid. The chai in the cup should be a warm golden-brown colour, steaming and topped with a thin layer of froth. If it looks pale, it needed more tea or a longer boil. Taste before serving — adjust sweetness if needed, though this is difficult to fix once poured.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=YcnGarHRYAY" target="_blank" class="yt-btn">
+        ▶ Watch Masala Chai Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "Beverage.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Masala Chai is India's most beloved drink — a bold, warming brew of CTC tea simmered with fresh ginger, cardamom and full fat milk, sweetened and poured steaming into a cup. From the first sip on a cold morning to the last one before bed, chai is woven into every moment of Indian daily life. Just five ingredients, one saucepan, and four minutes — and the result is pure comfort in a glass.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

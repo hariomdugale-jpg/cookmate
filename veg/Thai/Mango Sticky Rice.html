@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mango Sticky Rice - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; }
+.footer { text-align: center; padding: 20px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🥭 Mango Sticky Rice</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&q=80">
+    <div class="hero-text">
+        <h1>Mango Sticky Rice</h1>
+        <p>Restaurant Style Recipe</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/japanese-choice-glutinous-rice-sticky-rice/prid/286549?srsltid=AfmBOopCaixTeJb55UPFVbYQPOiomwmHQe_bUdzkg9RC_OWCT6AlvTAC" target="_blank">Glutinous Rice (Sticky Rice)</a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/mangoes/cid/1487/1447?srsltid=AfmBOopn_bd13zTETrxH1e8nOxiyxaQ2ACRXeTSSnrDaoolXYy0jmyYZ" target="_blank">Ripe Mango (Alphonso / Kesar)</a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-coconut-milk/prid/29550" target="_blank">Coconut Milk</a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/s/?q=SUGAR" target="_blank">Sugar</a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt (a pinch)</a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/amruth-raj-dal-white-sesame-seedstill/prid/424139?srsltid=AfmBOopjoM-6dlRwEGclw-c-Fh9Uu0wlsSfdfQkBsCctorsxHr1QgCv6" target="_blank">Toasted Sesame Seeds (garnish)</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Soak the Sticky Rice</div>
+        <div class="step-detail">Rinse the glutinous rice under cold water until the water runs clear. Transfer to a bowl and cover with cold water. Soak for at least 4 hours or overnight — this step is non-negotiable. Soaking softens the grains so they steam evenly and achieve that signature chewy, sticky texture.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Steam the Rice</div>
+        <div class="step-detail">Drain the soaked rice and spread it in a steamer basket lined with a damp cloth or banana leaf. Steam over boiling water on medium heat for 20–25 minutes until the rice turns translucent and is fully cooked through and sticky. Do not boil it in water — steaming is the only correct method for sticky rice.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Make the Sweet Coconut Sauce</div>
+        <div class="step-detail">While the rice steams, pour the coconut milk into a small saucepan over low heat. Add sugar and a pinch of salt. Stir gently until the sugar fully dissolves — do not boil. The sauce should be smooth, slightly sweet and fragrant. Divide it: two thirds for soaking the rice, one third reserved as a pouring sauce for serving.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Soak the Rice in Coconut Sauce</div>
+        <div class="step-detail">Transfer the freshly steamed hot rice into a bowl. Immediately pour the larger portion of warm coconut sauce over it and stir gently to coat every grain. Cover the bowl with a lid or cling film and let it rest for 15–20 minutes. The rice will absorb all the coconut sauce and become gloriously creamy, rich and fragrant as it sits.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Prepare the Mango</div>
+        <div class="step-detail">Peel the ripe mangoes and slice them into long, clean slices alongside the seed. Alphonso or Kesar mangoes work best for their intense sweetness and deep golden colour. The mango should be perfectly ripe — fragrant, golden and yielding to gentle pressure. Keep refrigerated until serving for a cool contrast to the warm sticky rice.</div>
+
+        <div class="step" onclick="toggleDetail(5)">6. Plate & Serve</div>
+        <div class="step-detail">Mould a portion of coconut-soaked sticky rice onto one side of a plate using a small bowl or your hands. Fan the mango slices neatly alongside the rice. Drizzle the reserved coconut sauce generously over the rice. Sprinkle toasted sesame seeds on top for a gentle nutty crunch. Serve immediately at room temperature or slightly warm for the best experience.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=P5sTFpFHkHY" target="_blank" class="yt-btn">
+        ▶ Watch Mango Sticky Rice Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "thai.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Mango Sticky Rice is Thailand's most iconic dessert — warm, chewy glutinous rice soaked in sweet coconut milk, served alongside slices of fragrant ripe mango and drizzled with a creamy coconut sauce. Simple yet deeply satisfying, it is the perfect balance of sweet, creamy and fruity that has made it a beloved classic across all of Southeast Asia.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

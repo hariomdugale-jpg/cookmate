@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>South Indian Food</title>
+<title>Italian Food</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Font -->
@@ -132,17 +132,17 @@ video {
 .tile:hover {
     transform: scale(1.05);
 }
-/* HERO SECTION (South Indian banner) */
-.SouthIndian {
+/* HERO SECTION (Indian banner) */
+.Italian {
     position: relative;
     height: 300px;
-    background: url("https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=1200&q=80") center/cover no-repeat;
+    background: url("https://i1.wp.com/dranshublog.com/wp-content/uploads/2019/01/Chappan-Bhog.jpg?fit=700%2C436&ssl=1") center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.SouthIndian::after {
+.Italian::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -152,18 +152,18 @@ video {
     left: 0;
 }
 
-.SouthIndian-content {
+.Italian-content {
     position: relative;
     color: white;
     text-align: center;
     z-index: 2;
 }
 
-.SouthIndian-content h1 {
+.Italian-content h1 {
     font-size: 32px;
 }
 
-.SouthIndian-content p {
+.Italian-content p {
     font-size: 14px;
     margin-top: 10px;
     width: 80%;
@@ -238,25 +238,23 @@ video {
 
 <!-- Header -->
 <div class="header">
-    <h2>Choose South Indian Dish 🌱</h2>
+    <h2>Choose Italian  Dish 🌱</h2>
 
     <div class="nav-buttons">
         <button class="back-btn" onclick="goBack()">⬅ Back</button>
         <button class="home-btn" onclick="goback()">⌘ Home</button>
     </div>
 </div>
-
-<div class="SouthIndian">
-    <div class="SouthIndian-content">
-        <h1>South Indian Cuisine 🌱</h1>
+<div class="Italian">
+    <div class="Italian-content">
+        <h1>Italian Cuisine 🌱</h1>
         <p>
-            South Indian food is celebrated for its light, nutritious, and flavourful dishes made with
-            rice, lentils, coconut, and aromatic spices. From crispy dosas and fluffy idlis to tangy
-            sambar and refreshing chutneys, it offers a perfect harmony of taste and tradition.
+            Italian food is known for its simplicity, fresh ingredients, and rich flavors.
+            It mainly uses pasta, cheese, olive oil, and herbs to create delicious dishes
+            like pizza, pasta, and risotto, enjoyed all over the world.
         </p>
     </div>
 </div>
-
 <!-- Grid -->
 <div class="scroll-wrapper">
 
@@ -265,66 +263,34 @@ video {
 <div class="grid" id="foodGrid">
 
     <!-- 12 Tiles -->
+    
 
-    <div class="tile" onclick="go('Masala Dosa.html')">
-        <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Masala_dosa.jpg/640px-Masala_dosa.jpg'">
-        <span>Masala Dosa</span>
+    <div class="tile" onclick="go('Pizza Margherita.html')">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmomF1DksRYo9MLTC6zi2qx1XjX7R5PSqPYQ&s">
+        <span>Pizza Margherita</span>
     </div>
 
-    <div class="tile" onclick="go('Idli Sambar.html')">
-        <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=400&q=80" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Idli_sambar.jpg/640px-Idli_sambar.jpg'">
-        <span>Idli Sambar</span>
+    <div class="tile" onclick="go('Pasta Alfredo.html')">
+        <img src="https://www.justspices.co.uk/media/recipe/chicken-alfredo.jpg">
+        <span>Pasta Alfredo</span>
     </div>
 
-    <div class="tile" onclick="go('Vada.html')">
-        <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&q=80">
-        <span>Medu Vada</span>
+    <div class="tile" onclick="go('Spaghetti Aglio e Olio.html')">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1cMw7HiaGvvPDIhWPAPg21em1QnV3Fm3nXg&s">
+        <span>Spaghetti Aglio e Olio</span>
     </div>
 
-    <div class="tile" onclick="go('Uttapam.html')">
-        <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=400&q=80">
-        <span>Uttapam</span>
+    <div class="tile" onclick="go('Lasagna.html')">
+        <img src="https://www.tasteofhome.com/wp-content/uploads/2025/07/Best-Lasagna_EXPS_ATBBZ25_36333_DR_07_01_2b.jpg">
+        <span>Lasagna</span>
     </div>
 
-    <div class="tile" onclick="go('Pongal.html')">
-        <img src="https://images.unsplash.com/photo-1505253304499-671c55fb57fe?w=400&q=80">
-        <span>Ven Pongal</span>
+    <div class="tile" onclick="go('Risotto.html')">
+        <img src="https://www.kitchensanctuary.com/wp-content/uploads/2025/12/Tomtato-Risotto-Square1.jpg">
+        <span>Risotto</span>
     </div>
 
-    <div class="tile" onclick="go('Rasam.html')">
-        <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&q=80" >
-        <span>Rasam</span>
-    </div>
 
-    <div class="tile" onclick="go('Coconut Chutney.html')">
-        <img src="https://images.unsplash.com/photo-1600803907087-f56d462fd26b?w=400&q=80" >
-        <span>Coconut Chutney</span>
-    </div>
-
-    <div class="tile" onclick="go('Curd Rice.html')">
-        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&q=80">
-        <span>Curd Rice</span>
-    </div>
-
-    <div class="tile" onclick="go('Appam.html')">
-        <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=400&q=80">
-        <span>Appam</span>
-    </div>
-
-    <div class="tile" onclick="go('Bisibelebath.html')">
-        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&q=80" >
-        <span>Bisibelebath</span>
-    </div>
-
-    <div class="tile" onclick="go('Payasam.html')">
-        <img src="https://images.unsplash.com/photo-1666364460742-e36ee618e5d6?w=400&q=80">
-        <span>Payasam</span>
-    </div>
-
-    <div class="tile" onclick="go('Filter Coffee.html')">
-        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80">
-        <span>Filter Coffee</span>
-    </div>
 
 </div>
 
@@ -337,19 +303,11 @@ function goback() {
         window.location.href = "cookmate_f.html";
     }
 function goBack() {
-    window.location.href = "cookmate_f.html";
+    window.location.href = "veg.html";
 }
 
 function go(page) {
     window.location.href = page;
-}
-
-function scrollLeft() {
-    document.getElementById('foodGrid').scrollBy({ left: -500, behavior: 'smooth' });
-}
-
-function scrollRight() {
-    document.getElementById('foodGrid').scrollBy({ left: 500, behavior: 'smooth' });
 }
 </script>
 

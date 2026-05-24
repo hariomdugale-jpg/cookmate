@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Veg Tacos - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* VIDEO BG */
+video {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+}
+
+.nav-buttons button {
+    background: orange;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.nav-buttons button:hover {
+    transform: scale(1.05);
+}
+
+/* HERO */
+.hero {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.hero-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+}
+
+/* CONTENT */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* CARD */
+.card {
+    background: rgba(255, 255, 255, 0.321);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* TYPEWRITER */
+#typeText {
+    border-right: 2px solid white;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.6;
+}
+
+/* DROPDOWN */
+.dropdown-btn {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.385);
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    margin-top: 10px;
+}
+
+/* INGREDIENT BUTTONS */
+.ing-btn {
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    background: orange;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.ing-btn:hover {
+    background: #ff6600;
+    transform: scale(1.05);
+}
+
+.ing-btn a {
+    color: white;
+    text-decoration: none;
+}
+
+/* STEPS */
+.step {
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    margin-bottom: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.step:hover {
+    background: rgba(255, 255, 255, 0.458);
+}
+
+.step-detail {
+    display: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: rgba(221, 218, 218, 0.39);
+    border-radius: 6px;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 20px;
+}
+
+/* SHOP */
+.shop-links a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.yt-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.yt-btn:hover {
+    background: darkred;
+    transform: scale(1.05);
+}
+
+.amazon   { background: #ff9900; }
+.flipkart { background: #2874f0; }
+.bigbasket{ background: #84c225; }
+.blinkit  { background: #f7d000; color: black; }
+.zepto    { background: #6f00ff; }
+.instamart{ background: #fc8019; }
+</style>
+</head>
+
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🌮 Veg Tacos</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://www.connoisseurusveg.com/wp-content/uploads/2025/02/veggie-tacos-sq-2.jpg">
+    <div class="hero-text">
+        <h1>Veg Tacos</h1>
+        <p>Restaurant Style Recipe</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- ABOUT -->
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/milk/cid/14/922?utm_source=google&utm_medium=cpc&utm_campaign=21439030315&utm_content=169426454132&utm_term=blinkit%20online%20shopping&gad_source=1&gad_campaignid=21439030315&gbraid=0AAAAADfkql40RmKNLFVbw1an49SyJGBpM&gclid=Cj0KCQjww8rQBhDjARIsAE43KPO8QlT8uTBtiiEIdWW5d9hA3XnGpqh8c8QfQwK9CN3VaDgc-1hWIG0aAoseEALw_wcB" target="_blank">
+                    Taco Shells / Tortillas
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/old-el-paso-black-bean-refried-beans/prid/479801?srsltid=AfmBOopK5BBeNn4aA97QbkETjr27_Vwq-MityW_UPWZp1AZqHzHGvQYU" target="_blank">
+                    Rajma / Black Beans
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/onion/prid/391306" target="_blank">
+                    Onion
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-capsicum/prid/166849" target="_blank">
+                    Bell Pepper
+                </a>
+            </button>
+
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-tomato-puree/prid/233518" target="_blank">
+                    Tomato
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-garlic-paste/prid/35025" target="_blank">
+                    Garlic
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-red-chilli-powder/prid/18854" target="_blank">
+                    Chilli Powder / Cumin
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/cheese/cid/14/127" target="_blank">
+                    Cheese (grated)
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/curd-yogurt/cid/14/123" target="_blank">
+                    Sour Cream / Curd
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/avocado/prid/428613?srsltid=AfmBOooJ4jGaY7MQsxomQlpwULpezL3pLddHpgkRviBv29kXnCQpkiv1" target="_blank">
+                    Avocado / Guacamole
+                </a>
+            </button>
+
+          
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/coriander-bunch/prid/3889" target="_blank">
+                    Fresh Coriander
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">
+                    Salt
+                </a>
+            </button>
+
+        </div>
+    </div>
+
+    <!-- STEPS -->
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Prepare the Bean Filling</div>
+        <div class="step-detail">Drain and rinse cooked rajma or black beans. Heat oil in a pan over medium heat. Add chopped onion and cook for 3–4 minutes until soft. Add minced garlic and cook for 1 minute. Add the beans and mash roughly — leave some whole for texture. Season with chilli powder, cumin and salt. Cook for 3–4 minutes until the filling is thick and well seasoned.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Sauté the Vegetables</div>
+        <div class="step-detail">In a separate pan heat a little oil. Add sliced bell peppers, sweet corn and a pinch of cumin. Stir-fry on high heat for 3–4 minutes until the vegetables are slightly charred and tender but still have a bite. Season with chilli powder and salt. The charred veg adds a lovely smoky flavour to the tacos.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Make the Fresh Salsa</div>
+        <div class="step-detail">Finely dice tomatoes, onion and green chilli. Mix together with freshly squeezed lime juice, chopped coriander and salt. Stir well and let it rest for 10 minutes so the flavours come together. This fresh pico de gallo salsa brightens up the entire taco with its tangy freshness.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Prepare the Guacamole</div>
+        <div class="step-detail">Scoop the flesh of a ripe avocado into a bowl. Mash with a fork. Add lime juice, finely chopped onion, coriander, green chilli and salt. Mix well. Keep slightly chunky for the best texture. Press plastic wrap directly onto the surface to prevent browning until ready to use.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Warm the Taco Shells</div>
+        <div class="step-detail">For hard shells: place in a preheated oven at 180°C for 3–4 minutes until crispy and warm. For soft tortillas: heat each one directly on a dry tawa or gas flame for 20–30 seconds per side until warm, pliable and lightly charred in spots.</div>
+
+        <div class="step" onclick="toggleDetail(5)">6. Assemble the Tacos</div>
+        <div class="step-detail">Lay out the warmed taco shells. Start with a spoonful of the bean filling at the base. Add a layer of sautéed peppers and corn. Spoon fresh salsa on top. Add a dollop of guacamole or sour cream. Sprinkle grated cheese generously over everything.</div>
+
+        <div class="step" onclick="toggleDetail(6)">7. Garnish & Serve</div>
+        <div class="step-detail">Finish with a squeeze of fresh lime juice and a generous scatter of chopped coriander. Serve immediately — tacos are best eaten fresh and crunchy. Serve with extra salsa, sour cream and lime wedges on the side.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<!-- YOUTUBE LINK -->
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/shorts/6MBcbgYNiLY" target="_blank" class="yt-btn">
+        ▶ Watch Veg Tacos Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() {
+    window.location.href = "Mexican.html";
+}
+function goHome() {
+    window.location.href = "cookmate_f.html";
+}
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display =
+        details[index].style.display === "block" ? "none" : "block";
+}
+
+/* TYPEWRITER */
+const text = "Veg Tacos are a vibrant and fun Mexican street food featuring crispy or soft shells loaded with spiced bean filling, sautéed vegetables, fresh pico de gallo salsa, creamy guacamole and melted cheese. Bursting with bold flavours and colourful textures, every bite is a fiesta of sweet, spicy, tangy and creamy all at once.";
+let i = 0;
+
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

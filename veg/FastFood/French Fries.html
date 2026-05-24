@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>French Fries - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; color: white; }
+.card h3 { margin-bottom: 12px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; color: white; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; color: white; }
+.footer { text-align: center; padding: 20px; color: white; }
+.footer h3 { margin-bottom: 10px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+.hero-text h1 { font-size: 2rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+.hero-text p { font-size: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+.header h2 { color: white; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🍟 French Fries</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1518013431117-eb1465fa5752?w=1200&q=80" onerror="this.src='https://images.unsplash.com/photo-1576107232684-1279f390859f?w=1200&q=80'" alt="French Fries">
+    <div class="hero-text">
+        <h1>French Fries</h1>
+        <p>Perfectly Crispy Double-Fried Golden Fries</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Potatoes -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/potato-(1-kg)/prid/530157" target="_blank">Potatoes (large, starchy — Russet or local)</a>
+            </button>
+
+            <!-- Oil for frying -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/edible-oils/cid/1137/1158" target="_blank">Oil (for deep frying — sunflower or canola)</a>
+            </button>
+
+            <!-- Salt -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt (fine, to season immediately after frying)</a>
+            </button>
+
+            <!-- Black Pepper -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-black-pepper-powder/prid/67351" target="_blank">Black Pepper (freshly cracked, optional)</a>
+            </button>
+
+            <!-- Chilli Flakes -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/keya-red-chilli-flakes/prid/17574?srsltid=AfmBOoq0KuJLtLcmqg0hYqKZhNtxmTpcFo6fLVLwO1grH9XOpA4W9E5G" target="_blank">Red Chilli Flakes (optional seasoning)</a>
+            </button>
+
+
+            <!-- Ketchup -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/heinz-tomato-ketchup/prid/3401?srsltid=AfmBOoqCeNxLQPpWTvhF8QqeoSjbXsxD0p5OFPxwUK0wsbUsdBdCkJCT" target="_blank">Tomato Ketchup (to serve)</a>
+            </button>
+
+            
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Cut & Soak the Potatoes</div>
+        <div class="step-detail">Peel the potatoes and cut them into uniform sticks — about 1 cm thick for classic fries, or thinner for shoestring. Uniform size is critical; uneven cuts mean some fries burn before others are cooked. Immediately submerge all cut potatoes in a large bowl of cold water. Soak for at least 30 minutes — or up to 2 hours for best results. This step draws out the excess surface starch which is what causes fries to stick together and turn limp instead of crispy. After soaking, drain and rinse thoroughly under cold water. Spread on a clean kitchen towel or paper towels and pat completely dry — every drop of surface moisture must be removed before frying or the oil will spit violently and the fries will steam instead of fry.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. First Fry — Cook Through at Low Heat</div>
+        <div class="step-detail">Heat oil in a deep heavy pan or wok to 150–160°C. This lower temperature is the first fry — its purpose is to cook the potato all the way through without browning the outside yet. Working in small batches to avoid overcrowding, carefully lower the dried potato sticks into the oil. Fry for 5–6 minutes until the potatoes are cooked through and just barely beginning to turn the palest golden colour. They should be fully soft inside but still look pale and floppy on the outside — this is correct. Remove with a slotted spoon and spread in a single layer on a wire rack or paper towels. Allow to cool completely to room temperature — or refrigerate for up to 8 hours for even crispier results.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Second Fry — Blast to Golden & Crispy</div>
+        <div class="step-detail">Raise the oil temperature to 190–200°C — this high heat is the second fry and it is where the magic happens. The outside of the par-cooked fries will now blister and crisp up in a flash without the inside overcooking, because the potato is already fully done from the first fry. Working in batches, add the cooled fries back into the very hot oil. Fry for 2–3 minutes, watching constantly, until they are deep golden, blistered and shattering crispy. Do not walk away — at this temperature they go from perfect to burnt quickly. Remove immediately with a slotted spoon and transfer to a wire rack — never paper towels at this stage, as that traps steam and softens the crust you just worked so hard for.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Season Immediately While Piping Hot</div>
+        <div class="step-detail">This step cannot wait. The moment the fries come out of the oil, season them instantly and generously with fine salt — not coarse salt, which does not adhere. The heat of the fries right out of the oil is what allows the salt (and any other seasoning) to stick and absorb into the crust. If you wait even 30 seconds, the surface cools and the salt just slides off. Toss the fries immediately. For seasoned fries, toss with a mix of fine salt, garlic powder, red chilli flakes and cracked black pepper while hot. Give them a good shake to coat every surface. Taste one immediately — adjust seasoning. The whole seasoning window is about 10 seconds after they leave the oil.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Serve Instantly with Dips</div>
+        <div class="step-detail">French fries must be eaten the moment they are seasoned — every minute that passes, moisture from inside the potato migrates outward and softens the crust. Serve in a paper cone or a tall basket for the full fast-food experience. Accompany with Heinz ketchup and a bowl of thick mayonnaise for dipping. For a loaded version, top with grated cheese, jalapeños and a drizzle of sriracha. For a desi twist, dust with chaat masala and serve with green chutney. However you serve them — eat fast. A perfect French fry eaten 10 minutes late is just a sad, soft potato stick. A perfect French fry eaten immediately is one of the greatest things in the world.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/shorts/tKhTBO3gcqw" target="_blank" class="yt-btn">
+        ▶ Watch French Fries Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "FastFood.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "French Fries are the world's most universally loved snack — golden, shatteringly crispy on the outside, fluffy and steaming on the inside, seasoned with just salt and eaten with ketchup or mayo. Simple in concept but endlessly nuanced in execution, the perfect fry is the result of the right potato, a long cold soak, and the two-fry technique that restaurants and fast-food chains have used for decades. Make them right at home and they will rival anything from any fryer in any city.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shopping Companies</title>
+
+<style>
+body{
+font-family:Arial;
+text-align:center;
+margin-top:100px;
+}
+
+#capital{
+color:red;
+font-weight:bold;
+font-size:30px;
+margin-left:20px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Select a Shopping Company</h2>
+
+<select onchange="showCapital(this.value)">
+<option>Select</option>
+
+<option value="Seattle">Amazon</option>
+<option value="Bengaluru">Flipkart</option>
+<option value="Bentonville">Walmart</option>
+<option value="San Francisco">eBay</option>
+<option value="Mumbai">Reliance Retail</option>
+
+</select>
+
+<span id="capital"></span>
+
+<script>
+function showCapital(cap){
+document.getElementById("capital").innerHTML = cap;
+}
+</script>
+
+</body>
+</html>

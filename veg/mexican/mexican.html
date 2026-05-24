@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Veg Beverages</title>
+<title>Mexican Food</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Font -->
@@ -132,18 +132,17 @@ video {
 .tile:hover {
     transform: scale(1.05);
 }
-
-/* HERO SECTION (Beverages banner) */
-.Beverages {
+/* HERO SECTION (Indian banner) */
+.Mexican {
     position: relative;
     height: 300px;
-    background: url("https://images.unsplash.com/photo-1544145945-f90425340c7e?w=1200&q=80") center/cover no-repeat;
+    background: url("https://www.shutterstock.com/image-photo/mexican-food-table-scene-top-260nw-2344288141.jpg") center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.Beverages::after {
+.Mexican::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -153,18 +152,18 @@ video {
     left: 0;
 }
 
-.Beverages-content {
+.Mexican-content {
     position: relative;
     color: white;
     text-align: center;
     z-index: 2;
 }
 
-.Beverages-content h1 {
+.Mexican-content h1 {
     font-size: 32px;
 }
 
-.Beverages-content p {
+.Mexican-content p {
     font-size: 14px;
     margin-top: 10px;
     width: 80%;
@@ -239,25 +238,24 @@ video {
 
 <!-- Header -->
 <div class="header">
-    <h2>Choose Your Beverage 🌱</h2>
+    <h2>Choose Mexican  Dish 🌱</h2>
 
     <div class="nav-buttons">
         <button class="back-btn" onclick="goBack()">⬅ Back</button>
         <button class="home-btn" onclick="goback()">⌘ Home</button>
     </div>
 </div>
-
-<div class="Beverages">
-    <div class="Beverages-content">
-        <h1>Veg Beverages 🥤</h1>
+<div class="Mexican">
+    <div class="Mexican-content">
+        <h1>Mexican Cuisine 🌱</h1>
         <p>
-            From refreshing cold drinks to soothing hot sips, explore a wide range of
-            vegetarian beverages. Enjoy homemade juices, creamy milkshakes, classic teas,
-            energising smoothies and much more crafted with fresh natural ingredients.
+            Mexican food is known for its bold flavors, colorful presentation, and use of fresh ingredients.
+             It commonly includes beans, corn, vegetables, cheese, and spices, creating dishes like tacos, 
+             burritos, and nachos that are both rich and satisfying.
+
         </p>
     </div>
 </div>
-
 <!-- Grid -->
 <div class="scroll-wrapper">
 
@@ -266,66 +264,36 @@ video {
 <div class="grid" id="foodGrid">
 
     <!-- 12 Tiles -->
+    
 
-    <div class="tile" onclick="go('Mango Lassi.html')">
-        <img src="https://images.unsplash.com/photo-1527661591475-527312dd65f5?w=400&q=80" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Mango_Lassi.jpg/640px-Mango_Lassi.jpg'">
-        <span>Mango Lassi</span>
+    <div class="tile" onclick="go('Veg Tacos.html')">
+        <img src="https://www.connoisseurusveg.com/wp-content/uploads/2025/02/veggie-tacos-sq-2.jpg">
+        <span>Veg Tacos</span>
     </div>
 
-    <div class="tile" onclick="go('Masala Chai.html')">
-        <img src="https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?w=400&q=80" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Masala_Chai.JPG/640px-Masala_Chai.JPG'">
-        <span>Masala Chai</span>
+    <div class="tile" onclick="go('Veg Burrito.html')">
+        <img src="https://i0.wp.com/smittenkitchen.com/wp-content/uploads/2023/03/vegetable-burrito-10-scaled.jpg?fit=1200%2C800&quality=89&ssl=1">
+        <span>Veg Burrito</span>
     </div>
 
-    <div class="tile" onclick="go('Strawberry Milkshake.html')">
-        <img src="https://images.unsplash.com/photo-1570696516188-ade861b84a49?w=400&q=80" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Strawberry_milkshake.jpg/640px-Strawberry_milkshake.jpg'">
-        <span>Strawberry Milkshake</span>
+    <div class="tile" onclick="go('Quesadilla.html')">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyzGNIF_o1npdSOjR3yY_EWgsjYzlwnPWbGw&s">
+        <span>Quesadilla</span>
     </div>
 
-    <div class="tile" onclick="go('Fresh Lime Soda.html')">
-        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400&q=80" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Lime_soda.jpg/640px-Lime_soda.jpg'">
-        <span>Fresh Lime Soda</span>
+    <div class="tile" onclick="go('Nachos.html')">
+        <img src="https://brandsitesplatform-res.cloudinary.com/image/fetch/w_800,c_scale,q_auto:eco,f_auto,fl_lossy,dpr_1.0,e_sharpen:85/https://assets.brandplatform.generalmills.com%2F-%2Fmedia%2Fproject%2Fgmi%2Foldelpaso%2Foldelpaso-us%2Frecipes%2Fgosa9gpqd0a6exkliimkqw_gmi_hi_res_jpeg.jpeg%3F">
+        <span>Nachos</span>
     </div>
 
-    <div class="tile" onclick="go('Cold Coffee.html')">
-        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&q=80" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Cold_coffee.jpg/640px-Cold_coffee.jpg'">
-        <span>Cold Coffee</span>
+    <div class="tile" onclick="go('Enchiladas.html')">
+        <img src="https://familiakitchen.com/wp-content/uploads/2021/01/iStock-1178656148-enchiladas-low-res-v3.jpg">
+        <span>Enchiladas</span>
     </div>
 
-    <div class="tile" onclick="go('Coconut Water.html')">
-        <img src="https://images.unsplash.com/photo-1546173159-315724a31696?w=400&q=80" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Coconut_water.jpg/640px-Coconut_water.jpg'">
-        <span>Coconut Water</span>
-    </div>
+    
 
-    <div class="tile" onclick="go('Watermelon Juice.html')">
-        <img src="https://images.unsplash.com/photo-1497534446932-c925b458314e?w=400&q=80" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Watermelon_juice.jpg/640px-Watermelon_juice.jpg'">
-        <span>Watermelon Juice</span>
-    </div>
-
-    <div class="tile" onclick="go('Rose Sharbat.html')">
-        <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&q=80" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Rose_sharbat.jpg/640px-Rose_sharbat.jpg'">
-        <span>Rose Sharbat</span>
-    </div>
-
-    <div class="tile" onclick="go('Green Smoothie.html')">
-        <img src="https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=400&q=80" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Green_smoothie.jpg/640px-Green_smoothie.jpg'">
-        <span>Green Smoothie</span>
-    </div>
-
-    <div class="tile" onclick="go('Aam Panna.html')">
-        <img src="https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=400&q=80" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Aam_panna.jpg/640px-Aam_panna.jpg'">
-        <span>Aam Panna</span>
-    </div>
-
-    <div class="tile" onclick="go('Badam Milk.html')">
-        <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&q=80" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Badam_milk.jpg/640px-Badam_milk.jpg'">
-        <span>Badam Milk</span>
-    </div>
-
-    <div class="tile" onclick="go('Jaljeera.html')">
-        <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=400&q=80" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/j/jaljeera.jpg/640px-jaljeera.jpg'">
-        <span>Jaljeera</span>
-    </div>
+    
 
 </div>
 
@@ -343,14 +311,6 @@ function goBack() {
 
 function go(page) {
     window.location.href = page;
-}
-
-function scrollLeft() {
-    document.getElementById('foodGrid').scrollBy({ left: -500, behavior: 'smooth' });
-}
-
-function scrollRight() {
-    document.getElementById('foodGrid').scrollBy({ left: 500, behavior: 'smooth' });
 }
 </script>
 

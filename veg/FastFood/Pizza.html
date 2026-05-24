@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pizza Margherita - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* VIDEO BG */
+video {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+}
+
+.nav-buttons button {
+    background: orange;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.nav-buttons button:hover {
+    transform: scale(1.05);
+}
+
+/* HERO */
+.hero {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.hero-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+}
+
+/* CONTENT */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* CARD */
+.card {
+    background: rgba(255, 255, 255, 0.321);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* TYPEWRITER */
+#typeText {
+    border-right: 2px solid white;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.6;
+}
+
+/* DROPDOWN */
+.dropdown-btn {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.385);
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    margin-top: 10px;
+}
+
+/* INGREDIENT BUTTONS */
+.ing-btn {
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    background: orange;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.ing-btn:hover {
+    background: #ff6600;
+    transform: scale(1.05);
+}
+
+.ing-btn a {
+    color: white;
+    text-decoration: none;
+}
+
+/* STEPS */
+.step {
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    margin-bottom: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.step:hover {
+    background: rgba(255, 255, 255, 0.458);
+}
+
+.step-detail {
+    display: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: rgba(221, 218, 218, 0.39);
+    border-radius: 6px;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 20px;
+}
+
+/* SHOP */
+.shop-links a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.yt-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.yt-btn:hover {
+    background: darkred;
+    transform: scale(1.05);
+}
+
+.amazon   { background: #ff9900; }
+.flipkart { background: #2874f0; }
+.bigbasket{ background: #84c225; }
+.blinkit  { background: #f7d000; color: black; }
+.zepto    { background: #6f00ff; }
+.instamart{ background: #fc8019; }
+</style>
+</head>
+
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🍕 Pizza Margherita</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=1200&q=80">
+    <div class="hero-text">
+        <h1>Pizza Margherita</h1>
+        <p>Restaurant Style Recipe</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- ABOUT -->
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/maida/cid/16/1483" target="_blank">
+                    Maida / Pizza Flour
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-tomato-puree/prid/233518" target="_blank">
+                    Tomato Puree
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/milk/cid/14/922?utm_source=google&utm_medium=cpc&utm_campaign=21439030315&utm_content=172713664988&utm_term=blinkit%20install&gad_source=1&gad_campaignid=21439030315&gbraid=0AAAAADfkql40RmKNLFVbw1an49SyJGBpM&gclid=Cj0KCQjwoMXQBhDcARIsAH-eEtuWjwblvzgkzNFLqO-Qj-LSL5dh44OE_rPfqlDTxAzKfUNPbk7ZCnwaAiuTEALw_wcB" target="_blank">
+                    Mozzarella Cheese
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/figaro-extra-virgin-olive-oil/prid/9349" target="_blank">
+                    Olive Oil
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-garlic-paste/prid/35025" target="_blank">
+                    Garlic
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/combo-of-4-basil-leaves-hydroponically-grown-25-g-mint-leaves-without-roots-100-g-parsley-50-g-rosemary-20-g/prid/540241" target="_blank">
+                    Fresh Basil Leaves
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-red-chilli-powder/prid/18854" target="_blank">
+                    Chilli Flakes
+                </a>
+            </button>
+
+            
+
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/butter-more/cid/14/952" target="_blank">
+                    Butter
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">
+                    Salt
+                </a>
+            </button>
+
+        </div>
+    </div>
+
+    <!-- STEPS -->
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Make the Pizza Dough</div>
+        <div class="step-detail">Mix dry yeast and a pinch of sugar in warm water and let it sit for 5–10 minutes until frothy. In a large bowl combine maida and salt. Add the yeast mixture and olive oil. Knead for 8–10 minutes until the dough is smooth, soft and elastic. Shape into a ball, coat with olive oil, cover and let it rise for 1–1.5 hours until doubled in size.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Make the Tomato Sauce</div>
+        <div class="step-detail">Heat olive oil in a pan over medium heat. Add minced garlic and cook for 1 minute until fragrant. Add tomato puree, a pinch of sugar, salt and chilli flakes. Simmer on low heat for 10–12 minutes until the sauce thickens slightly and turns a deep red colour. Let it cool before spreading on the dough.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Preheat the Oven</div>
+        <div class="step-detail">Preheat your oven to the highest temperature possible — ideally 250°C (480°F) — for at least 30 minutes. If you have a pizza stone or baking steel, place it in the oven to preheat too. A very hot oven is essential for a crispy base and beautifully bubbly cheese.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Shape the Dough</div>
+        <div class="step-detail">Punch down the risen dough and divide into portions. On a lightly floured surface, stretch or roll the dough into a thin round about 25–30 cm wide. For authentic Neapolitan pizza, use your hands to stretch — the edges should be slightly thicker than the centre to form a natural crust.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Assemble the Pizza</div>
+        <div class="step-detail">Place the shaped dough on a greased baking tray or a floured pizza peel. Spread the tomato sauce evenly over the base leaving a 2 cm border for the crust. Tear fresh mozzarella into pieces and distribute evenly over the sauce. Drizzle lightly with olive oil and add a pinch of salt and chilli flakes.</div>
+
+        <div class="step" onclick="toggleDetail(5)">6. Bake the Pizza</div>
+        <div class="step-detail">Bake in the preheated oven at 250°C for 8–12 minutes until the crust is golden and charred in spots and the cheese is melted, bubbly and lightly browned. Keep a close eye — at high temperatures the pizza can go from perfect to burnt very quickly.</div>
+
+        <div class="step" onclick="toggleDetail(6)">7. Garnish & Serve</div>
+        <div class="step-detail">Remove from the oven and immediately scatter fresh basil leaves over the hot pizza. Drizzle with a little extra virgin olive oil. Slice and serve immediately — Pizza Margherita is best enjoyed the moment it comes out of the oven.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<!-- YOUTUBE LINK -->
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=vcfNpDtVqOw" target="_blank" class="yt-btn">
+        ▶ Watch Pizza Margherita Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() {
+    window.location.href = "italian.html";
+}
+function goHome() {
+    window.location.href = "cookmate_f.html";
+}
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display =
+        details[index].style.display === "block" ? "none" : "block";
+}
+
+/* TYPEWRITER */
+const text = "Pizza Margherita is the queen of all pizzas — a timeless Italian classic featuring a thin crispy crust topped with vibrant tomato sauce, fresh melted mozzarella and fragrant basil leaves. Born in Naples and loved worldwide, this simple yet perfect combination of flavours represents the very soul of Italian cooking at its finest.";
+let i = 0;
+
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Veg Tom Yum Soup - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* VIDEO BG */
+video {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+}
+
+.nav-buttons button {
+    background: orange;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.nav-buttons button:hover {
+    transform: scale(1.05);
+}
+
+/* HERO */
+.hero {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.hero-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+}
+
+/* CONTENT */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* CARD */
+.card {
+    background: rgba(255, 255, 255, 0.321);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* TYPEWRITER */
+#typeText {
+    border-right: 2px solid white;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.6;
+}
+
+/* DROPDOWN */
+.dropdown-btn {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.385);
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    margin-top: 10px;
+}
+
+/* INGREDIENT BUTTONS */
+.ing-btn {
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    background: orange;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.ing-btn:hover {
+    background: #ff6600;
+    transform: scale(1.05);
+}
+
+.ing-btn a {
+    color: white;
+    text-decoration: none;
+}
+
+/* STEPS */
+.step {
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    margin-bottom: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.step:hover {
+    background: rgba(255, 255, 255, 0.458);
+}
+
+.step-detail {
+    display: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: rgba(221, 218, 218, 0.39);
+    border-radius: 6px;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 20px;
+}
+
+/* SHOP */
+.shop-links a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.yt-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.yt-btn:hover {
+    background: darkred;
+    transform: scale(1.05);
+}
+
+.amazon   { background: #ff9900; }
+.flipkart { background: #2874f0; }
+.bigbasket{ background: #84c225; }
+.blinkit  { background: #f7d000; color: black; }
+.zepto    { background: #6f00ff; }
+.instamart{ background: #fc8019; }
+</style>
+</head>
+
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🍲 Veg Tom Yum Soup</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=1200&q=80">
+    <div class="hero-text">
+        <h1>Veg Tom Yum Soup</h1>
+        <p>Restaurant Style Recipe</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- ABOUT -->
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/button-mushroom/prid/253317?srsltid=AfmBOoq1sBlM_RIV38BAnha7A7myG5693io6OATePIhUahL9LiW2ZUkF" target="_blank">
+                    Mushrooms
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-coconut-milk/prid/29550" target="_blank">
+                    Coconut Milk
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/prime-lemon-lime-hydration-fruit-drink/prid/533925?srsltid=AfmBOor-Ns5ZzLDGYZHzra2v1-fbvJuLxFnOJ4JlYjhZcnM0RoTPirk9" target="_blank">
+                    Lemon / Lime Juice
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-chilli-hari-mirch/prid/423735" target="_blank">
+                    Green Chilli
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-garlic-paste/prid/35025" target="_blank">
+                    Galangal / Ginger
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/curry-leaves/prid/17643" target="_blank">
+                    Lemongrass / Kaffir Lime Leaves
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/sauces-spreads/asian-sauces/cid/972/1130" target="_blank">
+                    Soy Sauce
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-red-chilli-powder/prid/18854" target="_blank">
+                    Chilli Paste / Red Chilli
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/spring-onion/prid/3926" target="_blank">
+                    Spring Onion
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/local-carrot/prid/332740" target="_blank">
+                    Carrot
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/brand/diet-tofu?srsltid=AfmBOoru0u1rYvk0UC4tToOvegLkn2BoMvsZMjTfLqX7UigS7695fkXH" target="_blank">
+                    Tofu
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/coriander-bunch/prid/3889" target="_blank">
+                    Fresh Coriander
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">
+                    Salt
+                </a>
+            </button>
+
+        </div>
+    </div>
+
+    <!-- STEPS -->
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Prepare the Aromatics</div>
+        <div class="step-detail">Bruise lemongrass stalks with the back of a knife to release the oils. Slice galangal or ginger into thin rounds. Tear kaffir lime leaves in half. Slit green chillies. These aromatics are the signature of Tom Yum and cannot be skipped — they give the soup its unmistakable fragrance.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Make the Broth Base</div>
+        <div class="step-detail">Bring 4 cups of water or vegetable stock to a boil in a pot. Add lemongrass, galangal/ginger, kaffir lime leaves and green chillies. Simmer on medium heat for 8–10 minutes so the aromatics fully infuse their flavour and fragrance into the broth.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Add Vegetables & Tofu</div>
+        <div class="step-detail">Add sliced mushrooms, julienned carrot, tofu cubes and the white parts of spring onion to the broth. Cook on medium heat for 5–6 minutes until the vegetables are just tender but still have a slight bite to them.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Add Coconut Milk</div>
+        <div class="step-detail">Pour in coconut milk and stir gently. The coconut milk transforms the clear spicy broth into a rich, creamy and aromatic soup. Let it simmer on low heat for 3–4 minutes — do not boil vigorously after adding coconut milk as it can split.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Season the Soup</div>
+        <div class="step-detail">Add soy sauce, chilli paste and salt to taste. Stir gently. The soup should be spicy, tangy and slightly rich. Adjust the heat with more chilli paste if desired and the saltiness with soy sauce. Every bowl of Tom Yum should be bold and punchy.</div>
+
+        <div class="step" onclick="toggleDetail(5)">6. Add Lime Juice</div>
+        <div class="step-detail">Remove from heat. Squeeze in fresh lime or lemon juice generously. The sourness from fresh lime is what defines Tom Yum — add it off the heat so the bright citrus flavour stays fresh and does not turn bitter from prolonged cooking.</div>
+
+        <div class="step" onclick="toggleDetail(6)">7. Garnish & Serve</div>
+        <div class="step-detail">Ladle into bowls. Garnish with chopped spring onion greens, fresh coriander and an extra slice of lime. Serve immediately piping hot on its own or with steamed jasmine rice on the side.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<!-- YOUTUBE LINK -->
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=NnMPSL5YMDI" target="_blank" class="yt-btn">
+        ▶ Watch Veg Tom Yum Soup Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() {
+    window.location.href = "thai.html";
+}
+function goHome() {
+    window.location.href = "cookmate_f.html";
+}
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display =
+        details[index].style.display === "block" ? "none" : "block";
+}
+
+/* TYPEWRITER */
+const text = "Veg Tom Yum Soup is a bold and aromatic Thai hot and sour soup bursting with the flavours of lemongrass, galangal, kaffir lime leaves and fresh chillies. Made with mushrooms, tofu and vegetables simmered in a fragrant coconut broth and finished with a generous squeeze of lime, it is one of the most vibrant and refreshing soups in the world.";
+let i = 0;
+
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

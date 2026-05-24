@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Burger - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; }
+.footer { text-align: center; padding: 20px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🍔 Burger</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&q=80">
+    <div class="hero-text">
+        <h1>Classic Beef Burger</h1>
+        <p>Restaurant Style Recipe</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Burger Buns — NEW -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/modern-burger-bun/prid/341358?srsltid=AfmBOoof9ydcn8HEMlaaWTHNZsKMbvPLeN8zgNVXZ0E1z8r5CG2IhT13" target="_blank">Burger Buns</a>
+            </button>
+
+    
+
+            <!-- Onion — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/onion/prid/391306" target="_blank">Onion (sliced rings)</a>
+            </button>
+
+            <!-- Garlic — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-garlic-paste/prid/35025" target="_blank">Garlic</a>
+            </button>
+
+            <!-- Black Pepper — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-black-peppercornskali-mirch/prid/187862" target="_blank">Black Pepper (coarsely crushed)</a>
+            </button>
+
+            <!-- Salt — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt</a>
+            </button>
+
+            <!-- Butter — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/butter-more/cid/14/952?srsltid=AfmBOoomrtiEWzQVtUdE2gTsR6WmK5YFmk8KysEPQP5Mz_diFl5kgZ2f" target="_blank">Butter (for toasting buns)</a>
+            </button>
+
+            <!-- Sour Cream / Mayo — reused from Burrito -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/epigamia-sour-cream/prid/436682" target="_blank">Mayonnaise / Sour Cream</a>
+            </button>
+
+            <!-- Tomato Salsa / Ketchup — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/the-gourmet-jar-fresh-tomato-salsa/prid/657872" target="_blank">Tomato Ketchup / Sauce</a>
+            </button>
+
+            <!-- Lettuce — NEW -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-lettuce/prid/440231?srsltid=AfmBOoqXWkuaundol2U8cD1uMi3IoiC8j7YxwXgam--u6gBYYv8fSy93" target="_blank">Lettuce</a>
+            </button>
+
+            <!-- Olive Oil — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/figaro-extra-virgin-olive-oil/prid/9349" target="_blank">Oil (for cooking patty)</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Make the Beef Patty</div>
+        <div class="step-detail">Place the beef mince in a bowl. Add minced garlic, salt and a very generous amount of coarsely crushed black pepper. Mix gently with your hands — do not overwork the meat or the patty will turn tough and dense. Divide into equal portions and shape each into a round patty slightly wider than the bun — they shrink as they cook. Press a small dimple in the centre of each patty with your thumb. This prevents the patty from puffing up into a dome while cooking. Refrigerate for 15 minutes to firm up.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Cook the Patty</div>
+        <div class="step-detail">Heat a cast iron pan or heavy skillet over very high heat until smoking hot. Add a little oil. Place the patties dimple-side up in the pan and press down firmly with a spatula. Cook on high heat for 3–4 minutes without moving until a deep brown crust forms on the bottom. Flip once and cook for another 2–3 minutes. In the last minute, place a slice of cheddar cheese on top and cover the pan with a lid for 1 minute to melt it perfectly. Remove and rest for 2 minutes.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Toast the Buns & Caramelise Onions</div>
+        <div class="step-detail">Slice the burger buns in half. Spread butter on the cut sides and toast face-down on the same hot pan for 1–2 minutes until golden and slightly crispy. In the same pan, add sliced onion rings and cook on medium heat for 6–8 minutes, stirring occasionally, until golden, soft and caramelised. Season with a pinch of salt. These sweet caramelised onions are a game-changer inside a burger.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Make the Burger Sauce</div>
+        <div class="step-detail">Mix mayonnaise with a spoonful of tomato ketchup and a pinch of black pepper in a small bowl. Stir until combined into a smooth, tangy burger sauce. This simple two-ingredient sauce is all you need — spread it generously on both the top and bottom bun. It adds creaminess and balances the richness of the beef patty beautifully.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Assemble & Serve</div>
+        <div class="step-detail">Spread burger sauce on the bottom toasted bun. Layer a few fresh lettuce leaves, then place the cheesy beef patty on top. Add the caramelised onions. Add a drizzle of extra ketchup if desired. Place the top bun on and press down firmly. Secure with a toothpick or skewer. Serve immediately while the patty is still hot and the cheese is melted. Serve with fries or nachos on the side.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=YFwyoztoi88" target="_blank" class="yt-btn">
+        ▶ Watch Burger Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "FastFood.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "A classic Beef Burger is the undisputed king of fast food — a thick, juicy beef patty with a deep brown crust, draped in melted cheddar, piled with caramelised onions, crisp lettuce and a creamy burger sauce, all sandwiched in a warm toasted bun. Simple, bold and completely irresistible, it is a dish that never goes out of style.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pongal - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; color: white; }
+.card h3 { margin-bottom: 12px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; color: white; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; color: white; }
+.footer { text-align: center; padding: 20px; color: white; }
+.footer h3 { margin-bottom: 10px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+.hero-text h1 { font-size: 2rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+.hero-text p { font-size: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+.header h2 { color: white; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🍚 Pongal</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=1200&q=80" alt="Pongal">
+    <div class="hero-text">
+        <h1>Pongal</h1>
+        <p>Traditional South Indian Comfort Food</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Raw Rice -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/rice/cid/16/1161?srsltid=AfmBOoqUy8gzxtRPIbAZ0kYGxnF_iw71_5HF2rRVfT3AvHNk6KL9tAgt" target="_blank">Raw Rice (Sona Masoori)</a>
+            </button>
+
+            <!-- Moong Dal -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/moong-dal-dhuli/prid/438126?srsltid=AfmBOop05iujUZiXedTxplsU7fR06Ks1LcPvp-J1aDx1kM8rjE2hn_Yc" target="_blank">Yellow Moong Dal (split)</a>
+            </button>
+
+            <!-- Ghee -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/ghee-vanaspati/cid/1557/1158?srsltid=AfmBOorXj5McN8Kae0p8Aqd7rCDO476ETs7LjInafdstI4CDHcdCfk0Z" target="_blank">Ghee (generously)</a>
+            </button>
+
+            <!-- Cashews -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/grocery-cashews/prid/439933?srsltid=AfmBOor85fgZZ028CVKGHb6YW4PB6VY4P06ni9vnKJxKNqFv9BTBGao3" target="_blank">Cashew Nuts</a>
+            </button>
+
+            <!-- Black Pepper -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-black-pepper-powder/prid/67351?srsltid=AfmBOooKhG6_eOWaOlscHI0z86uoOxExpEcIkM17iuIsd2gFZ5gn0JIY" target="_blank">Black Pepper (whole & coarsely crushed)</a>
+            </button>
+
+            <!-- Cumin Seeds -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-cumin-seeds-jeera-seeds/prid/56692?srsltid=AfmBOooANGK4pCH_74_WHertwbaNzQOUQqkLSMOGXEe5ELSuuFojWSog" target="_blank">Cumin Seeds (Jeera)</a>
+            </button>
+
+            <!-- Ginger -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/ginger/prid/421703?srsltid=AfmBOoqtn8ALM71bn1eBbfFhLOBlauZAuOgUfrpFS5mQqg-E74vNv6vC" target="_blank">Fresh Ginger</a>
+            </button>
+
+            <!-- Curry Leaves -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/curry-leaves/prid/17643" target="_blank">Curry Leaves</a>
+            </button>
+
+            <!-- Green Chilli -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-chilli-hari-mirch/prid/423735" target="_blank">Green Chilli</a>
+            </button>
+
+            <!-- Asafoetida -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tt-asafoetida-hing-powder/prid/493129?srsltid=AfmBOoo-bkFF7E4DcKGrv8rQ9aWcOYtiQwSQxiM4w19gkRj0GV7y6tNG" target="_blank">Asafoetida (Hing)</a>
+            </button>
+
+            <!-- Salt -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt</a>
+            </button>
+
+            <!-- Coconut Chutney -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/id-fresh-coconut-chutney/prid/304614" target="_blank">Coconut Chutney (to serve)</a>
+            </button>
+
+            <!-- Sambar -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/mtr-sambhar-instant-mix/prid/10775" target="_blank">Sambar (to serve)</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Dry Roast the Moong Dal</div>
+        <div class="step-detail">Heat a heavy-bottomed pot or pressure cooker on medium flame without any oil. Add the yellow moong dal and dry roast it, stirring continuously, for 3–4 minutes until it turns lightly golden and gives off a nutty, earthy aroma. Do not let it brown too much. This roasting step deepens the flavour of the dal and is the secret to a truly fragrant Pongal. Remove and set aside.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Cook Rice and Dal Together</div>
+        <div class="step-detail">Rinse the raw rice and the roasted moong dal together under cold water. Add both to a pressure cooker with 4–5 cups of water and a pinch of salt. Pressure cook on medium heat for 4–5 whistles until both the rice and dal are completely soft and mushy — almost porridge-like. This is the texture you want. Open after the pressure drops naturally. Mash gently with a ladle. If using a pot, cook covered with extra water for 25–30 minutes until fully soft.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Prepare the Tempering (Tadka)</div>
+        <div class="step-detail">Heat a generous amount of ghee in a separate small pan — do not be stingy here, ghee is what makes Pongal luxurious. Add cashew nuts and fry until golden. Remove the cashews and set aside. In the same ghee, add whole black peppercorns and cumin seeds; let them sizzle for 20 seconds. Add finely chopped or grated fresh ginger, slit green chillies and curry leaves — they will splutter, so be careful. Finish with a pinch of asafoetida and stir for 30 seconds.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Combine & Season</div>
+        <div class="step-detail">Pour the sizzling tempering along with the fried cashews directly into the cooked rice-dal mixture. Mix well. Taste and adjust salt. Add a little more hot water if the Pongal has thickened too much — it should flow slowly like a thick porridge, not be stiff. The final texture should be soft, creamy and flowing. Finish with an extra drizzle of ghee on top for richness and aroma.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Serve Hot</div>
+        <div class="step-detail">Serve Pongal piping hot in a bowl or on a banana leaf for the most authentic experience. Accompany with coconut chutney and a bowl of hot sambar. A side of crispy vadai is the classic pairing. Pongal is best eaten fresh and hot — it thickens as it cools, though you can loosen it again with a little warm water. This dish is simplicity perfected: do not rush it, and do not hold back on the ghee.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=KtfRFfhJHVA" target="_blank" class="yt-btn">
+        ▶ Watch Pongal Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "SouthIndian.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Pongal is one of South India's most beloved comfort foods — a soul-warming, creamy porridge of rice and moong dal slow-cooked to silky perfection and then lavished with golden ghee, cashews, black pepper, cumin and curry leaves. Simple yet deeply satisfying, it is the dish of festivals, early mornings and cold rainy days. Whether you know it as Ven Pongal or Khara Pongal, its warmth is unmatched.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

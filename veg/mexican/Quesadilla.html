@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quesadilla - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; color: white; }
+.card h3 { margin-bottom: 12px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; color: white; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; color: white; }
+.footer { text-align: center; padding: 20px; color: white; }
+.footer h3 { margin-bottom: 10px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+.hero-text h1 { font-size: 2rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+.hero-text p { font-size: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+.header h2 { color: white; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🫓 Quesadilla</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1618040996337-56904b7850b9?w=1200&q=80" onerror="this.src='https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=1200&q=80'" alt="Quesadilla">
+    <div class="hero-text">
+        <h1>Quesadilla</h1>
+        <p>Mexico's Crispy, Cheesy Folded Flatbread</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+        
+
+            <!-- Mozzarella / Cheese -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/milk/cid/14/922?utm_source=google&utm_medium=cpc&utm_campaign=21439030315&utm_content=169426454132&utm_term=blinkit%20online%20shopping&gad_source=1&gad_campaignid=21439030315&gbraid=0AAAAADfkql40RmKNLFVbw1an49SyJGBpM&gclid=Cj0KCQjww8rQBhDjARIsAE43KPOOIOC4p1JVolw8WCHt3BAVo8T3ysC59jEG5ORBjlyf2pIMOCHCv7waAs_6EALw_wcB" target="_blank">Mozzarella Cheese (generously grated)</a>
+            </button>
+
+           
+
+            <!-- Capsicum / Bell Pepper -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-capsicum/prid/3888" target="_blank">Capsicum / Bell Pepper (thinly sliced)</a>
+            </button>
+
+            <!-- Onion -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/onion/prid/391306" target="_blank">Onion (thinly sliced)</a>
+            </button>
+
+            
+
+            <!-- Corn -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/del-monte-whole-kernel-sweet-corn/prid/12142?srsltid=AfmBOoqdazgAZm8BZsxaEWKk_WDkV9SKdo5LO8P2bPmm-PlQYeieMcd0" target="_blank">Sweet Corn Kernels</a>
+            </button>
+
+            <!-- Black Beans -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/del-monte-black-beans/prid/12144?srsltid=AfmBOoo1bLpuoJb3L_8wqDwbWMg6FQpU7aTPdyJJiJMPV_k8xEMJxGH5" target="_blank">Black Beans (drained, optional)</a>
+            </button>
+
+            <!-- Garlic -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/garlic/prid/391308" target="_blank">Garlic (minced)</a>
+            </button>
+
+            <!-- Red Chilli Flakes -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-red-chilli-flakes/prid/18862" target="_blank">Red Chilli Flakes</a>
+            </button>
+
+            <!-- Butter / Oil -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/amul-butter/prid/46" target="_blank">Butter (for toasting)</a>
+            </button>
+
+            
+
+
+            <!-- Guacamole -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/old-el-paso-chunky-guacamole-mild/prid/480367?srsltid=AfmBOoo5X0Yf4Bb3ndXSWRA4QCeH6_2ci0LgYfqcowR8DupL2XotjPQJ" target="_blank">Avocado / Guacamole (to serve)</a>
+            </button>
+
+            <!-- Salt -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt & Black Pepper</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Sauté the Vegetable Filling</div>
+        <div class="step-detail">Heat a little butter or oil in a pan over medium-high heat. Add the thinly sliced onion and capsicum and cook for 4–5 minutes, stirring often, until softened and lightly charred at the edges. Add minced garlic and cook for 1 minute until fragrant. Add the sweet corn kernels and black beans (if using). Season with cumin powder, red chilli flakes, salt and black pepper. Toss everything together and cook for another 2 minutes until the filling is well-seasoned, slightly dry and fragrant. Remove from heat and set aside. The filling must not be watery — excess moisture will make the quesadilla soggy and prevent it from crisping up properly on the pan.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Assemble the Quesadilla</div>
+        <div class="step-detail">Lay a large flour tortilla flat on a clean surface. On one half of the tortilla, scatter a generous layer of grated mozzarella — do not be shy, the cheese is what holds everything together and creates those iconic stretchy pulls. Add a layer of the sautéed vegetable filling, spreading it evenly over the cheese. Add a few jalapeño slices for heat. Top the filling with another layer of grated cheddar cheese — a layer of cheese both below and above the filling ensures every bite is cheesy and helps glue the filling in place so it does not spill out when you flip. Fold the empty half of the tortilla over the filling side to form a half-moon. Press down firmly.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Toast on the Pan — Low & Steady</div>
+        <div class="step-detail">Heat a large flat pan or tawa over medium heat. Add a thin spread of butter and let it melt. Carefully slide the folded quesadilla into the pan. Cook on medium heat for 2–3 minutes without moving — patience here gives you an even, deep golden crust. Peek at the underside; it should be golden with some darker spots. Gently press down with a spatula to ensure full contact between the tortilla and the pan. When the bottom is golden, carefully flip using a wide spatula — a large spatula is essential to support the whole quesadilla in one move without it folding or the filling spilling. Cook the second side for another 2 minutes until equally golden and the cheese is visibly melted inside.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Rest, Then Cut into Wedges</div>
+        <div class="step-detail">Remove the quesadilla from the pan and place on a cutting board. Let it rest for 60 seconds before cutting — this brief rest allows the melted cheese to set just slightly so the filling stays in place when sliced rather than pouring out. Using a sharp knife or a pizza wheel, cut the quesadilla into 3 equal triangular wedges. The cross-section should reveal golden, blistered tortilla on both sides, a thick layer of stretchy molten cheese and a colourful filling of peppers, corn and beans. If the cheese is not fully melted after cooking, tent the quesadilla with foil for 1 minute — the residual heat will finish the job.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Serve with Dips</div>
+        <div class="step-detail">Arrange the wedges on a plate, point-side up, fanned out for presentation. Serve with three classic accompaniments on the side: a dollop of cold sour cream for richness, a spoonful of fresh tomato salsa for acidity and brightness, and sliced or mashed avocado (guacamole) for creaminess. The hot crispy quesadilla against the cold, fresh dips is the definitive experience. Eat while the cheese is still warm and stretchy — quesadillas lose their magic quickly as they cool. For a heartier version, add a spiced bean layer or a smear of refried beans before the cheese. Every wedge should be a perfect mouthful of crunch, melt and flavour.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=7RntUF6ZbyA" target="_blank" class="yt-btn">
+        ▶ Watch Quesadilla Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "mexican.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Quesadilla is Mexico's most satisfying comfort food — a large flour tortilla folded over a molten filling of grated cheese, sautéed peppers, corn, jalapeños and black beans, then pressed and toasted on a hot pan until both sides are blistered golden and the cheese inside is completely melted and stretchy. Served with cold sour cream, fresh salsa and guacamole, it is the perfect combination of crispy, gooey, bold and fresh — ready in under 15 minutes and impossible to resist.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

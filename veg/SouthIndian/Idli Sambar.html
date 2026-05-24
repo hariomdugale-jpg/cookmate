@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Idli Sambar - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; }
+.footer { text-align: center; padding: 20px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🍚 Idli Sambar</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=1200&q=80">
+    <div class="hero-text">
+        <h1>Idli Sambar</h1>
+        <p>Restaurant Style Recipe</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Idli Rice — reused from Masala Dosa -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/idli-rice/prid/17782?srsltid=AfmBOop2it1JIVJ-HkQgpJVoxz888tGaz_F-eX6v3-vIh0ytsku7kM4w" target="_blank">Idli Rice</a>
+            </button>
+
+            <!-- Urad Dal — reused from Masala Dosa -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/basic-urad-dal-dhuli/prid/375922?srsltid=AfmBOook-_RaCvABsep6Bjz-4mdzW8TGoJXuzxo7TuRw0yOaByK1Xwii" target="_blank">Urad Dal (split black gram)</a>
+            </button>
+
+            <!-- Toor Dal — NEW -->
+            <button class="ing-btn">
+                <a href="https://www.google.com/search?q=blinkitToor+Dal&sca_esv=52d1085bc4400738&biw=767&bih=826&sxsrf=ANbL-n7XW8lC1vPwTVWrYhxhLpp-igWVyw%3A1779518977289&ei=AU4Ras6kEeWZ4-EPlcXriQg&ved=0ahUKEwiOqYzk6M6UAxXlzDgGHZXiOoEQ4dUDCBA&uact=5&oq=blinkitToor+Dal&gs_lp=Egxnd3Mtd2l6LXNlcnAiD2JsaW5raXRUb29yIERhbDIHEAAYgAQYDTIIEAAYCBgeGA0yCxAAGIAEGIoFGIYDMgsQABiABBiKBRiGAzILEAAYgAQYigUYhgMyCBAAGIAEGKIESMoGUIYDWIYDcAF4AJABAJgBmQSgAYQHqgEHMy0xLjAuMbgBA8gBAPgBAvgBAZgCAqAC9ALCAgcQABgeGLADwgIOEAAYgAQYigUYhgMYsAPCAgsQABiABBiiBBiwA5gDAIgGAZAGCZIHBTEuMy0xoAfuCrIHAzMtMbgH8ALCBwMyLTLIBwaACAE&sclient=gws-wiz-serp" target="_blank">Toor Dal (Arhar Dal)</a>
+            </button>
+
+            <!-- Tamarind — reused from Fish Curry -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-tamarind-imli/prid/18869" target="_blank">Tamarind (Imli)</a>
+            </button>
+
+            <!-- Sambar Powder — NEW -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/mtr-sambhar-masala/prid/10776?srsltid=AfmBOopVww0MnnG8jvbHXDPtizBVnGRN6yqNBmEJBqDnlizakWN9QXJQ" target="_blank">Sambar Powder (MTR)</a>
+            </button>
+
+            <!-- Onion — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/onion/prid/391306" target="_blank">Onion (small / shallots)</a>
+            </button>
+
+            <!-- Tomato — reused from Fish Curry -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-tomato-puree/prid/233518" target="_blank">Tomato</a>
+            </button>
+
+            <!-- Curry Leaves — reused from Masala Dosa -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/curry-leaves/prid/17643" target="_blank">Curry Leaves</a>
+            </button>
+
+            <!-- Mustard Seeds — reused from Masala Dosa -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/everest-jeera-powder-cumin-powder/prid/63" target="_blank">Mustard Seeds</a>
+            </button>
+
+            <!-- Turmeric — reused from Masala Dosa -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-turmeric-powder-haldi/prid/18855" target="_blank">Turmeric Powder (Haldi)</a>
+            </button>
+
+            <!-- Red Chilli — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-red-chilli-powder/prid/18854" target="_blank">Dry Red Chilli / Red Chilli Powder</a>
+            </button>
+
+            <!-- Oil — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/figaro-extra-virgin-olive-oil/prid/9349" target="_blank">Oil</a>
+            </button>
+
+            <!-- Salt — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt</a>
+            </button>
+
+            <!-- Coconut Chutney — reused from Masala Dosa -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/ammas-special-coconut-chutney/prid/470741?srsltid=AfmBOoo6_0vJXpPAHTJtUJkCDo7Jd3OppZ2PPfjJKvcBDXMTwhbJv_xk" target="_blank">Coconut Chutney (to serve)</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Soak & Grind the Idli Batter</div>
+        <div class="step-detail">Wash and soak idli rice and urad dal separately in water for 6–8 hours or overnight. Drain and grind the urad dal first to a very smooth, fluffy batter — adding a little cold water while grinding. Then grind the rice to a slightly coarse batter. Combine both, add salt and mix well with your hand (body warmth helps fermentation). Cover and ferment at room temperature for 8–12 hours until the batter doubles in volume and smells pleasantly sour. Well-fermented batter is the secret to soft, spongy idlis.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Steam the Idlis</div>
+        <div class="step-detail">Grease the idli moulds generously with oil. Gently stir the fermented batter without deflating it — do not over-mix. Fill each mould about three quarters full. Place in a steamer with boiling water and steam on medium heat for 10–12 minutes. Do not open the lid during steaming. Test with a toothpick — it should come out clean. Let them rest for 2 minutes before unmoulding. Wet a spoon with water and slide it around the edges to release each idli cleanly.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Cook the Toor Dal</div>
+        <div class="step-detail">Wash the toor dal and pressure cook with turmeric, salt and enough water for 3–4 whistles until completely soft and mushy. Open the lid and whisk the dal smooth. Meanwhile soak tamarind in 100 ml warm water for 10 minutes and squeeze out the pulp. Set both aside — these form the two base components of the sambar.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Make the Sambar</div>
+        <div class="step-detail">Heat oil in a pot. Add mustard seeds and let them splutter. Add dry red chilli and curry leaves. Add sliced onion and cook for 3–4 minutes until golden. Add chopped tomato and cook until mushy. Stir in sambar powder and cook for 1 minute. Add the tamarind water and bring to a boil. Pour in the cooked toor dal, add water to adjust consistency and simmer for 10–12 minutes until the sambar is deeply flavoured, slightly tangy and fragrant. Adjust salt.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Temper & Serve</div>
+        <div class="step-detail">For the final tempering, heat a small pan with oil. Add mustard seeds, curry leaves and a dry red chilli. Once they splutter, pour this directly into the sambar — the sizzle releases the full aroma. Serve the soft idlis hot in a bowl with a generous ladle of sambar poured over them and coconut chutney on the side. Idli sambar is best eaten immediately while both are piping hot.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=I9Q_OgOvFpU" target="_blank" class="yt-btn">
+        ▶ Watch Idli Sambar Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "SouthIndian.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Idli Sambar is South India's most comforting and iconic breakfast — pillowy soft steamed rice cakes made from fermented batter, served with a rich and tangy lentil sambar and cool coconut chutney. Wholesome, light and deeply satisfying, it is the kind of meal that warms you from the inside and has been loved across generations every single morning.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>s

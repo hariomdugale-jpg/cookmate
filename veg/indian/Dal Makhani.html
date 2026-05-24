@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dal Makhani - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; }
+.footer { text-align: center; padding: 20px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🫕 Dal Makhani</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=1200&q=80">
+    <div class="hero-text">
+        <h1>Dal Makhani</h1>
+        <p>Restaurant Style Recipe</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Black Urad Dal — NEW -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/black-urad-sabut/prid/438123?srsltid=AfmBOoqE5leAzfIxsXmWDn5EXrdaorBgMTDgCSFrtDYnje-MGfJlplcO" target="_blank">Whole Black Urad Dal (Sabut)</a>
+            </button>
+
+            <!-- Kidney Beans — reused from Burrito -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/rajma/cid/16/1198?srsltid=AfmBOopejjGecXmkwAHeNjBFNhPk6cNVJIbAGDYstKfxvyTW1oDQGTIn" target="_blank">Rajma (Kidney Beans)</a>
+            </button>
+
+            <!-- Butter — reused from Prawn Risotto -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/butter-more/cid/14/952?srsltid=AfmBOoomrtiEWzQVtUdE2gTsR6WmK5YFmk8KysEPQP5Mz_diFl5kgZ2f" target="_blank">Butter</a>
+            </button>
+
+            
+
+            <!-- Onion — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/onion/prid/391306" target="_blank">Onion</a>
+            </button>
+
+            <!-- Garlic — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-garlic-paste/prid/35025" target="_blank">Garlic</a>
+            </button>
+
+            <!-- Ginger — reused from Pongal -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/ginger/prid/308902" target="_blank">Ginger</a>
+            </button>
+
+            <!-- Tomato Puree — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-tomato-puree/prid/233518" target="_blank">Tomato Puree</a>
+            </button>
+
+            <!-- Red Chilli Powder — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-red-chilli-powder/prid/18854" target="_blank">Red Chilli Powder</a>
+            </button>
+
+            <!-- Cumin — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/everest-jeera-powder-cumin-powder/prid/63" target="_blank">Cumin Seeds</a>
+            </button>
+
+            <!-- Garam Masala — reused from Kola Urundai -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-garam-masala/prid/18856" target="_blank">Garam Masala</a>
+            </button>
+
+            <!-- Turmeric — reused from Masala Dosa -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-turmeric-powder-haldi/prid/18855" target="_blank">Turmeric Powder</a>
+            </button>
+
+            <!-- Fresh Cream — reused from Prawn Risotto -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/amul-fresh-cream/prid/162?srsltid=AfmBOop3Xbuj4sjX0qXxoUKiGicepRYV7JiBCLXZ5ThOP1QSgEoUXJLd" target="_blank">Fresh Cream</a>
+            </button>
+
+            <!-- Salt — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt</a>
+            </button>
+
+            <!-- Fresh Coriander — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/coriander-bunch/prid/3889" target="_blank">Fresh Coriander (garnish)</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Soak the Dal & Rajma</div>
+        <div class="step-detail">Wash the whole black urad dal and rajma thoroughly. Soak both together in plenty of water for 8–10 hours or overnight — they must be soaked or they will never cook through properly. Drain before cooking. The urad dal should have swelled to nearly double in size and the rajma should be visibly plumper and softened.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Pressure Cook the Dal</div>
+        <div class="step-detail">Add the soaked dal and rajma to a pressure cooker with enough fresh water to cover by 5 cm. Add salt and a pinch of turmeric. Pressure cook on medium heat for 8–10 whistles until both are completely soft, tender and the urad dal is almost melting. Open the lid and roughly mash about one quarter of the dal with a ladle against the sides — this creates a thick, creamy base while keeping some whole grains for texture.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Build the Makhani Masala</div>
+        <div class="step-detail">Heat butter and ghee together in a heavy-bottomed pan over medium heat. Add cumin seeds and let them splutter. Add finely chopped onion and cook for 8–10 minutes until deeply golden and caramelised — do not rush this step. Add garlic and ginger and cook for 2 minutes. Add red chilli powder, turmeric and garam masala and stir for 30 seconds. Add tomato puree and cook on medium heat for 8–10 minutes until the butter separates from the masala and the mixture turns a deep red colour.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Slow Simmer the Dal</div>
+        <div class="step-detail">Pour the cooked dal and rajma into the masala and mix well. Add a little water to adjust consistency — Dal Makhani should be thick but pourable, not stiff. Bring to a gentle boil then reduce to the lowest heat possible. Cover partially and simmer for at least 45–60 minutes, stirring every 10 minutes to prevent sticking. The longer it simmers the richer and creamier it becomes. Restaurant-style Dal Makhani is sometimes simmered for 4–6 hours on a very low flame.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Finish with Cream & Serve</div>
+        <div class="step-detail">Stir in fresh cream and a generous knob of cold butter. Simmer for 5 more minutes until the cream is fully incorporated and the dal looks glossy, rich and deeply coloured. Taste and adjust salt and spice. Serve hot in a bowl topped with a swirl of cream, a small cube of butter and fresh coriander. Best enjoyed with naan, paratha or steamed basmati rice.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=p9diBmUESdw" target="_blank" class="yt-btn">
+        ▶ Watch Dal Makhani Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "north_indian.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Dal Makhani is the crown jewel of North Indian cuisine — whole black urad dal and rajma slow-simmered for hours in a rich, buttery tomato gravy and finished with cream and ghee into a velvety, deeply flavoured lentil dish. Smoky, indulgent and absolutely luxurious, it is the dish that defines the spirit of Punjabi comfort food.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

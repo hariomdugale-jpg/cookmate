@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Samosa - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; color: white; }
+.card h3 { margin-bottom: 12px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; color: white; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; color: white; }
+.footer { text-align: center; padding: 20px; color: white; }
+.footer h3 { margin-bottom: 10px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+.hero-text h1 { font-size: 2rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+.hero-text p { font-size: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+.header h2 { color: white; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🔺 Samosa</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=1200&q=80" onerror="this.src='https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=1200&q=80'" alt="Samosa">
+    <div class="hero-text">
+        <h1>Samosa</h1>
+        <p>India's Crispiest, Most Loved Snack</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Maida -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/maida/cid/16/1483?srsltid=AfmBOoryjPamg4vZw8aA6sAVjgsUeU1-TZtdNgLz4UPBPNSYIJKGakPS" target="_blank">Maida / All Purpose Flour (for pastry)</a>
+            </button>
+
+            <!-- Ajwain -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-ajwain-seeds/prid/52117?srsltid=AfmBOoq7M0v0l62yXLJTtsi5cbDLp6Dr9JwCpUD59SOLEknH3tYcA1XE" target="_blank">Carom Seeds (Ajwain)</a>
+            </button>
+
+            <!-- Oil for pastry -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/edible-oils/cid/1137/1158" target="_blank">Oil (for dough & frying)</a>
+            </button>
+
+            <!-- Potatoes -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/potato-(1-kg)/prid/530157" target="_blank">Potatoes (boiled & mashed)</a>
+            </button>
+
+            <!-- Green Peas -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/fresho-green-peas/prid/3895?srsltid=AfmBOopjEW3BaCOZRNdnAzonxDgG3tU2lfcOHKAUZdgz0utRgxBKF4Sv" target="_blank">Green Peas (fresh or frozen)</a>
+            </button>
+
+            <!-- Green Chilli -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-chilli-hari-mirch/prid/423735" target="_blank">Green Chilli (finely chopped)</a>
+            </button>
+
+            <!-- Ginger -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/ginger/prid/421703" target="_blank">Fresh Ginger (grated)</a>
+            </button>
+
+            <!-- Cumin Seeds -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-cumin-seeds-jeera-seeds/prid/56692" target="_blank">Cumin Seeds (Jeera)</a>
+            </button>
+
+            <!-- Coriander Seeds Crushed -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/dhani-pure-coriander-seeds/prid/655883?srsltid=AfmBOoqUn3i1a_AgFomtfHSZUickmXfu-_gPMqO8sH02K1yqV3GOgmE2" target="_blank">Coriander Seeds (coarsely crushed)</a>
+            </button>
+
+            <!-- Amchur -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-dry-mango-amchur-powder/prid/10908?srsltid=AfmBOorhCY3jNpofVid5twJKA4NtDVwnow-WI8bVDhmJRoUkjGdyalaf" target="_blank">Dry Mango Powder (Amchur)</a>
+            </button>
+
+            <!-- Garam Masala -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/everest-garam-masala/prid/62?srsltid=AfmBOooKhG6_eOWaOlscHI0z86uoOxExpEcIkM17iuIsd2gFZ5gn0JIY" target="_blank">Garam Masala</a>
+            </button>
+
+            <!-- Red Chilli Powder -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-red-chilli-powder/prid/69" target="_blank">Red Chilli Powder</a>
+            </button>
+
+            <!-- Fresh Coriander -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/coriander-bunch/prid/3889" target="_blank">Fresh Coriander (chopped)</a>
+            </button>
+
+            <!-- Salt -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt</a>
+            </button>
+
+            <!-- Green Chutney -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-chutney/prid/589239" target="_blank">Green Chutney (to serve)</a>
+            </button>
+
+            <!-- Tamarind Chutney -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/mothers-recipe-tamarind-date-chutney/prid/425041" target="_blank">Tamarind Chutney (to serve)</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Make the Pastry Dough</div>
+        <div class="step-detail">In a large bowl, combine maida, ajwain (carom seeds), a generous pinch of salt and 3 tablespoons of oil or ghee. Rub the fat into the flour with your fingertips until the mixture resembles coarse breadcrumbs — this step is called "moyan" and is the secret to a flaky, crispy pastry shell. The fat must be completely worked in before water is added. Add cold water little by little and knead into a firm, stiff dough — much stiffer than chapati dough. A soft dough will give you oily, limp samosas. Knead for 5 minutes until smooth. Cover with a damp cloth and rest for 20–30 minutes.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Make the Potato-Pea Filling</div>
+        <div class="step-detail">Boil potatoes until completely cooked, peel and mash roughly — leave some chunky texture. Heat 1 tablespoon oil in a pan. Add cumin seeds and let them splutter. Add coarsely crushed coriander seeds and fry for 20 seconds. Add grated ginger and finely chopped green chillies; cook for 1 minute. Add the green peas and cook for 2 minutes until just tender. Add the mashed potato and mix well. Season with amchur, red chilli powder, garam masala and salt. Fold in chopped coriander. The filling must be completely dry — any moisture will make the pastry soggy and cause it to burst during frying. Taste and adjust spices. Cool completely before filling.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Roll & Shape the Samosas</div>
+        <div class="step-detail">Divide the rested dough into equal balls. On a lightly oiled surface (not floured), roll each ball into a thin oval — about 15–18 cm long and 3–4 mm thick. Cut the oval in half to get two semi-circles. Take one semi-circle and form a cone by folding and sealing the straight edge with a little water — pinch firmly so it is sealed completely with no gaps. Fill the cone generously with the cooled potato filling — do not overfill or it will burst. Press the filling down gently. Seal the open top edge firmly by pressing together and pleating the seam neatly. The seal must be airtight. Repeat with all the dough.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Fry Low & Slow for Maximum Crispiness</div>
+        <div class="step-detail">Heat oil in a deep heavy pan to 150–160°C — this lower temperature is the key to a samosa with a blistered, shatteringly crispy shell. If the oil is too hot, the outside browns fast but the pastry stays soft and doughy inside. Slide 4–5 samosas gently into the oil. Fry on medium-low heat for 12–15 minutes, turning occasionally, until they are a deep, even golden brown all over. Do not rush by raising the heat. The long slow fry drives out all moisture from the pastry and gives that iconic blistered, flaky crunch. Drain on paper towels.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Serve Hot with Chutneys</div>
+        <div class="step-detail">Serve samosas piping hot immediately after frying — the crunch fades as they cool. Serve alongside green mint-coriander chutney and sweet tamarind-date chutney. For the full chaat experience, crush a samosa open on a plate and top with both chutneys, a spoonful of chole, chopped onion, fresh coriander, chaat masala and sev — this is called Samosa Chaat and it is a meal in itself. Whether eaten plain with cutting chai on a rainy afternoon or dressed up as chaat, samosa is India's most universally beloved snack.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=8eFBGXbMYaA" target="_blank" class="yt-btn">
+        ▶ Watch Samosa Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "StreetFood.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Samosa is India's most beloved snack — a crispy, flaky pastry triangle filled with a boldly spiced potato and pea mixture, deep-fried to shattering golden perfection and served with green chutney and sweet tamarind sauce. From railway platforms to monsoon evenings at home, from chai stalls to wedding menus, the samosa transcends every occasion and every social boundary. One bite of that crackling shell into the spiced filling is pure, timeless joy.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

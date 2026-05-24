@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Thai Basil Stir Fry - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; }
+.footer { text-align: center; padding: 20px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🌿 Thai Basil Stir Fry</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1562802378-063ec186a863?w=1200&q=80">
+    <div class="hero-text">
+        <h1>Thai Basil Stir Fry</h1>
+        <p>Restaurant Style Recipe</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Tofu — reused from Tom Yum -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/brand/diet-tofu?srsltid=AfmBOoru0u1rYvk0UC4tToOvegLkn2BoMvsZMjTfLqX7UigS7695fkXH" target="_blank">Tofu (firm)</a>
+            </button>
+
+            <!-- Green Chilli — reused from Tom Yum -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-chilli-hari-mirch/prid/423735" target="_blank">Green Chilli</a>
+            </button>
+
+            <!-- Garlic — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-garlic-paste/prid/35025" target="_blank">Garlic</a>
+            </button>
+
+            <!-- Onion — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/onion/prid/391306" target="_blank">Onion</a>
+            </button>
+
+            <!-- Capsicum — reused from Chicken Pizza -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-capsicum/prid/166849" target="_blank">Capsicum (Bell Pepper)</a>
+            </button>
+
+            <!-- Mushrooms — reused from Tom Yum -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/button-mushroom/prid/253317?srsltid=AfmBOoq1sBlM_RIV38BAnha7A7myG5693io6OATePIhUahL9LiW2ZUkF" target="_blank">Mushrooms</a>
+            </button>
+
+            <!-- Soy Sauce — reused from Tom Yum -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/sauces-spreads/asian-sauces/cid/972/1130" target="_blank">Soy Sauce</a>
+            </button>
+
+            <!-- Oyster Sauce — reused from Fried Rice -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/ong's-oyster-sauce/prid/561725?srsltid=AfmBOoqJ-zq9YC_iW36mvKzSjGrQRCdEIDyDIkEVyTeQqXwStd9RayDi" target="_blank">Oyster Sauce / Hoisin Sauce</a>
+            </button>
+
+            <!-- Sugar — reused from Mango Sticky Rice -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/s/?q=SUGAR" target="_blank">Sugar (a pinch)</a>
+            </button>
+
+            <!-- Spring Onion — reused from Tom Yum -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/spring-onion/prid/3926" target="_blank">Spring Onion</a>
+            </button>
+
+            <!-- Fresh Basil / Coriander — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/coriander-bunch/prid/3889" target="_blank">Thai Basil / Fresh Coriander</a>
+            </button>
+
+            <!-- Olive Oil — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/figaro-extra-virgin-olive-oil/prid/9349" target="_blank">Oil (for stir frying)</a>
+            </button>
+
+            <!-- Salt — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Prep Everything First</div>
+        <div class="step-detail">Stir frying moves fast — prep all ingredients before you turn on the heat. Press the tofu between paper towels for 10 minutes to remove excess moisture then cut into cubes. Slice the capsicum and mushrooms. Mince the garlic and green chilli. Separate the Thai basil leaves. Have all sauces measured and ready to pour. Once the wok is hot there is no time to chop.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Crisp the Tofu</div>
+        <div class="step-detail">Heat oil in a wok or wide pan over very high heat. Add tofu cubes in a single layer and fry without stirring for 2–3 minutes until golden and crispy on one side. Flip and fry another 2 minutes. Remove and set aside. Crispy tofu holds its shape in the stir fry instead of turning mushy.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Stir Fry the Aromatics</div>
+        <div class="step-detail">In the same wok on maximum heat, add a little more oil. Add minced garlic and green chilli and stir fry for 30 seconds until fragrant and slightly golden — work fast, garlic burns quickly on high heat. Add sliced onion and toss for 1 minute until slightly softened.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Add Vegetables</div>
+        <div class="step-detail">Add the sliced capsicum and mushrooms to the wok. Toss and stir fry on high heat for 2–3 minutes. The vegetables should stay vibrant and have a slight crunch — do not overcook. The wok should be smoking hot the entire time for that authentic charred wok flavour.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Sauce & Finish</div>
+        <div class="step-detail">Return the crispy tofu to the wok. Pour in soy sauce, oyster sauce and a pinch of sugar. Toss everything together rapidly for 1–2 minutes until the sauce coats every piece and caramelises slightly. Turn off the heat and immediately fold in the fresh Thai basil leaves — they will wilt beautifully from the residual heat.</div>
+
+        <div class="step" onclick="toggleDetail(5)">6. Serve</div>
+        <div class="step-detail">Transfer to a plate immediately. Garnish with sliced spring onion and extra fresh basil. Serve hot over steamed jasmine rice. Stir fry must be eaten the moment it is done — it loses its texture and heat quickly once plated.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=9_ybKNPGaO4" target="_blank" class="yt-btn">
+        ▶ Watch Thai Basil Stir Fry Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "thai.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Thai Basil Stir Fry is a blazing hot wok dish loaded with crispy tofu, vibrant vegetables and bold sauces, finished with a generous handful of fresh Thai basil that wilts into every bite. Fast, smoky and intensely flavourful, it is the kind of dish that fills the kitchen with incredible aromas and is ready in under 15 minutes.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

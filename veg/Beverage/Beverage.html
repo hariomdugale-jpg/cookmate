@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Italian Food</title>
+<title>Veg Beverages</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Font -->
@@ -132,17 +132,18 @@ video {
 .tile:hover {
     transform: scale(1.05);
 }
-/* HERO SECTION (Indian banner) */
-.Italian {
+
+/* HERO SECTION (Beverages banner) */
+.Beverages {
     position: relative;
     height: 300px;
-    background: url("https://i1.wp.com/dranshublog.com/wp-content/uploads/2019/01/Chappan-Bhog.jpg?fit=700%2C436&ssl=1") center/cover no-repeat;
+    background: url("https://images.unsplash.com/photo-1544145945-f90425340c7e?w=1200&q=80") center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.Italian::after {
+.Beverages::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -152,18 +153,18 @@ video {
     left: 0;
 }
 
-.Italian-content {
+.Beverages-content {
     position: relative;
     color: white;
     text-align: center;
     z-index: 2;
 }
 
-.Italian-content h1 {
+.Beverages-content h1 {
     font-size: 32px;
 }
 
-.Italian-content p {
+.Beverages-content p {
     font-size: 14px;
     margin-top: 10px;
     width: 80%;
@@ -238,23 +239,25 @@ video {
 
 <!-- Header -->
 <div class="header">
-    <h2>Choose Italian  Dish 🌱</h2>
+    <h2>Choose Your Beverage 🌱</h2>
 
     <div class="nav-buttons">
         <button class="back-btn" onclick="goBack()">⬅ Back</button>
         <button class="home-btn" onclick="goback()">⌘ Home</button>
     </div>
 </div>
-<div class="Italian">
-    <div class="Italian-content">
-        <h1>Italian Cuisine 🌱</h1>
+
+<div class="Beverages">
+    <div class="Beverages-content">
+        <h1>Veg Beverages 🥤</h1>
         <p>
-            Italian food is known for its simplicity, fresh ingredients, and rich flavors.
-            It mainly uses pasta, cheese, olive oil, and herbs to create delicious dishes
-            like pizza, pasta, and risotto, enjoyed all over the world.
+            From refreshing cold drinks to soothing hot sips, explore a wide range of
+            vegetarian beverages. Enjoy homemade juices, creamy milkshakes, classic teas,
+            energising smoothies and much more crafted with fresh natural ingredients.
         </p>
     </div>
 </div>
+
 <!-- Grid -->
 <div class="scroll-wrapper">
 
@@ -263,62 +266,29 @@ video {
 <div class="grid" id="foodGrid">
 
     <!-- 12 Tiles -->
-    
 
-    <div class="tile" onclick="go('Pizza Margherita.html')">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmomF1DksRYo9MLTC6zi2qx1XjX7R5PSqPYQ&s">
-        <span>Pizza Margherita</span>
+    <div class="tile" onclick="go('Mango Lassi.html')">
+        <img src="https://images.unsplash.com/photo-1527661591475-527312dd65f5?w=400&q=80" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Mango_Lassi.jpg/640px-Mango_Lassi.jpg'">
+        <span>Mango Lassi</span>
     </div>
 
-    <div class="tile" onclick="go('Pasta Alfredo.html')">
-        <img src="https://www.justspices.co.uk/media/recipe/chicken-alfredo.jpg">
-        <span>Pasta Alfredo</span>
+    <div class="tile" onclick="go('Masala Chai.html')">
+        <img src="https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?w=400&q=80" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Masala_Chai.JPG/640px-Masala_Chai.JPG'">
+        <span>Masala Chai</span>
     </div>
 
-    <div class="tile" onclick="go('Spaghetti Aglio e Olio.html')">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1cMw7HiaGvvPDIhWPAPg21em1QnV3Fm3nXg&s">
-        <span>Spaghetti Aglio e Olio</span>
+    <div class="tile" onclick="go('Strawberry Milkshake.html')">
+        <img src="https://images.unsplash.com/photo-1570696516188-ade861b84a49?w=400&q=80" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Strawberry_milkshake.jpg/640px-Strawberry_milkshake.jpg'">
+        <span>Strawberry Milkshake</span>
     </div>
 
-    <div class="tile" onclick="go('Lasagna.html')">
-        <img src="https://www.tasteofhome.com/wp-content/uploads/2025/07/Best-Lasagna_EXPS_ATBBZ25_36333_DR_07_01_2b.jpg">
-        <span>Lasagna</span>
+    <div class="tile" onclick="go('Fresh Lime Soda.html')">
+        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400&q=80" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Lime_soda.jpg/640px-Lime_soda.jpg'">
+        <span>Fresh Lime Soda</span>
     </div>
 
-    <div class="tile" onclick="go('Risotto.html')">
-        <img src="https://www.kitchensanctuary.com/wp-content/uploads/2025/12/Tomtato-Risotto-Square1.jpg">
-        <span>Risotto</span>
-    </div>
+  
 
-    <div class="tile" onclick="go('Gnocchi.html')">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj45AevesBOeEIpkS61OArd83AWFyTV8fOPA&s">
-        <span>Gnocchi</span>
-    </div>
-
-    <div class="tile" onclick="go('Focaccia.html')">
-        <img src="https://www.feastingathome.com/wp-content/uploads/2024/10/focaccia-5-1.jpg">
-        <span>Focaccia</span>
-    </div>
-
-    <div class="tile" onclick="go('Bruschetta.html')">
-        <img src="https://cdn.loveandlemons.com/wp-content/uploads/2025/05/bruschetta-recipe.jpg">
-        <span>Bruschetta</span>
-    </div>
-
-    <div class="tile" onclick="go('Caprese Salad.html')">
-        <img src="https://natashaskitchen.com/wp-content/uploads/2019/08/Caprese-Salad-6.jpg">
-        <span>Caprese Salad</span>
-    </div>
-
-    <div class="tile" onclick="go('Minestrone.html')">
-        <img src="https://cdn.loveandlemons.com/wp-content/uploads/2021/11/minestrone-soup-500x500.jpg">
-        <span>Minestrone</span>
-    </div>
-
-    <div class="tile" onclick="go('Ravioli.html')">
-        <img src="https://www.foodandwine.com/thmb/nZl2y6KOS4o5SPw-qSXxmehyNKs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/meat-ravioli-filling-FT-RECIPE0721-2-caea06001b9642219d2a0ba2a466eabe.jpg">
-        <span>Ravioli</span>
-    </div>
 
 </div>
 
@@ -331,11 +301,19 @@ function goback() {
         window.location.href = "cookmate_f.html";
     }
 function goBack() {
-    window.location.href = "veg.html";
+    window.location.href = "cookmate_f.html";
 }
 
 function go(page) {
     window.location.href = page;
+}
+
+function scrollLeft() {
+    document.getElementById('foodGrid').scrollBy({ left: -500, behavior: 'smooth' });
+}
+
+function scrollRight() {
+    document.getElementById('foodGrid').scrollBy({ left: 500, behavior: 'smooth' });
 }
 </script>
 

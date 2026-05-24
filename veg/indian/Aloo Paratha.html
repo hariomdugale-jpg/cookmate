@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Aloo Paratha - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; color: white; }
+.card h3 { margin-bottom: 12px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; color: white; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; color: white; }
+.footer { text-align: center; padding: 20px; color: white; }
+.footer h3 { margin-bottom: 10px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+.hero-text h1 { font-size: 2rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+.hero-text p { font-size: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+.header h2 { color: white; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🫓 Aloo Paratha</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=1200&q=80" onerror="this.src='https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=1200&q=80'" alt="Aloo Paratha">
+    <div class="hero-text">
+        <h1>Aloo Paratha</h1>
+        <p>Punjab's Ultimate Stuffed Flatbread</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Whole Wheat Flour -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/flour/cid/175/801?srsltid=AfmBOoqUAILg-tTQm8lxRn6wLNysr1dyWsQsDM0D0AeIfyLrtJ_qJI9X" target="_blank">Whole Wheat Flour (Atta)</a>
+            </button>
+
+            <!-- Potatoes -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/potato-(1-kg)/prid/530157" target="_blank">Potatoes (boiled & mashed)</a>
+            </button>
+
+            <!-- Green Chilli -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-chilli-hari-mirch/prid/423735" target="_blank">Green Chilli (finely chopped)</a>
+            </button>
+
+            <!-- Ginger -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/ginger/prid/421703" target="_blank">Fresh Ginger (grated)</a>
+            </button>
+
+            <!-- Onion -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/onion/prid/391306" target="_blank">Onion (finely chopped, optional)</a>
+            </button>
+
+            <!-- Fresh Coriander -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/coriander-bunch/prid/3889" target="_blank">Fresh Coriander (chopped)</a>
+            </button>
+
+            
+
+            <!-- Cumin Seeds -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-cumin-seeds-jeera-seeds/prid/56692" target="_blank">Cumin Seeds (Jeera)</a>
+            </button>
+
+            <!-- Red Chilli Powder -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-red-chilli-powder/prid/69" target="_blank">Red Chilli Powder</a>
+            </button>
+
+
+            <!-- Garam Masala -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/everest-garam-masala/prid/62" target="_blank">Garam Masala</a>
+            </button>
+
+            <!-- Salt -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt</a>
+            </button>
+
+          
+
+            <!-- Ghee -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/ghee-vanaspati/cid/1557/1158" target="_blank">Ghee (to finish)</a>
+            </button>
+
+
+          
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Make the Wheat Dough</div>
+        <div class="step-detail">In a large bowl, combine whole wheat atta with a pinch of salt, a pinch of ajwain and 1 teaspoon of oil. Mix well. Add warm water gradually and knead into a soft, smooth, pliable dough — softer than a roti dough but not sticky. Knead for 7–8 minutes until the dough is elastic and smooth. The dough should bounce back when poked. Drizzle a little oil on the surface, cover with a damp cloth or cling film and rest for 20–30 minutes. Resting relaxes the gluten and makes the dough easier to roll without tearing. Do not skip this step.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Prepare the Aloo Filling</div>
+        <div class="step-detail">Boil potatoes until completely cooked through — no hard centres. Peel while still warm and mash thoroughly until completely smooth with no lumps at all. Even a single lump will tear the paratha when rolling. To the mashed potato add finely chopped green chilli, grated ginger, finely chopped onion (if using), chopped fresh coriander, red chilli powder, amchur, garam masala, cumin seeds and salt. Mix everything very well. Taste and adjust — the filling should be bold, well-seasoned and tangy from the amchur. The filling must be completely dry; wet filling tears the dough. Divide into equal portions the same size as your dough balls.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Stuff & Seal the Paratha</div>
+        <div class="step-detail">Divide the rested dough into equal-sized balls. Take one dough ball and roll it into a small circle of about 10–12 cm diameter. Place one portion of the aloo filling in the centre. Bring the edges of the dough together over the filling, gathering and pinching to completely enclose it — like a filled dumpling. Press the sealed ball gently with your palm to flatten slightly. Dust lightly with dry flour. Now gently and evenly roll it out into a flat circle of about 18–20 cm. Apply even, gentle pressure from the centre outward — if rolled too hard in one spot the filling will burst through. If a small hole appears, patch it immediately with a pinch of dough.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Cook on the Tawa with Butter</div>
+        <div class="step-detail">Heat a flat iron tawa or heavy non-stick pan on medium-high heat until very hot. Place the rolled paratha on the dry tawa. Cook for 60–90 seconds until small bubbles appear on the surface and the underside has light golden spots. Flip. Apply a generous knob of butter on the cooked side — it will sizzle and melt into the paratha immediately. Cook the second side for 60–90 seconds. Flip again and apply butter on this side too. Press gently with a spatula to ensure even contact with the tawa. Cook until both sides are deeply golden with dark spots and the paratha is cooked through. The butter should be deeply absorbed — do not be shy with it.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Finish with Ghee & Serve</div>
+        <div class="step-detail">Remove the paratha from the tawa and immediately brush or pour a small spoon of ghee on top while piping hot — this is the finishing touch that gives Punjabi paratha its legendary richness and aroma. Stack finished parathas and keep covered in a clean cloth to stay warm and soft. Serve with a large dollop of thick, cold fresh curd alongside tangy achaar (pickle) — this hot-cold, rich-sharp contrast is what makes aloo paratha a perfect meal. A glass of cold lassi on the side is the Punjabi way. Eat the paratha while it is hot; nothing compares to a fresh-off-the-tawa aloo paratha.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=j3pDXY9fqSo" target="_blank" class="yt-btn">
+        ▶ Watch Aloo Paratha Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "StreetFood.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Aloo Paratha is Punjab's greatest gift to Indian breakfast — a thick, golden whole wheat flatbread stuffed generously with a boldly spiced mashed potato filling, cooked on a hot tawa with an obscene amount of butter and finished with a drizzle of ghee. Served with cold fresh curd and sharp pickle, it is one of India's most comforting, satisfying meals — humble in ingredients, extraordinary in flavour, and loved equally from dhabas on highways to dining tables at home.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

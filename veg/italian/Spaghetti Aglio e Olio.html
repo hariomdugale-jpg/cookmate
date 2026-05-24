@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Spaghetti Aglio e Olio - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; color: white; }
+.card h3 { margin-bottom: 12px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; color: white; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; color: white; }
+.footer { text-align: center; padding: 20px; color: white; }
+.footer h3 { margin-bottom: 10px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+.hero-text h1 { font-size: 2rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+.hero-text p { font-size: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+.header h2 { color: white; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🍝 Spaghetti Aglio e Olio</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1cMw7HiaGvvPDIhWPAPg21em1QnV3Fm3nXg&s" onerror="this.src='https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=1200&q=80'" alt="Spaghetti Aglio e Olio">
+    <div class="hero-text">
+        <h1>Spaghetti Aglio e Olio</h1>
+        <p>Italy's Most Elegant 6-Ingredient Pasta</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Spaghetti -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/milk/cid/14/922?utm_source=google&utm_medium=cpc&utm_campaign=21439030315&utm_content=169426454132&utm_term=blink&gad_source=1&gad_campaignid=21439030315&gbraid=0AAAAADfkql40RmKNLFVbw1an49SyJGBpM&gclid=Cj0KCQjwoMXQBhDcARIsAH-eEtuf1ejwac27xw8LTeMH9hTUecsBr4TJ0tCHsnKtMx50yNk-tvTSvq0aAhfTEALw_wcB" target="_blank">Spaghetti (Barilla or any good brand)</a>
+            </button>
+
+            <!-- Garlic -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/garlic/prid/391308?srsltid=AfmBOoqtn8ALM71bn1eBbfFhLOBlauZAuOgUfrpFS5mQqg-E74vNv6vC" target="_blank">Garlic (many cloves, thinly sliced)</a>
+            </button>
+
+            <!-- Extra Virgin Olive Oil -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/figaro-extra-virgin-olive-oil/prid/9349?srsltid=AfmBOorXj5McN8Kae0p8Aqd7rCDO476ETs7LjInafdstI4CDHcdCfk0Z" target="_blank">Extra Virgin Olive Oil (generously)</a>
+            </button>
+
+            <!-- Red Chilli Flakes -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/keya-red-chilli-flakes/prid/17574?srsltid=AfmBOor9wxDL_Q-YylG-LafkfTSHiLx1OS778rt3G_FQj4CtOuL-xaEB" target="_blank">Red Chilli Flakes (Peperoncino)</a>
+            </button>
+
+            <!-- Fresh Parsley -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/fresho-parsley/prid/421710?srsltid=AfmBOopjEW3BaCOZRNdnAzonxDgG3tU2lfcOHKAUZdgz0utRgxBKF4Sv" target="_blank">Fresh Flat-Leaf Parsley (chopped)</a>
+            </button>
+
+            <!-- Parmesan -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/kraft-parmesan-cheese/prid/12151?srsltid=AfmBOopFrFdH30NHOA1L4t3AEqbrqMjBBLIf6h9eSgWHqK2LYJ6jCuA1" target="_blank">Parmesan Cheese (optional, to finish)</a>
+            </button>
+
+            <!-- Salt -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt (for pasta water)</a>
+            </button>
+
+            <!-- Black Pepper -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-black-pepper-powder/prid/67351" target="_blank">Black Pepper (freshly cracked)</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Boil the Pasta in Heavily Salted Water</div>
+        <div class="step-detail">Bring a large pot of water to a rolling boil. Salt the water generously — it should taste like the sea. This is the only chance to season the pasta itself, so do not hold back. Add the spaghetti and cook until just al dente — usually 1–2 minutes less than the package instructions. The pasta will finish cooking in the sauce, so pulling it out slightly underdone is intentional. Before draining, reserve at least one full cup of the starchy pasta water — this cloudy, salty, starchy liquid is the secret ingredient that binds the entire dish and creates the silky sauce. Do not forget it.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Slice the Garlic — Thin & Even</div>
+        <div class="step-detail">Peel a generous amount of garlic — for two servings, 6–8 large cloves is not too many. Slice each clove as thinly and evenly as possible using a sharp knife. Uniform slices are important because they will all cook at the same rate — uneven pieces will have some burning before others are done. Do not use a garlic press or minced garlic here; sliced garlic gives a milder, nuttier flavour that blooms into the oil beautifully rather than turning sharp and bitter. Set the sliced garlic aside. This dish has very few ingredients — the quality and preparation of each one determines everything.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Toast the Garlic in Olive Oil — Low & Slow</div>
+        <div class="step-detail">In a large, wide pan, pour a very generous amount of extra virgin olive oil — more than you think is needed. Heat on medium-low. Add the sliced garlic and chilli flakes. Cook slowly, stirring often, for 4–6 minutes. The garlic should turn pale golden, not brown — the moment garlic goes dark it turns bitter and the dish is ruined. Watch it carefully; it goes from perfect to burnt in seconds. The oil should be gently bubbling around the garlic, infusing with its flavour. The kitchen will smell incredible. Remove from heat if the garlic is colouring too fast — residual heat will continue cooking it.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Emulsify with Pasta Water</div>
+        <div class="step-detail">With the garlic still in the pan on low heat, add a ladleful of the reserved starchy pasta water — it will hiss and steam vigorously. Stir and swirl the pan to combine the oil and water into a single emulsified, creamy-looking sauce. This step is the technique that separates a restaurant-quality aglio e olio from a greasy one — the starch in the pasta water binds the oil and water together. Add the drained al dente spaghetti directly into the pan. Toss vigorously, adding more pasta water a little at a time if needed, until every strand is glossy, coated and the sauce clings to the pasta rather than sitting in a pool at the bottom.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Plate & Finish Immediately</div>
+        <div class="step-detail">Remove the pan from heat. Add a generous handful of finely chopped fresh flat-leaf parsley and toss through — the parsley adds freshness and colour that lifts the dish. Taste and adjust salt. Crack plenty of fresh black pepper over the top. Twirl the spaghetti into a tall mound in a warm bowl using tongs or a fork. Drizzle a final thread of your best extra virgin olive oil over the top — raw olive oil at the end adds a completely different fruity, peppery dimension. Finish with grated Parmesan if desired, though purists argue the dish needs nothing else. Serve immediately — aglio e olio waits for no one.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=UmTqq_o6FSI" target="_blank" class="yt-btn">
+        ▶ Watch Spaghetti Aglio e Olio Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "italian.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Spaghetti Aglio e Olio is Italy's most deceptively simple pasta — just spaghetti, golden-toasted garlic, extra virgin olive oil, chilli flakes and parsley, yet when made correctly it is one of the most satisfying dishes on earth. Born in Naples as a poor man's midnight meal, it demands only six ingredients but rewards those who respect them with a silky, fragrant, deeply flavourful bowl of pasta that feels like pure luxury. Technique is everything here — get the garlic right, and the rest follows.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

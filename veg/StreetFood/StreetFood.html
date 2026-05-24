@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>fast food Food</title>
+<title>StreetFood Food</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Font -->
@@ -133,16 +133,16 @@ video {
     transform: scale(1.05);
 }
 /* HERO SECTION (Indian banner) */
-.fastfood {
+.StreetFood {
     position: relative;
     height: 300px;
-    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR7xaFp7l8gfH942ko28lacwV_NUXvJqywjg&s") center/cover no-repeat;
+    background: url("https://i.ytimg.com/vi/Gw1DkPx3nOw/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCU3dTalk_KQ0-psOFtES2fAtOSvw") center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.fastfood::after {
+.StreetFood::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -152,18 +152,18 @@ video {
     left: 0;
 }
 
-.fastfood-content {
+.StreetFood-content {
     position: relative;
     color: white;
     text-align: center;
     z-index: 2;
 }
 
-.fastfood-content h1 {
+.StreetFood-content h1 {
     font-size: 32px;
 }
 
-.fastfood-content p {
+.StreetFood-content p {
     font-size: 14px;
     margin-top: 10px;
     width: 80%;
@@ -238,21 +238,20 @@ video {
 
 <!-- Header -->
 <div class="header">
-    <h2>Choose fastfood  Dish 🌱</h2>
+    <h2>Choose StreetFood  Dish 🌱</h2>
 
     <div class="nav-buttons">
         <button class="back-btn" onclick="goBack()">⬅ Back</button>
         <button class="home-btn" onclick="goback()">⌘ Home</button>
     </div>
 </div>
-<div class="fastfood">
-    <div class="fastfood-content">
-        <h1>fastfood Cuisine 🌱</h1>
+<div class="StreetFood">
+    <div class="StreetFood-content">
+        <h1>StreetFood Cuisine 🌱</h1>
         <p>
-            Fast food refers to quickly prepared and easily available meals that are convenient to eat on the go.
-             It is typically rich in flavors and includes items like Burger, Pizza, and French Fries, often made 
-             with simple ingredients and served hot and fresh.
-
+            Vegetarian street food is known for its bold flavors, quick preparation, and affordable prices.
+             It uses ingredients like potatoes, chickpeas, vegetables, and spices to create tasty snacks that
+              are popular and easily available in local markets and roadside stalls
         </p>
     </div>
 </div>
@@ -266,47 +265,37 @@ video {
     <!-- 12 Tiles -->
     
 
-    <div class="tile" onclick="go('Burger.html')">
-        <img src="https://www.foodandwine.com/thmb/DI29Houjc_ccAtFKly0BbVsusHc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/crispy-comte-cheesburgers-FT-RECIPE0921-6166c6552b7148e8a8561f7765ddf20b.jpg">
-        <span>Burger</span>
+    <div class="tile" onclick="go('Pani Puri.html')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Pani_Puri1.JPG">
+        <span>Pani puri</span>
     </div>
 
-    <div class="tile" onclick="go('Pizza.html')">
-        <img src="https://www.tablefortwoblog.com/wp-content/uploads/2025/06/pepperoni-pizza-recipe-photos-tablefortwoblog-7.jpg">
-        <span>Pizza</span>
+    <div class="tile" onclick="go('Bhel Puri.html')">
+        <img src="https://www.indianveggiedelight.com/wp-content/uploads/2017/03/bhel-puri-featured.jpg">
+        <span>Bhel Puri</span>
     </div>
 
-    <div class="tile" onclick="go('French Fries.html')">
-        <img src="https://static.toiimg.com/thumb/54659021.cms?imgsize=275086&width=800&height=800">
-        <span>French Fries</span>
+    <div class="tile" onclick="go('Samosa.html')">
+        <img src="https://ministryofcurry.com/wp-content/uploads/2025/08/samosa-5.jpg">
+        <span>Samosa</span>
     </div>
 
-    <div class="tile" onclick="go('Sandwich.html')">
-        <img src="https://www.indianveggiedelight.com/wp-content/uploads/2017/03/vegetable-mayonnaise-sandwich-featured.jpg">
-        <span>Sandwich</span>
+ 
+
+    <div class="tile" onclick="go('chole kulche recipe.html')">
+        <img src="https://www.chefkunalkapur.com/wp-content/uploads/2021/03/Chole-Kulche-scaled.jpeg?v=1619321405">
+        <span>chole kulche recipe</span>
     </div>
 
-    <div class="tile" onclick="go('Noodles.html')">
-        <img src="https://shwetainthekitchen.com/wp-content/uploads/2023/03/vegetable-noodles.jpg">
-        <span>Noodles</span>
+    <div class="tile" onclick="go('Aloo Tikki.html')">
+        <img src="https://www.indianveggiedelight.com/wp-content/uploads/2023/07/aloo-tikki-featured-500x375.jpg">
+        <span>Aloo Tikki</span>
     </div>
 
-    <div class="tile" onclick="go('Pasta.html')">
-        <img src="https://www.yummytummyaarthi.com/wp-content/uploads/2022/11/red-sauce-pasta-1-500x500.jpg">
-        <span>Pasta</span>
-    </div>
-
-    <div class="tile" onclick="go('Spring Rolls.html')">
-        <img src="https://hot-thai-kitchen.com/wp-content/uploads/2014/10/crispy-spring-rolls-sq-new.jpg">
-        <span>Spring Rolls</span>
-    </div>
-
-    <div class="tile" onclick="go('momos.html')">
-        <img src="https://www.kuchpakrahahai.in/wp-content/uploads/2026/02/vegetable-momos.jpg">
-        <span>momos</span>
-    </div>
+  
 
     
+
 </div>
 
 <button class="scroll-btn right-btn" onclick="scrollRight()">▶</button>

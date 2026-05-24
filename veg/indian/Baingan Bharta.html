@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Baingan Bharta - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* VIDEO BG */
+video {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+}
+
+.nav-buttons button {
+    background: orange;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.nav-buttons button:hover {
+    transform: scale(1.05);
+}
+
+/* HERO */
+.hero {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.hero-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+}
+
+/* CONTENT */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* CARD */
+.card {
+    background: rgba(255, 255, 255, 0.321);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* TYPEWRITER */
+#typeText {
+    border-right: 2px solid white;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.6;
+}
+
+/* DROPDOWN */
+.dropdown-btn {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.385);
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    margin-top: 10px;
+}
+
+/* INGREDIENT BUTTONS */
+.ing-btn {
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    background: orange;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.ing-btn:hover {
+    background: #ff6600;
+    transform: scale(1.05);
+}
+
+.ing-btn a {
+    color: white;
+    text-decoration: none;
+}
+
+/* STEPS */
+.step {
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    margin-bottom: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.step:hover {
+    background: rgba(255, 255, 255, 0.458);
+}
+
+.step-detail {
+    display: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: rgba(221, 218, 218, 0.39);
+    border-radius: 6px;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 20px;
+}
+
+/* SHOP */
+.shop-links a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.yt-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.yt-btn:hover {
+    background: darkred;
+    transform: scale(1.05);
+}
+
+.amazon   { background: #ff9900; }
+.flipkart { background: #2874f0; }
+.bigbasket{ background: #84c225; }
+.blinkit  { background: #f7d000; color: black; }
+.zepto    { background: #6f00ff; }
+.instamart{ background: #fc8019; }
+</style>
+</head>
+
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🍆 Baingan Bharta</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://www.kuchpakrahahai.in/wp-content/uploads/2016/05/Baingan-Bharta-Recipe.jpg">
+    <div class="hero-text">
+        <h1>Baingan Bharta</h1>
+        <p>Restaurant Style Recipe</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- ABOUT -->
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/black-brinjal/prid/9098?srsltid=AfmBOoqtoQoraSGAMxg8_SV8_qY4a7SJBSMv4no3CzBBTg1clTZJbw3E" target="_blank">
+                    Baingan (Large Eggplant)
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/onion/prid/391306" target="_blank">
+                    Onion
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-tomato-puree/prid/233518" target="_blank">
+                    Tomato
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-garlic-paste/prid/35025" target="_blank">
+                    Ginger-Garlic Paste
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-chilli-hari-mirch/prid/423735" target="_blank">
+                    Green Chilli
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-red-chilli-powder/prid/18854" target="_blank">
+                    Red Chilli Powder
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-turmeric-powder/prid/10902" target="_blank">
+                    Turmeric
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-coriander-powderdhania/prid/18851" target="_blank">
+                    Coriander Powder
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-garam-masala/prid/10898" target="_blank">
+                    Garam Masala
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/oil/cid/1557/917" target="_blank">
+                    Oil / Mustard Oil
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/coriander-bunch/prid/3889" target="_blank">
+                    Fresh Coriander
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">
+                    Salt
+                </a>
+            </button>
+
+        </div>
+    </div>
+
+    <!-- STEPS -->
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Roast the Baingan</div>
+        <div class="step-detail">Wash and dry the eggplant. Rub it all over with oil. Place directly over a gas flame on medium heat. Roast turning with tongs every 2–3 minutes for 15–20 minutes until the skin is completely charred and the inside is soft and collapsed. This charring gives Baingan Bharta its signature smoky flavour — it cannot be replicated any other way.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Peel & Mash the Baingan</div>
+        <div class="step-detail">Place the roasted baingan in a bowl and let it cool for 10 minutes. Peel off all the charred skin under running water or on a board — it should come off easily. Remove the stem. Mash the soft pulp with a fork until coarsely mashed. Do not over-mash — a little texture makes the bharta more rustic and authentic.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Fry Onions & Chilli</div>
+        <div class="step-detail">Heat mustard oil or regular oil in a pan on medium-high heat until hot. Add finely chopped onions and slit green chillies. Fry for 5–6 minutes until the onions turn deep golden brown. The well-fried onions form the flavour backbone of the bharta.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Add Ginger-Garlic & Tomatoes</div>
+        <div class="step-detail">Add ginger-garlic paste and cook for 2 minutes until the raw smell disappears. Add finely chopped tomatoes and cook on medium heat for 5–6 minutes until completely soft, mushy and the oil separates from the masala.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Add Spices</div>
+        <div class="step-detail">Add red chilli powder, turmeric, coriander powder and salt. Mix well and cook the masala for 2–3 minutes on medium heat until the spices are cooked and fragrant and oil rises to the surface of the masala.</div>
+
+        <div class="step" onclick="toggleDetail(5)">6. Add the Mashed Baingan</div>
+        <div class="step-detail">Add the mashed roasted baingan pulp to the masala. Mix everything together thoroughly. Cook on medium heat for 8–10 minutes stirring occasionally so the baingan fully absorbs all the masala and the smoky flavour intensifies. The bharta should look dry and well combined.</div>
+
+        <div class="step" onclick="toggleDetail(6)">7. Garnish & Serve</div>
+        <div class="step-detail">Sprinkle garam masala and a generous amount of fresh coriander leaves on top. Drizzle a little raw mustard oil for extra aroma if desired. Serve hot with roti, paratha, naan or steamed rice and dal.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<!-- YOUTUBE LINK -->
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=yRZKfDI28Ro" target="_blank" class="yt-btn">
+        ▶ Watch Baingan Bharta Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() {
+    window.location.href = "indian.html";
+}
+function goHome() {
+    window.location.href = "cookmate_f.html";
+}
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display =
+        details[index].style.display === "block" ? "none" : "block";
+}
+
+/* TYPEWRITER */
+const text = "Baingan Bharta is a classic North Indian dish where a whole eggplant is charred directly over a flame until smoky and soft, then mashed and cooked with a spiced onion-tomato masala. The fire-roasted smoky flavour of the baingan is what makes this dish truly special and utterly addictive — a true comfort food of Indian cuisine.";
+let i = 0;
+
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

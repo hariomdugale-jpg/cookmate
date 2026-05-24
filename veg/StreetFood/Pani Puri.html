@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pani Puri - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; color: white; }
+.card h3 { margin-bottom: 12px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; color: white; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; color: white; }
+.footer { text-align: center; padding: 20px; color: white; }
+.footer h3 { margin-bottom: 10px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+.hero-text h1 { font-size: 2rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+.hero-text p { font-size: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+.header h2 { color: white; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>💧 Pani Puri</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Pani_Puri1.JPG" alt="Pani Puri">
+    <div class="hero-text">
+        <h1>Pani Puri</h1>
+        <p>India's Most Beloved Street Food</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Puris -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/haldirams-pani-puri-ready-to-eat/prid/423332?srsltid=AfmBOoqyEO_Y26Hw3pUF8dvne01IyVs3kFAg1Zeqd-BlPlVPwgRHYVw9" target="_blank">Puri / Golgappa (ready-made)</a>
+            </button>
+
+            <!-- Semolina (for homemade puris) -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/organic-zing-semolina-flour/prid/617716?srsltid=AfmBOoq47jW8Bh4iovuCsQydQHcoxO1kpowWNsQGzE4MfusJTLNQdS_7" target="_blank">Semolina / Rava (for homemade puris)</a>
+            </button>
+
+            <!-- Tamarind -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/sweet-tamarind-box/prid/3983?srsltid=AfmBOooSDJcHqRwxN9GGNu2GMNIuvIaDFww4MB4IwBdaUcj3cteJw5S8" target="_blank">Tamarind (Imli)</a>
+            </button>
+
+            <!-- Fresh Mint -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/mint-leaves/prid/3890?srsltid=AfmBOorwx1wiXym3QJnotFVNbgqdHVwwBcsg6f-jjYEGebbZLizK7WmX" target="_blank">Fresh Mint (Pudina)</a>
+            </button>
+
+            <!-- Fresh Coriander -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/coriander-bunch/prid/3889" target="_blank">Fresh Coriander (Dhania)</a>
+            </button>
+
+            <!-- Green Chilli -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-chilli-hari-mirch/prid/423735" target="_blank">Green Chilli</a>
+            </button>
+
+            <!-- Ginger -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/ginger/prid/421703" target="_blank">Fresh Ginger</a>
+            </button>
+
+            <!-- Black Salt -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-black-salt-kala-namak/prid/34085?srsltid=AfmBOopgQMbpfoBdCrPWk-SXzcezQKElKInITaGvn3kAIOXTmpL845ZC" target="_blank">Black Salt (Kala Namak)</a>
+            </button>
+
+            <!-- Chaat Masala -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-chatpata-chat-masala/prid/17569?srsltid=AfmBOoqCeNxLQPpWTvhF8QqeoSjbXsxD0p5OFPxwUK0wsbUsdBdCkJCT" target="_blank">Chaat Masala</a>
+            </button>
+
+            <!-- Cumin Powder -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/everest-jeera-powder-cumin-powder/prid/63" target="_blank">Roasted Cumin Powder (Jeera)</a>
+            </button>
+
+            <!-- Boiled Potatoes -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/potato-(1-kg)/prid/530157" target="_blank">Boiled Potatoes (for filling)</a>
+            </button>
+
+           
+            <!-- Salt -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Make or Prep the Puris</div>
+        <div class="step-detail">You can use ready-made golgappa puris (widely available and highly recommended for convenience) or make them at home. For homemade: mix fine semolina (rava) with a pinch of salt and enough water to form a stiff dough. Cover and rest for 20 minutes. Roll out thin and cut into small rounds using a cookie cutter. Deep fry in hot oil over medium-high heat, pressing gently with a ladle so they puff up into hollow balls. Fry until crispy and golden. Drain and cool completely — they will crisp up further as they cool. Store in an airtight box.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Make the Teekha Pani (Spicy Green Water)</div>
+        <div class="step-detail">In a blender, combine a large bunch of fresh mint leaves, half a bunch of coriander, 3–4 green chillies (adjust to heat preference), a small piece of ginger, 1 tablespoon tamarind pulp, 1 teaspoon black salt, 1 teaspoon chaat masala, 1 teaspoon roasted cumin powder and regular salt to taste. Add 2–3 cups of cold water and blend until completely smooth. Strain through a fine sieve or muslin cloth, pressing out all the liquid. Taste — the pani should be sharp, tangy, spicy and refreshingly minty. Adjust salt, chilli and tamarind to balance. Chill thoroughly before serving — the pani must be ice cold.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Make the Meetha Pani (Sweet Tamarind Water)</div>
+        <div class="step-detail">Soak a lemon-sized ball of tamarind in 1 cup of warm water for 20 minutes. Squeeze and strain out the pulp. Mix the tamarind water with a little jaggery or sugar, a pinch of black salt, roasted cumin powder and chaat masala. Adjust sweetness and tanginess to your taste — it should be a sweet-sour, mildly spiced dark water. Dilute with more water if too strong. Chill before serving. This sweet pani is offered alongside the green pani and is loved by those who prefer milder flavour. Optional but highly traditional.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Prepare the Filling</div>
+        <div class="step-detail">Boil potatoes until fully tender. Peel and roughly mash — keep it chunky, not smooth. Season with black salt, chaat masala, roasted cumin powder, finely chopped green chilli and fresh coriander. Mix well. Separately, boil kala chana (black chickpeas) until tender and season similarly. You can also soak and boil white chickpeas (chole). The classic filling is a mix of seasoned potato and boiled chana — this combination gives body, texture and earthy flavour that balances the sharp pani beautifully.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Assemble & Eat Immediately</div>
+        <div class="step-detail">Tap a small hole in the top of each puri with your thumb — gently, so the shell does not crack. Place a spoonful of the potato-chana filling inside. Pour the ice-cold teekha pani all the way to the brim. Pop the entire puri into your mouth in one go — this is non-negotiable. The explosion of tangy, spicy, minty water with the crunchy puri and earthy filling is the entire experience. Serve the sweet meetha pani in a separate bowl alongside. Eat fast — once filled, the puris soften within seconds. That urgency is the soul of pani puri.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=sU_rlqCNFCk" target="_blank" class="yt-btn">
+        ▶ Watch Pani Puri Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "StreetFood.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Pani Puri is India's most iconic street food — a hollow, crispy semolina shell filled with spiced potato and chickpeas, then drowned in ice-cold tangy mint water and eaten whole in one explosive bite. Known as Golgappa in the North and Phuchka in Bengal, it is the dish that stops you mid-walk, pulls you to a street cart, and makes you lose count at six. No recipe captures the chaos and joy of eating pani puri quite like making it at home.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

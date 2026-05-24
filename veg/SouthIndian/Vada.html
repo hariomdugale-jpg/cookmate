@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vada - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; color: white; }
+.card h3 { margin-bottom: 12px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; color: white; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; color: white; }
+.footer { text-align: center; padding: 20px; color: white; }
+.footer h3 { margin-bottom: 10px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+.hero-text h1 { font-size: 2rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+.hero-text p { font-size: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+.header h2 { color: white; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🍩 Vada</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1630383249896-424e482df921?w=1200&q=80" alt="Vada">
+    <div class="hero-text">
+        <h1>Vada</h1>
+        <p>Crispy South Indian Lentil Doughnut</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Urad Dal -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/basic-urad-dal-dhuli/prid/375922" target="_blank">Urad Dal (whole, skinned)</a>
+            </button>
+
+            <!-- Onion -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/onion/prid/391306" target="_blank">Onion (finely chopped)</a>
+            </button>
+
+            <!-- Green Chilli -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-chilli-hari-mirch/prid/423735" target="_blank">Green Chilli (finely chopped)</a>
+            </button>
+
+            <!-- Ginger -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/ginger/prid/421703" target="_blank">Fresh Ginger (grated)</a>
+            </button>
+
+            <!-- Curry Leaves -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/curry-leaves/prid/17643" target="_blank">Curry Leaves (chopped)</a>
+            </button>
+
+            <!-- Fresh Coriander -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/coriander-bunch/prid/3889" target="_blank">Fresh Coriander (chopped)</a>
+            </button>
+
+            <!-- Black Pepper -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-black-pepper-powder/prid/67351" target="_blank">Black Pepper (whole or crushed)</a>
+            </button>
+
+            <!-- Cumin Seeds -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-cumin-seeds-jeera-seeds/prid/56692" target="_blank">Cumin Seeds (Jeera)</a>
+            </button>
+
+            <!-- Asafoetida -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tt-asafoetida-hing-powder/prid/493129" target="_blank">Asafoetida (Hing)</a>
+            </button>
+
+            <!-- Salt -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt</a>
+            </button>
+
+            <!-- Oil for deep frying -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/edible-oils/cid/1137/1158?srsltid=AfmBOorXj5McN8Kae0p8Aqd7rCDO476ETs7LjInafdstI4CDHcdCfk0Z" target="_blank">Oil (for deep frying)</a>
+            </button>
+
+            <!-- Coconut Chutney -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/id-fresh-coconut-chutney/prid/304614" target="_blank">Coconut Chutney (to serve)</a>
+            </button>
+
+            <!-- Sambar -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/mtr-sambhar-instant-mix/prid/10775" target="_blank">Sambar (to serve)</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Soak the Urad Dal</div>
+        <div class="step-detail">Wash the whole skinned urad dal thoroughly under cold water. Soak it in plenty of water for 4–5 hours — no longer, or the batter becomes too wet and will not hold its shape when frying. The dal should be plump and soft when you press it between your fingers. Drain completely before grinding. Removing as much water as possible at this stage is critical — a dry, fluffy batter is the secret to a perfectly crispy vada with a light interior.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Grind to a Thick Fluffy Batter</div>
+        <div class="step-detail">Grind the drained urad dal in a wet grinder or mixer with the least amount of water possible — add water only a teaspoon at a time if the grinder struggles. Grind until the batter is very smooth, white and incredibly fluffy. The batter should be thick enough to hold its shape when dropped from a spoon — it must not flow. To test: drop a small ball of batter into a bowl of water — it should float. If it sinks, the batter is too wet; you cannot fix wet batter, so grind carefully.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Mix in the Flavourings</div>
+        <div class="step-detail">Transfer the ground batter to a large bowl. Add finely chopped onion, green chilli, grated ginger, chopped curry leaves, fresh coriander, whole or coarsely crushed black peppercorns, cumin seeds, a pinch of asafoetida and salt. Mix well with your hand — using your hand incorporates air into the batter and keeps it light. Do not overmix. Taste and adjust seasoning. The batter should be savoury, aromatic and thick. Chill briefly if the batter feels too soft from the warmth of grinding.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Shape the Vadas</div>
+        <div class="step-detail">Wet your hands with water — this prevents sticking. Take a lemon-sized ball of batter and place it on a wet palm or a wet plastic sheet. Flatten it gently into a round disc about 1 cm thick. Using your thumb, poke a hole in the centre and gently widen it into a neat ring — like a doughnut. The hole helps the vada cook evenly through the centre. If shaping is difficult, you can skip the hole and make plain patties (these are called "paddu style"), though the ring shape is traditional and fries more evenly.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Deep Fry to Golden Perfection</div>
+        <div class="step-detail">Heat oil in a deep heavy pan to 175–180°C. The oil must be hot enough — test with a small drop of batter; it should rise to the surface within 2 seconds. Gently slide shaped vadas into the oil, 2–3 at a time. Do not overcrowd. Fry on medium heat for 3–4 minutes, turning once, until deep golden brown and crispy all over. Remove and drain on paper towels. The vada should be hollow and airy inside with a shatteringly crisp exterior. Serve immediately — piping hot — with coconut chutney and sambar.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=XqbbSEbdnHE" target="_blank" class="yt-btn">
+        ▶ Watch Vada Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "SouthIndian.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Vada is South India's irresistible crispy lentil doughnut — a ring-shaped fritter made from fluffy ground urad dal batter, seasoned with onion, green chilli, ginger, curry leaves and black pepper, then deep-fried to a shattering golden crunch. Served alongside sambar and cooling coconut chutney, it is the ultimate breakfast companion for Pongal and Idli, and a snack that disappears the moment it hits the plate.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

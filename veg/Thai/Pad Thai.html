@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Veg Pad Thai - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* VIDEO BG */
+video {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+}
+
+.nav-buttons button {
+    background: orange;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.nav-buttons button:hover {
+    transform: scale(1.05);
+}
+
+/* HERO */
+.hero {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.hero-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+}
+
+/* CONTENT */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* CARD */
+.card {
+    background: rgba(255, 255, 255, 0.321);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* TYPEWRITER */
+#typeText {
+    border-right: 2px solid white;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.6;
+}
+
+/* DROPDOWN */
+.dropdown-btn {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.385);
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    margin-top: 10px;
+}
+
+/* INGREDIENT BUTTONS */
+.ing-btn {
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    background: orange;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.ing-btn:hover {
+    background: #ff6600;
+    transform: scale(1.05);
+}
+
+.ing-btn a {
+    color: white;
+    text-decoration: none;
+}
+
+/* STEPS */
+.step {
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    margin-bottom: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.step:hover {
+    background: rgba(255, 255, 255, 0.458);
+}
+
+.step-detail {
+    display: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: rgba(221, 218, 218, 0.39);
+    border-radius: 6px;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 20px;
+}
+
+/* SHOP */
+.shop-links a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.yt-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.yt-btn:hover {
+    background: darkred;
+    transform: scale(1.05);
+}
+
+.amazon   { background: #ff9900; }
+.flipkart { background: #2874f0; }
+.bigbasket{ background: #84c225; }
+.blinkit  { background: #f7d000; color: black; }
+.zepto    { background: #6f00ff; }
+.instamart{ background: #fc8019; }
+</style>
+</head>
+
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🍜 Veg Pad Thai</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1559314809-0d155014e29e?w=1200&q=80">
+    <div class="hero-text">
+        <h1>Veg Pad Thai</h1>
+        <p>Restaurant Style Recipe</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- ABOUT -->
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/instant-frozen-food/noodles/cid/15/962?utm_source=google&utm_medium=cpc&utm_campaign=23745539257&utm_content=&utm_term=&gad_source=1&gad_campaignid=23735698545&gbraid=0AAAAADfkql43Ctz9f_bkpY0tCrxKCyQIA&gclid=Cj0KCQjw_b_QBhCSARIsAP6hR4dQE-bNoTJpXFMiXi6WcI-h50dvShbI4s1eatwdaCLvQI6zS2lfgjwaAuYjEALw_wcB" target="_blank">
+                    Rice / Flat Noodles
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/s/?q=diet%20tofu" target="_blank">
+                    Tofu (firm)
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/eggs/cid/14/1200?srsltid=AfmBOooWPXWj6z0gvOb6Gew2_foYEwCimMbHBwn_1cMjppZ0s8o5BIHU" target="_blank">
+                    Eggs
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/spring-onion/prid/3926" target="_blank">
+                    Spring Onion
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/mung-bean-sprouts/prid/685132?srsltid=AfmBOoo9Q1vCfBpgtGe6avzYacnyKE1K3RV6v20rDjCHTjbbKAskjuHN" target="_blank">
+                    Bean Sprouts
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-garlic-paste/prid/35025" target="_blank">
+                    Garlic
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/sauces-spreads/asian-sauces/cid/972/1130" target="_blank">
+                    Soy Sauce
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/sauces-spreads/asian-sauces/cid/972/1130" target="_blank">
+                    Tamarind Paste
+                </a>
+            </button>
+
+            
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-red-chilli-powder/prid/18854" target="_blank">
+                    Chilli Flakes
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/fresho-lemon/prid/30022" target="_blank">
+                    Lime / Lemon
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/whole-farm-roasted-peanuts/prid/555114?srsltid=AfmBOooZfgEA1BYZaLZWHAGye4d-1HAXQy7tqat_ROxDWnASbt8R42DK" target="_blank">
+                    Roasted Peanuts
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/figaro-extra-virgin-olive-oil/prid/9349" target="_blank">
+                    Oil
+                </a>
+            </button>
+
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">
+                    Salt
+                </a>
+            </button>
+
+        </div>
+    </div>
+
+    <!-- STEPS -->
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Soak & Prepare Noodles</div>
+        <div class="step-detail">Soak rice noodles in warm water for 20–30 minutes until soft and pliable but not fully cooked. Drain and toss with a little oil to prevent sticking. Do not boil — the noodles will finish cooking in the wok.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Make the Pad Thai Sauce</div>
+        <div class="step-detail">Mix together tamarind paste, soy sauce, sugar and a pinch of chilli flakes in a small bowl. Stir until the sugar dissolves completely. Taste and adjust — the sauce should be a perfect balance of tangy, sweet and salty. This sauce is the soul of Pad Thai.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Fry the Tofu</div>
+        <div class="step-detail">Press tofu to remove excess moisture. Cut into small cubes. Heat oil in a wok over high heat. Fry the tofu for 4–5 minutes until golden and crispy on all sides. Remove and set aside. Crispy tofu adds a wonderful texture contrast to the soft noodles.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Scramble the Eggs</div>
+        <div class="step-detail">Push the contents of the wok to one side. Add a little oil to the empty side and crack in the eggs. Scramble them quickly on high heat until just set but still soft. Mix into the rest of the wok ingredients. The egg adds richness and binds the dish together.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Stir-Fry Garlic & Vegetables</div>
+        <div class="step-detail">Add oil to the wok. Add minced garlic and the white parts of spring onion. Stir-fry for 1 minute on high flame. Add bean sprouts and toss for 1–2 minutes keeping them crunchy. High heat is essential for that classic smoky wok-fried flavour.</div>
+
+        <div class="step" onclick="toggleDetail(5)">6. Add Noodles & Sauce</div>
+        <div class="step-detail">Add the soaked noodles to the wok. Pour the Pad Thai sauce over everything. Toss rapidly on high heat for 2–3 minutes until the noodles absorb the sauce and turn a beautiful golden colour. Add the fried tofu and scrambled eggs back in and toss together.</div>
+
+        <div class="step" onclick="toggleDetail(6)">7. Garnish & Serve</div>
+        <div class="step-detail">Plate the Pad Thai and top with crushed roasted peanuts, fresh spring onion greens and chilli flakes. Serve with a wedge of lime on the side. Squeeze the lime over just before eating for that essential fresh tangy finish.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<!-- YOUTUBE LINK -->
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=BwMxBBRlJUw" target="_blank" class="yt-btn">
+        ▶ Watch Veg Pad Thai Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() {
+    window.location.href = "thai.html";
+}
+function goHome() {
+    window.location.href = "cookmate_f.html";
+}
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display =
+        details[index].style.display === "block" ? "none" : "block";
+}
+
+/* TYPEWRITER */
+const text = "Veg Pad Thai is Thailand's most iconic street food dish — stir-fried rice noodles tossed in a tangy tamarind-soy sauce with crispy tofu, scrambled eggs, crunchy bean sprouts and topped with roasted peanuts and fresh lime. A perfect harmony of sweet, sour, salty and spicy flavours in every single bite.";
+let i = 0;
+
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

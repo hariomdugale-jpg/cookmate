@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chole Kulche - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; color: white; }
+.card h3 { margin-bottom: 12px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; color: white; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; color: white; }
+.footer { text-align: center; padding: 20px; color: white; }
+.footer h3 { margin-bottom: 10px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+.hero-text h1 { font-size: 2rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+.hero-text p { font-size: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+.header h2 { color: white; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🫓 Chole Kulche</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://www.chefkunalkapur.com/wp-content/uploads/2021/03/Chole-Kulche-scaled.jpeg?v=1619321405" onerror="this.src='https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=1200&q=80'" alt="Chole Kulche">
+    <div class="hero-text">
+        <h1>Chole Kulche</h1>
+        <p>Delhi's Most Iconic Street Food Combo</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Kabuli Chana -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/grocery-kabuli-chana/prid/440033?srsltid=AfmBOopAH9g7MqGGJf58JdLAY-cPbSWQiREbPnSzX90Z35g9KuEypaR-" target="_blank">Kabuli Chana (White Chickpeas)</a>
+            </button>
+
+            <!-- Kulche / Ready Kulche -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/harvest-gold-kulcha/prid/65679?srsltid=AfmBOoqZwn8du7CNsGVVi5VMFJ3rQyz8X49J9o8TdORYYq7A-rQGLwPP" target="_blank">Kulche (ready-made or mix)</a>
+            </button>
+
+            <!-- Maida (for homemade kulche) -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/maida/cid/16/1483?srsltid=AfmBOoryjPamg4vZw8aA6sAVjgsUeU1-TZtdNgLz4UPBPNSYIJKGakPS" target="_blank">Maida / All Purpose Flour (homemade kulche)</a>
+            </button>
+
+            <!-- Onion -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/onion/prid/391306" target="_blank">Onion (finely chopped)</a>
+            </button>
+
+            <!-- Tomato -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tomato/prid/421699" target="_blank">Tomato (finely chopped)</a>
+            </button>
+
+            <!-- Ginger Garlic -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/ginger-garlic-paste/prid/17648?srsltid=AfmBOoqtn8ALM71bn1eBbfFhLOBlauZAuOgUfrpFS5mQqg-E74vNv6vC" target="_blank">Ginger Garlic Paste</a>
+            </button>
+
+            <!-- Green Chilli -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-chilli-hari-mirch/prid/423735" target="_blank">Green Chilli</a>
+            </button>
+
+            <!-- Chole Masala -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/mdh-chhole-masala/prid/1174?srsltid=AfmBOop45_rWC-tS41yOXBDFIXnbWI63P10fGWaT2sUOV8p7Wkr5Ik-H" target="_blank">Chole Masala (MDH / Everest)</a>
+            </button>
+
+            <!-- Cumin Seeds -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-cumin-seeds-jeera-seeds/prid/56692" target="_blank">Cumin Seeds (Jeera)</a>
+            </button>
+
+            
+
+            <!-- Red Chilli Powder -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-red-chilli-powder/prid/69" target="_blank">Red Chilli Powder</a>
+            </button>
+
+            <!-- Turmeric -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-turmeric-powder-haldi/prid/18855" target="_blank">Turmeric Powder (Haldi)</a>
+            </button>
+
+          
+
+            <!-- Chaat Masala -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-chatpata-chat-masala/prid/17569" target="_blank">Chaat Masala</a>
+            </button>
+
+            <!-- Oil -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/edible-oils/cid/1137/1158" target="_blank">Oil</a>
+            </button>
+
+            <!-- Butter -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/amul-butter/prid/46?srsltid=AfmBOorXj5McN8Kae0p8Aqd7rCDO476ETs7LjInafdstI4CDHcdCfk0Z" target="_blank">Butter (for kulche)</a>
+            </button>
+
+            <!-- Fresh Coriander -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/coriander-bunch/prid/3889" target="_blank">Fresh Coriander (to garnish)</a>
+            </button>
+
+            <!-- Lemon -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/lemon/prid/229627" target="_blank">Lemon (to serve)</a>
+            </button>
+
+            <!-- Salt -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Soak & Boil the Chana</div>
+        <div class="step-detail">Wash the kabuli chana thoroughly and soak in plenty of cold water for 8–10 hours or overnight — the chickpeas will double in size. Drain and rinse well. Add to a pressure cooker with fresh water, a pinch of salt, one tea bag or a small piece of dried amla (Indian gooseberry) to give the chana that characteristic dark colour. Pressure cook on medium heat for 6–7 whistles until the chana is completely tender — it should mash easily between your fingers but still hold its shape. Drain and reserve the cooking liquid; it adds depth to the gravy.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Build the Masala Base</div>
+        <div class="step-detail">Heat oil generously in a heavy pan or kadhai. Add cumin seeds and let them sizzle. Add bay leaf, cloves and cardamom; fry for 30 seconds until aromatic. Add finely chopped onions and cook on medium heat for 10–12 minutes, stirring often, until they turn deep golden brown — do not rush this step. Add ginger garlic paste and slit green chillies; fry for 2 minutes until the raw smell disappears. Add finely chopped tomatoes and cook for 8–10 minutes until they completely break down and oil begins to separate from the masala. The masala must be deep, caramelised and jammy before the spices go in.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Spice the Masala & Add Chana</div>
+        <div class="step-detail">Add chole masala, red chilli powder, turmeric, amchur (dry mango powder) and salt to the cooked masala. Stir well and cook the spices for 2 minutes until fragrant and darkened. Add the boiled chana and toss to coat every chickpea with the masala. Pour in the reserved cooking liquid — enough to create a thick, clingy gravy that is not too watery. The gravy should be dark, smoky and deeply spiced. Mash a small handful of chickpeas with the back of a spoon — this thickens the gravy naturally and gives it body. Simmer on low heat for 15–20 minutes, stirring occasionally, until the flavours meld and the gravy coats the chana richly.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Make or Toast the Kulche</div>
+        <div class="step-detail">For ready-made kulche: heat a tawa or griddle on medium-high heat. Place the kulche on the dry tawa and toast for 1–2 minutes per side until light golden spots appear and the bread puffs slightly. Immediately apply a generous knob of butter while hot — it melts in and makes the kulche irresistible. For homemade kulche: mix maida, a little curd, baking powder, salt and warm water into a soft dough. Rest for 1–2 hours. Roll out into thick ovals, scatter nigella seeds on top, and cook on a very hot tawa until golden and charred in spots on both sides. Slather with butter before serving.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Garnish the Chole & Serve</div>
+        <div class="step-detail">Finish the chole with a generous sprinkle of chaat masala and chopped fresh coriander. Add a squeeze of fresh lemon juice — this lifts the whole dish. Serve the hot chole in a bowl alongside two buttered kulche. On the side, offer thinly sliced raw onion, a green chilli and a wedge of lemon — the classic accompaniment at every Delhi street stall. The chole should be dark, bold and intensely spiced; the kulche soft, slightly chewy and glistening with butter. Eat together — tear the kulche, scoop the chole, and experience one of North India's greatest combinations.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=cfBFNBDlRgM" target="_blank" class="yt-btn">
+        ▶ Watch Chole Kulche Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "StreetFood.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Chole Kulche is Delhi's most iconic street food duo — a deeply spiced, dark and smoky chickpea curry served alongside soft, buttery leavened bread that is toasted to golden perfection on a hot tawa. The chole is bold and punchy with amchur, chole masala and caramelised onion; the kulche is pillowy and rich with butter. Together they are the definitive taste of North Indian street food — filling, flavourful and utterly unforgettable.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

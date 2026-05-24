@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lasagna - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; }
+.footer { text-align: center; padding: 20px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🫕 Lasagna</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=1200&q=80">
+    <div class="hero-text">
+        <h1>Lasagna</h1>
+        <p>Restaurant Style Recipe</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Lasagna Sheets — NEW -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/agnesi-le-lasagne-sheet-pasta/prid/474089?srsltid=AfmBOoq49xleaw34FHnAB6uOErRM__CvRoslL17rCyZlD3usvD07kSkq" target="_blank">Lasagna Sheets</a>
+            </button>
+
+            <!-- Beef / Chicken mince — reused from Burrito -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/fresh-meat/cid/4/1201?srsltid=AfmBOoqncPhOrvJhVegNdZ9IaWbetB3gqb7pkIB6ZMBXmh2djMPYKGRD" target="_blank">Beef / Chicken Mince</a>
+            </button>
+
+            <!-- Mozzarella — reused from Chicken Pizza -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/go-mozzarella-cheese-block/prid/26248" target="_blank">Mozzarella Cheese</a>
+            </button>
+
+            <!-- Parmesan — reused from Carbonara / Alfredo -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/kraft-parmesan-grated-cheese/prid/163979?srsltid=AfmBOoof9ytyMeq7Ax3f54SU9c5WaA-6Sb9uY5OPTPnFUpeaZy5cph7W" target="_blank">Parmesan Cheese</a>
+            </button>
+
+            <!-- Tomato Puree — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-tomato-puree/prid/233518" target="_blank">Tomato Puree</a>
+            </button>
+
+            <!-- Onion — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/onion/prid/391306" target="_blank">Onion</a>
+            </button>
+
+            <!-- Garlic — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hommade-garlic-paste/prid/35025" target="_blank">Garlic</a>
+            </button>
+
+            <!-- Butter — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/butter-more/cid/14/952?srsltid=AfmBOoomrtiEWzQVtUdE2gTsR6WmK5YFmk8KysEPQP5Mz_diFl5kgZ2f" target="_blank">Butter</a>
+            </button>
+
+            <!-- Fresh Cream — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/amul-fresh-cream/prid/162?srsltid=AfmBOop3Xbuj4sjX0qXxoUKiGicepRYV7JiBCLXZ5ThOP1QSgEoUXJLd" target="_blank">Fresh Cream</a>
+            </button>
+
+            <!-- Oregano / Basil — reused from Chicken Pizza -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/on1y-oregano/prid/475778" target="_blank">Oregano / Dried Basil</a>
+            </button>
+
+            <!-- Black Pepper — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-black-peppercornskali-mirch/prid/187862" target="_blank">Black Pepper</a>
+            </button>
+
+            <!-- Olive Oil — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/figaro-extra-virgin-olive-oil/prid/9349" target="_blank">Olive Oil</a>
+            </button>
+
+            <!-- Salt — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt</a>
+            </button>
+
+            <!-- Fresh Parsley — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/parsley/prid/443554" target="_blank">Fresh Parsley (garnish)</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Make the Meat Sauce (Bolognese)</div>
+        <div class="step-detail">Heat olive oil in a wide pan over medium-high heat. Add finely chopped onion and cook for 5 minutes until soft and golden. Add minced garlic and cook for 1 minute. Add the mince and cook for 8–10 minutes, breaking it apart constantly, until fully browned with no pink remaining. Pour in tomato puree and stir well. Add oregano, dried basil, salt and black pepper. Reduce heat and simmer for 20–25 minutes until the sauce is thick, rich and deep red. The longer it simmers the better it tastes.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Make the Béchamel (White Sauce)</div>
+        <div class="step-detail">Melt butter in a saucepan over medium heat. Add 2 tablespoons of flour and stir constantly for 1–2 minutes to cook out the raw flour taste — this is the roux. Gradually pour in the fresh cream, whisking constantly to prevent lumps. Keep whisking on medium heat for 4–5 minutes until the sauce thickens to a smooth, pourable consistency. Season with salt, black pepper and a pinch of nutmeg if available. The béchamel should coat a spoon thickly.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Cook the Lasagna Sheets</div>
+        <div class="step-detail">Bring a large pot of salted water to boil. Cook the lasagna sheets for 2–3 minutes less than packet instructions — they will continue cooking in the oven. Drain and lay flat on an oiled tray, not overlapping, to prevent sticking. If using oven-ready sheets, skip this step entirely — they go in dry and cook in the oven moisture.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Layer the Lasagna</div>
+        <div class="step-detail">Preheat oven to 190°C. In a deep baking dish, spread a thin layer of meat sauce on the base. Lay lasagna sheets over it in a single layer. Spread a layer of meat sauce, then a layer of béchamel, then a sprinkle of mozzarella. Repeat the layers — sheets, meat, béchamel, cheese — until all ingredients are used, finishing with a generous top layer of béchamel. Cover the entire top with grated mozzarella and Parmesan.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Bake & Serve</div>
+        <div class="step-detail">Cover the baking dish tightly with foil and bake at 190°C for 30 minutes. Remove the foil and bake uncovered for a further 15–20 minutes until the top is golden, bubbling and slightly caramelised at the edges. Remove from oven and rest for 10–15 minutes before cutting — this is essential, resting allows the layers to set so it holds its shape when sliced. Garnish with fresh parsley and serve with extra Parmesan.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/shorts/BIR7OD3TsRQ" target="_blank" class="yt-btn">
+        ▶ Watch Lasagna Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "italian.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Lasagna is the ultimate Italian baked pasta — layers of tender pasta sheets, rich slow-cooked meat sauce, silky béchamel and bubbling melted mozzarella, all baked together into one glorious golden dish. Deeply satisfying, incredibly comforting and even better the next day, it is the king of Italian comfort food that feeds a crowd and wins every time.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

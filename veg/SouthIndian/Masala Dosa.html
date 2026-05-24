@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Masala Dosa - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; }
+.footer { text-align: center; padding: 20px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🫓 Masala Dosa</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=1200&q=80">
+    <div class="hero-text">
+        <h1>Masala Dosa</h1>
+        <p>Restaurant Style Recipe</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Dosa Rice — NEW -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/gmc-dosa-rice/prid/389875?srsltid=AfmBOooTyEPYy12I0WTDolgv0K2x8W7wnbn5920jr8doZ7HPmvci5Z_T" target="_blank">Dosa Rice / Idli Rice</a>
+            </button>
+
+            <!-- Urad Dal — NEW -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/basic-urad-dal-dhuli/prid/375922?srsltid=AfmBOook-_RaCvABsep6Bjz-4mdzW8TGoJXuzxo7TuRw0yOaByK1Xwii" target="_blank">Urad Dal (split black gram)</a>
+            </button>
+
+            <!-- Potato — NEW -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/potato-(1-kg)/prid/530157?srsltid=AfmBOopjEW3BaCOZRNdnAzonxDgG3tU2lfcOHKAUZdgz0utRgxBKF4Sv" target="_blank">Potato</a>
+            </button>
+
+            <!-- Onion — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/onion/prid/391306" target="_blank">Onion</a>
+            </button>
+
+            <!-- Green Chilli — reused from Tom Yum / Stir Fry -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-chilli-hari-mirch/prid/423735" target="_blank">Green Chilli</a>
+            </button>
+
+            <!-- Curry Leaves — reused from Tom Yum -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/curry-leaves/prid/17643" target="_blank">Curry Leaves</a>
+            </button>
+
+            <!-- Cumin / Mustard Seeds — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/everest-jeera-powder-cumin-powder/prid/63" target="_blank">Mustard Seeds / Cumin</a>
+            </button>
+
+            <!-- Turmeric — NEW -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-turmeric-powder-haldi/prid/18855?srsltid=AfmBOopVww0MnnG8jvbHXDPtizBVnGRN6yqNBmEJBqDnlizakWN9QXJQ" target="_blank">Turmeric Powder (Haldi)</a>
+            </button>
+
+            <!-- Salt — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt</a>
+            </button>
+
+            <!-- Oil — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/figaro-extra-virgin-olive-oil/prid/9349" target="_blank">Oil / Ghee</a>
+            </button>
+
+            <!-- Fresh Coriander — reused -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/coriander-bunch/prid/3889" target="_blank">Fresh Coriander</a>
+            </button>
+
+            <!-- Coconut Chutney — NEW -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/id-fresh-coconut-chutney/prid/304614?srsltid=AfmBOopVww0MnnG8jvbHXDPtizBVnGRN6yqNBmEJBqDnlizakWN9QXJQ" target="_blank">Coconut Chutney (to serve)</a>
+            </button>
+
+            <!-- Sambar — NEW -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/mtr-sambhar-instant-mix/prid/10775?srsltid=AfmBOoo2w0TKx-OTKN8sqIWGqRILTHE3vEhvRaGSBbOSybIILC45-T1d" target="_blank">Sambar (to serve)</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Soak & Grind the Batter</div>
+        <div class="step-detail">Wash and soak dosa rice and urad dal separately in plenty of water for 6–8 hours or overnight. Drain and grind each separately in a wet grinder or mixer to a smooth, slightly coarse batter. Combine both, add salt and mix well. The batter should be pourable like thick pancake batter. Cover and ferment at room temperature for 8–12 hours until the batter rises and turns slightly sour and bubbly. Fermentation is the soul of a great dosa — do not skip it.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Make the Potato Masala</div>
+        <div class="step-detail">Boil potatoes until fully tender, then peel and roughly mash — leave some chunky pieces for texture. Heat oil in a pan. Add mustard seeds and let them splutter. Add curry leaves, sliced onion and slit green chillies and cook for 4–5 minutes until the onion softens. Add turmeric powder and stir for 30 seconds. Add the mashed potato and mix well. Season with salt and fold in fresh coriander. The masala should be dry, well-spiced and golden yellow. Set aside.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Heat & Season the Tawa</div>
+        <div class="step-detail">Heat a flat iron tawa or non-stick pan over medium-high heat. The tawa must be very hot before pouring batter. Sprinkle a few drops of water on the surface — if they sizzle and evaporate instantly, the tawa is ready. Wipe the surface with a cut onion dipped in oil — this seasons the tawa and prevents sticking. This step is key for a crispy dosa.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Pour & Spread the Dosa</div>
+        <div class="step-detail">Pour one ladle of fermented batter in the centre of the hot tawa. Immediately using the back of the ladle, spread the batter in fast circular outward motions into a thin, even round. The thinner you spread it the crispier it gets. Drizzle a little oil or ghee around the edges and on top. Cook on medium-high heat for 2–3 minutes until the edges turn golden and the surface looks set and dry.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Fill, Fold & Serve</div>
+        <div class="step-detail">Place a generous spoonful of potato masala in the centre of the dosa while it is still on the tawa. Fold the dosa over the filling from both sides to form a cone or roll shape. Slide off the tawa immediately onto a plate. Serve piping hot with coconut chutney and sambar on the side. Masala dosa must always be eaten fresh — it loses its crispiness within minutes.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=kj0axMWcRss" target="_blank" class="yt-btn">
+        ▶ Watch Masala Dosa Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "SouthIndian.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Masala Dosa is South India's most iconic breakfast — a paper-thin, golden crispy crepe made from fermented rice and lentil batter, filled with a warmly spiced potato masala and served with cooling coconut chutney and robust sambar. A timeless classic loved across India and the world, it is the perfect harmony of crunch, spice and comfort.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

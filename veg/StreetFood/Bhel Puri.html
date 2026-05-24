@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bhel Puri - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; color: white; }
+.card h3 { margin-bottom: 12px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; color: white; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; color: white; }
+.footer { text-align: center; padding: 20px; color: white; }
+.footer h3 { margin-bottom: 10px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+.hero-text h1 { font-size: 2rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+.hero-text p { font-size: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+.header h2 { color: white; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🍿 Bhel Puri</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://www.indianveggiedelight.com/wp-content/uploads/2017/03/bhel-puri-featured.jpg" onerror="this.src='https://images.unsplash.com/photo-1601050690597-df0568f70950?w=1200&q=80'" alt="Bhel Puri">
+    <div class="hero-text">
+        <h1>Bhel Puri</h1>
+        <p>Mumbai's Crunchy Tangy Street Snack</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Puffed Rice -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/gmc-puffed-rice/prid/389778?srsltid=AfmBOoqGOMjxNWjoQAnS6MplX6DhMTqezbv2g8G0vuHPbk3-uKAshQg7" target="_blank">Puffed Rice (Murmura / Kurmura)</a>
+            </button>
+
+            <!-- Sev -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/let's-try-sev-bhujia/prid/495328?srsltid=AfmBOordE3B0r8eR_PuaEWfBXxq4m8YHuP4Heo_wEuiq7VlPQu-4kpe5" target="_blank">Thin Sev (Nylon Sev)</a>
+            </button>
+
+           
+
+            <!-- Boiled Potatoes -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/potato-(1-kg)/prid/530157" target="_blank">Boiled Potatoes (cubed)</a>
+            </button>
+
+            <!-- Onion -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/onion/prid/391306" target="_blank">Onion (finely chopped)</a>
+            </button>
+
+            <!-- Tomato -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tomato/prid/421699" target="_blank">Tomato (finely chopped)</a>
+            </button>
+
+            <!-- Tamarind Chutney -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/mothers-recipe-tamarind-date-chutney/prid/425041?srsltid=AfmBOorceR2FS3kMeOSzTn6kOv9ZkTytnUjpocIfoR36uqCiWYi07zAA" target="_blank">Tamarind Chutney (Imli Chutney)</a>
+            </button>
+
+            <!-- Green Chutney -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-chutney/prid/589239?srsltid=AfmBOoqdazgAZm8BZsxaEWKk_WDkV9SKdo5LO8P2bPmm-PlQYeieMcd0" target="_blank">Green Mint-Coriander Chutney</a>
+            </button>
+
+            <!-- Green Chilli -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-chilli-hari-mirch/prid/423735" target="_blank">Green Chilli (finely chopped)</a>
+            </button>
+
+            <!-- Fresh Coriander -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/coriander-bunch/prid/3889" target="_blank">Fresh Coriander (chopped)</a>
+            </button>
+
+            <!-- Chaat Masala -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-chatpata-chat-masala/prid/17569" target="_blank">Chaat Masala</a>
+            </button>
+
+            <!-- Roasted Cumin Powder -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/everest-jeera-powder-cumin-powder/prid/63" target="_blank">Roasted Cumin Powder (Jeera)</a>
+            </button>
+
+            <!-- Red Chilli Powder -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-red-chilli-powder/prid/69?srsltid=AfmBOooKhG6_eOWaOlscHI0z86uoOxExpEcIkM17iuIsd2gFZ5gn0JIY" target="_blank">Red Chilli Powder</a>
+            </button>
+
+            <!-- Black Salt -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-black-salt-kala-namak/prid/34085" target="_blank">Black Salt (Kala Namak)</a>
+            </button>
+
+            <!-- Lemon -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/lemon/prid/229627?srsltid=AfmBOorzPh0lBbwJxmWvmcMfOX4OMP9G-7uJQA_9WdlZokFblIo90Esw" target="_blank">Lemon (for squeezing)</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Prep All the Components</div>
+        <div class="step-detail">Bhel Puri is an assembly dish — speed is everything, so prep everything before you mix. Boil potatoes until tender, cool completely and cut into small cubes. Finely chop onion, tomato, green chilli and fresh coriander. Keep them in separate bowls. Roughly break a few papdi into smaller pieces. Have your tamarind chutney, green chutney, sev, puffed rice and all spices laid out and ready. Once you start mixing, bhel must be assembled and eaten within 2–3 minutes or the puffed rice goes soggy — there is no saving it after that.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Season the Potatoes & Vegetables</div>
+        <div class="step-detail">In a large mixing bowl, add the cubed boiled potatoes. Sprinkle a pinch of chaat masala, black salt and roasted cumin powder directly onto the potatoes and toss. Add the finely chopped onion, tomato and green chilli. Mix together so the flavours begin to combine. This pre-seasoning of the base ingredients ensures every component is flavoured, not just the top layer. The potatoes absorb spices beautifully and form the hearty, satisfying core of the bhel.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Add Chutneys & Spices</div>
+        <div class="step-detail">Add tamarind chutney generously — this is the backbone of bhel's tangy-sweet flavour; do not be shy. Add green mint-coriander chutney for freshness and heat. Sprinkle chaat masala, red chilli powder, black salt and roasted cumin powder over the mixture. Squeeze a generous amount of fresh lemon juice over everything. Toss and mix well. Taste at this stage — the mixture should be bold, tangy, spicy and well-seasoned before the puffed rice goes in. Adjust any chutney or spice now, because once the murmura is added there is no going back.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Add Puffed Rice, Sev & Papdi</div>
+        <div class="step-detail">Add a large handful of puffed rice (murmura) to the bowl and toss quickly to coat with all the chutneys and spices. The murmura should be evenly coated but not drenched — it must stay airy and light. Crush a few papdi and add them in for extra crunch. Add a generous handful of thin nylon sev on top. Fold everything together with a light hand — do not crush the sev or papdi. Work fast — from this point, every second counts. The bhel is alive and crunchy right now; it will not stay that way.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Garnish & Serve Instantly</div>
+        <div class="step-detail">Transfer immediately onto a plate or into a paper cone the traditional street-side way. Top with extra sev, a drizzle of both chutneys, fresh chopped coriander and a final squeeze of lemon. Serve and eat within 2 minutes — bhel puri waits for no one. The contrast of the airy puffed rice, crunchy papdi, soft potato, sharp chutney and tangy lemon is what makes it one of India's greatest snacks. Stale bhel is a tragedy. Fresh bhel is pure joy.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=FqUaHUnEFAY" target="_blank" class="yt-btn">
+        ▶ Watch Bhel Puri Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "StreetFood.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Bhel Puri is Mumbai's greatest street snack — a riotous mix of puffed rice, crispy papdi, thin sev, boiled potatoes, crunchy onions and tomatoes, all tossed together with tangy tamarind chutney, fiery green chutney, chaat masala and a squeeze of lemon. Born on the beaches of Juhu, it is a dish of textures and contrasts — soft and crunchy, sweet and sour, spicy and cool — that must be eaten the moment it is mixed, before the murmura loses its magic crunch.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

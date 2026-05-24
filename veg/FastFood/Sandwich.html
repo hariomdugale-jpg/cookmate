@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sandwich - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; color: white; }
+.card h3 { margin-bottom: 12px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; color: white; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; color: white; }
+.footer { text-align: center; padding: 20px; color: white; }
+.footer h3 { margin-bottom: 10px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+.hero-text h1 { font-size: 2rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+.hero-text p { font-size: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+.header h2 { color: white; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🥪 Sandwich</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1553909489-cd47e0907980?w=1200&q=80" onerror="this.src='https://images.unsplash.com/photo-1475090169767-40ed8d18f67d?w=1200&q=80'" alt="Sandwich">
+    <div class="hero-text">
+        <h1>Classic Grilled Sandwich</h1>
+        <p>Crispy, Loaded & Ready in Minutes</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Bread -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/harvest-gold-bread/prid/65678?srsltid=AfmBOoqZwn8du7CNsGVVi5VMFJ3rQyz8X49J9o8TdORYYq7A-rQGLwPP" target="_blank">Bread Slices (white or whole wheat)</a>
+            </button>
+
+            <!-- Butter -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/amul-butter/prid/46" target="_blank">Butter (softened, for spreading & toasting)</a>
+            </button>
+
+            <!-- Cheese Slices -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/amul-cheese-slices/prid/3226?srsltid=AfmBOorXj5McN8Kae0p8Aqd7rCDO476ETs7LjInafdstI4CDHcdCfk0Z" target="_blank">Cheese Slices / Processed Cheese</a>
+            </button>
+
+            <!-- Potato / Aloo filling -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/potato-(1-kg)/prid/530157" target="_blank">Boiled Potato (for filling, optional)</a>
+            </button>
+
+            <!-- Tomato -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tomato/prid/421699" target="_blank">Tomato (thinly sliced)</a>
+            </button>
+
+            <!-- Cucumber -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/cucumber/prid/391318?srsltid=AfmBOopFrFdH30NHOA1L4t3AEqbrqMjBBLIf6h9eSgWHqK2LYJ6jCuA1" target="_blank">Cucumber (thinly sliced)</a>
+            </button>
+
+            <!-- Onion -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/onion/prid/391306" target="_blank">Onion (thinly sliced rings)</a>
+            </button>
+
+            <!-- Capsicum -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-capsicum/prid/3888" target="_blank">Capsicum (thinly sliced)</a>
+            </button>
+
+            <!-- Lettuce -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-lettuce/prid/440231" target="_blank">Lettuce Leaves</a>
+            </button>
+
+            <!-- Green Chutney -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-chutney/prid/589239" target="_blank">Green Mint-Coriander Chutney</a>
+            </button>
+
+            <!-- Mayonnaise -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/hellmann-s-real-mayonnaise/prid/11230" target="_blank">Mayonnaise</a>
+            </button>
+
+            <!-- Ketchup -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/heinz-tomato-ketchup/prid/3401" target="_blank">Tomato Ketchup</a>
+            </button>
+
+            <!-- Chaat Masala -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-chatpata-chat-masala/prid/17569" target="_blank">Chaat Masala (the secret ingredient)</a>
+            </button>
+
+            <!-- Black Pepper -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-black-pepper-powder/prid/67351" target="_blank">Black Pepper (freshly cracked)</a>
+            </button>
+
+            <!-- Salt -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Prep the Fillings</div>
+        <div class="step-detail">Slice all your vegetables — tomato, cucumber, onion and capsicum — into thin, even rounds or strips. Thin slices are key; thick chunks make the sandwich messy and hard to bite through. If using boiled potato for the classic Mumbai-style filling, mash it with a pinch of chaat masala, salt, black pepper and a little green chutney — this spiced potato layer is what separates a street-style sandwich from a plain one. Wash and dry the lettuce leaves. Have all fillings prepped and ready before you butter the bread — assembly is fast and you want everything within reach.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Spread the Sauces</div>
+        <div class="step-detail">Take two slices of bread. Spread a generous layer of softened butter on one side of each slice — butter every slice right to the edges so every bite is rich and the bread toasts evenly. On one buttered side, spread a thick layer of green mint-coriander chutney — this is the defining flavour of the Indian grilled sandwich and cannot be skipped. On the other slice, spread mayonnaise or a mix of mayo and ketchup for creaminess. The combination of sharp green chutney on one side and creamy mayo on the other creates the perfect flavour balance in every bite.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Layer the Fillings</div>
+        <div class="step-detail">On the green chutney side, begin layering — start with the spiced mashed potato if using, spread evenly. Then add slices of tomato, cucumber, capsicum and onion rings. Season the vegetable layers with a pinch of chaat masala, salt and cracked black pepper directly on the vegetables — this seasoning of each layer is what makes a great sandwich taste seasoned all the way through. Place a leaf or two of lettuce on top of the vegetables for freshness and crunch. Finally, lay one or two slices of cheese over everything — the cheese will melt into the warm layers when toasted. Place the mayo-side slice of bread firmly on top.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Grill or Tawa-Toast to Golden Perfection</div>
+        <div class="step-detail">For a sandwich toaster or grill: brush the outside of both bread slices lightly with butter, place the assembled sandwich inside and press closed. Grill for 3–4 minutes until deeply golden and the cheese is fully melted. For a tawa: heat a flat pan on medium heat. Place the sandwich butter-side down and press gently with a spatula. Cook for 2–3 minutes until the bottom is golden and crispy. Spread a little butter on the top face, then flip and cook the other side for another 2 minutes until equally golden. Press down throughout — good contact with the hot surface gives you that satisfying crunch. The sandwich is done when both sides are evenly golden and the cheese has melted inside.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Cut & Serve Immediately</div>
+        <div class="step-detail">Remove the sandwich from the grill or tawa and let it sit for 30 seconds — cutting too soon causes the fillings to slide out. Using a sharp knife, cut diagonally into two triangles. The diagonal cut is not just aesthetic — it exposes the beautiful layers inside and makes the sandwich easier to hold and eat. Serve immediately on a plate with a side of ketchup for dipping and extra green chutney. Sprinkle a pinch of chaat masala on the cut sides for a final burst of tang. A perfect grilled sandwich is crispy on the outside, soft and warm inside, cheesy, tangy and completely satisfying — eat it while the cheese is still melted.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=RZsGFDFrjAo" target="_blank" class="yt-btn">
+        ▶ Watch Sandwich Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "FastFood.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "A grilled sandwich is one of life's simplest and most satisfying pleasures — two slices of buttered bread packed with fresh vegetables, melted cheese and bold sauces, pressed and toasted until shatteringly golden on the outside and warm and gooey within. The Indian grilled sandwich takes it further with green mint chutney, chaat masala and spiced potato — a street-food classic that is quick enough for breakfast and indulgent enough for any meal.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>

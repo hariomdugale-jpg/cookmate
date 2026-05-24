@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Uttapam - CookMate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+video { position: fixed; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+.header { display: flex; justify-content: space-between; padding: 20px; color: white; }
+.nav-buttons button { background: orange; border: none; padding: 10px 15px; margin-left: 10px; border-radius: 6px; cursor: pointer; }
+.nav-buttons button:hover { transform: scale(1.05); }
+.hero { width: 100%; overflow: hidden; position: relative; }
+.hero img { width: 100%; height: 300px; object-fit: cover; }
+.hero-text { position: absolute; bottom: 20px; left: 20px; color: white; }
+.container { max-width: 1000px; margin: auto; padding: 20px; }
+.card { background: rgba(255,255,255,0.321); padding: 20px; border-radius: 12px; margin-bottom: 20px; color: white; }
+.card h3 { margin-bottom: 12px; }
+#typeText { border-right: 2px solid white; white-space: normal; word-wrap: break-word; line-height: 1.6; }
+.dropdown-btn { width: 100%; padding: 10px; background: rgba(255,255,255,0.385); border: none; color: white; border-radius: 6px; cursor: pointer; }
+.dropdown-content { display: none; margin-top: 10px; }
+.ing-btn { margin: 5px; padding: 8px 12px; border: none; border-radius: 20px; background: orange; color: white; cursor: pointer; transition: 0.3s; }
+.ing-btn:hover { background: #ff6600; transform: scale(1.05); }
+.ing-btn a { color: white; text-decoration: none; }
+.step { padding: 10px; background: rgba(255,255,255,0.1); margin-bottom: 8px; border-radius: 6px; cursor: pointer; color: white; }
+.step:hover { background: rgba(255,255,255,0.458); }
+.step-detail { display: none; padding: 10px; margin-bottom: 10px; background: rgba(221,218,218,0.39); border-radius: 6px; color: white; }
+.footer { text-align: center; padding: 20px; color: white; }
+.footer h3 { margin-bottom: 10px; }
+.shop-links a { display: inline-block; margin: 5px; padding: 10px 15px; border-radius: 20px; color: white; text-decoration: none; }
+.yt-btn { display: inline-block; margin-top: 10px; padding: 10px 15px; background: red; color: white; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.yt-btn:hover { background: darkred; transform: scale(1.05); }
+.amazon { background: #ff9900; } .flipkart { background: #2874f0; } .bigbasket { background: #84c225; }
+.blinkit { background: #f7d000; color: black; } .zepto { background: #6f00ff; } .instamart { background: #fc8019; }
+.hero-text h1 { font-size: 2rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+.hero-text p { font-size: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+.header h2 { color: white; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="/home/pratham/cookmate_wdl/cookmate_images/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="header">
+    <h2>🥞 Uttapam</h2>
+    <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goHome()">⌘ Home</button>
+    </div>
+</div>
+
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=400&q=80" alt="Uttapam">
+    <div class="hero-text">
+        <h1>Uttapam</h1>
+        <p>Thick South Indian Savoury Pancake</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>About Dish</h3>
+        <p id="typeText"></p>
+    </div>
+
+    <div class="card">
+        <h3>Ingredients</h3>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Show Ingredients ⬇</button>
+        <div class="dropdown-content" id="dropdown">
+
+            <!-- Idli / Dosa Rice -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/rice/cid/16/1161?srsltid=AfmBOoqUy8gzxtRPIbAZ0kYGxnF_iw71_5HF2rRVfT3AvHNk6KL9tAgt" target="_blank">Idli / Dosa Rice</a>
+            </button>
+
+            <!-- Urad Dal -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/moong-dal-dhuli/prid/438126?srsltid=AfmBOop05iujUZiXedTxplsU7fR06Ks1LcPvp-J1aDx1kM8rjE2hn_Yc" target="_blank">Urad Dal (split black gram)</a>
+            </button>
+
+            <!-- Onion -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/onion/prid/391306" target="_blank">Onion (finely chopped)</a>
+            </button>
+
+            <!-- Tomato -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tomato/prid/421699?srsltid=AfmBOopgQMbpfoBdCrPWk-SXzcezQKElKInITaGvn3kAIOXTmpL845ZC" target="_blank">Tomato (finely chopped)</a>
+            </button>
+
+            <!-- Green Chilli -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-chilli-hari-mirch/prid/423735" target="_blank">Green Chilli (finely chopped)</a>
+            </button>
+
+            <!-- Capsicum -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/green-capsicum/prid/3888?srsltid=AfmBOoppH7dcA57U-S_SyWsHa0B-O2pq7k5CfVYk7SsZ8LT39kjykvZP" target="_blank">Capsicum (optional, finely chopped)</a>
+            </button>
+
+            <!-- Ginger -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/ginger/prid/421703?srsltid=AfmBOoqtn8ALM71bn1eBbfFhLOBlauZAuOgUfrpFS5mQqg-E74vNv6vC" target="_blank">Fresh Ginger (grated)</a>
+            </button>
+
+            <!-- Curry Leaves -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/curry-leaves/prid/17643" target="_blank">Curry Leaves (chopped)</a>
+            </button>
+
+            <!-- Fresh Coriander -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/coriander-bunch/prid/3889" target="_blank">Fresh Coriander (chopped)</a>
+            </button>
+
+            <!-- Black Pepper -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/catch-black-pepper-powder/prid/67351?srsltid=AfmBOooKhG6_eOWaOlscHI0z86uoOxExpEcIkM17iuIsd2gFZ5gn0JIY" target="_blank">Black Pepper (crushed)</a>
+            </button>
+
+            <!-- Salt -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised/prid/105" target="_blank">Salt</a>
+            </button>
+
+            <!-- Oil -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/cn/ghee-vanaspati/cid/1557/1158?srsltid=AfmBOorXj5McN8Kae0p8Aqd7rCDO476ETs7LjInafdstI4CDHcdCfk0Z" target="_blank">Oil / Ghee</a>
+            </button>
+
+            <!-- Coconut Chutney -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/id-fresh-coconut-chutney/prid/304614" target="_blank">Coconut Chutney (to serve)</a>
+            </button>
+
+            <!-- Sambar -->
+            <button class="ing-btn">
+                <a href="https://blinkit.com/prn/mtr-sambhar-instant-mix/prid/10775" target="_blank">Sambar (to serve)</a>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Steps (Click for details)</h3>
+
+        <div class="step" onclick="toggleDetail(0)">1. Prepare & Ferment the Batter</div>
+        <div class="step-detail">Wash and soak idli/dosa rice and urad dal separately for 6–8 hours or overnight. Drain and grind each to a smooth batter — the urad dal should be light and fluffy, the rice slightly coarse. Combine both, add salt and mix well. The batter should be thicker than a dosa batter — it needs to hold toppings without spreading too thin. Ferment at room temperature for 8–12 hours until bubbly and slightly sour. A well-fermented batter is the foundation of a great uttapam.</div>
+
+        <div class="step" onclick="toggleDetail(1)">2. Prepare the Toppings</div>
+        <div class="step-detail">Finely chop the onion, tomato, green chilli, capsicum (if using), curry leaves and fresh coriander. Grate the ginger. Mix all the toppings together in a bowl with a pinch of crushed black pepper. Keep them ready before you start cooking — uttapam moves quickly on the tawa and you need to scatter toppings the moment batter is poured. The toppings should be finely cut so they press into the batter easily and cook through.</div>
+
+        <div class="step" onclick="toggleDetail(2)">3. Heat & Season the Tawa</div>
+        <div class="step-detail">Heat a flat iron tawa or non-stick pan over medium heat. Unlike dosa, uttapam is cooked on medium — not high — heat, to allow the thick batter to cook through without burning. Sprinkle a few drops of water; if they dance and evaporate, the tawa is ready. Wipe the surface lightly with a cut onion dipped in oil to season it. A well-seasoned tawa prevents sticking and gives a beautiful base to the uttapam.</div>
+
+        <div class="step" onclick="toggleDetail(3)">4. Pour, Top & Cook</div>
+        <div class="step-detail">Pour one large ladle of batter onto the tawa and spread gently into a thick round — about 6–7 inches wide and 1 cm thick. Do not spread too thin; the thickness is what defines uttapam. Immediately scatter a generous handful of the prepared toppings all over the surface. Press lightly with the back of the ladle so the toppings embed into the batter. Drizzle oil around the edges and a little on top. Cook on medium heat for 3–4 minutes until the base is golden and the edges look set.</div>
+
+        <div class="step" onclick="toggleDetail(4)">5. Flip, Finish & Serve</div>
+        <div class="step-detail">Once the base is crispy and golden, carefully flip the uttapam using a flat spatula. The topping side will now be face-down on the tawa — cook for another 2 minutes until the vegetables are slightly charred and fragrant. The onion and tomato caramelise beautifully on contact with the hot tawa. Slide onto a plate, topping-side up. Serve immediately with coconut chutney and sambar. Uttapam is best eaten hot and fresh — do not let it sit.</div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <h3>Order Ingredients</h3>
+    <div class="shop-links">
+        <a href="https://www.amazon.in" class="amazon">Amazon</a>
+        <a href="https://www.flipkart.com" class="flipkart">Flipkart</a>
+        <a href="https://www.bigbasket.com" class="bigbasket">BigBasket</a>
+        <a href="https://blinkit.com" class="blinkit">Blinkit</a>
+        <a href="https://www.zeptonow.com" class="zepto">Zepto</a>
+        <a href="https://www.swiggy.com/instamart" class="instamart">Instamart</a>
+    </div>
+</div>
+
+<div class="card" style="max-width:1000px; margin: 0 auto 20px;">
+    <h3>Watch Recipe 🎥</h3>
+    <a href="https://www.youtube.com/watch?v=pjMOFEAkqMQ" target="_blank" class="yt-btn">
+        ▶ Watch Uttapam Recipe on YouTube
+    </a>
+</div>
+
+<script>
+function goBack() { window.location.href = "SouthIndian.html"; }
+function goHome() { window.location.href = "cookmate_f.html"; }
+
+function toggleDropdown() {
+    let d = document.getElementById("dropdown");
+    d.style.display = d.style.display === "block" ? "none" : "block";
+}
+
+function toggleDetail(index) {
+    let details = document.getElementsByClassName("step-detail");
+    details[index].style.display = details[index].style.display === "block" ? "none" : "block";
+}
+
+const text = "Uttapam is South India's beloved thick savoury pancake — a soft, spongy crepe made from fermented rice and lentil batter, generously topped with a colourful medley of onions, tomatoes, green chillies, ginger and fresh coriander. Heartier than a dosa and more forgiving to make, uttapam is the perfect canvas for bold toppings. Crispy at the base, soft in the centre — it is comfort food at its finest.";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+    }
+}
+typeWriter();
+</script>
+
+</body>
+</html>
